@@ -59,6 +59,7 @@ python3 invoice_2026_check.py --verify-t-number T1234567890123
 - **🔥 【NEW・¥980・pip不要・動くPython本体付】2026年10月インボイス80%→70%対応：Mac純正Apple Vision 領収書・PDF一括OCR→会計CSV＆電帳法リネーム完結ツール**: https://note.com/laughmakerclown/n/nfb413d498428
 - **🚀 【看板・¥1,480・実測コード3本付】24GB Mac・API課金¥0で「14B大型AI 75秒LoRA学習・日本語検索0.28秒・ウソ99.9%検閲」を構築する完全ローカルAIスターターキット**: https://note.com/laughmakerclown/n/n21a7bbf8b309
 - **🛡️ 【NEW・¥1,480・pip不要コード3本付】DB破壊・パストラバーサル・個人情報漏えい・stdout切断を物理遮断するゼロ依存Python MCPサーバー構築キット**: https://note.com/laughmakerclown/n/n0416d5fead87
+- **🎙️ 【NEW・¥980・月額0円・動くPython本体付】Mac完全オフライン日本語会議文字起こし＆議事録タスク自動抽出ツール（MLX Whisper）**: https://note.com/laughmakerclown/n/nb7950a43be10
 - **【¥300・動くHTML＆Python本体付】ChatGPT入力前の個人情報を1秒オフライン黒塗り＆自動復元ツール一式**: https://note.com/laughmakerclown/n/n0db6bc33ab1b
 - **【¥300・動くHTML＆Python本体付】5大EC手残り＆上限仕入・GMROI逆算＆CSV保存ツール一式**: https://note.com/laughmakerclown/n/n3cd1dbf7c06d
 - **【¥500】毎朝7時に売上・死活監視・優先タスクが届く Python朝刊ブリーフィング自動化スクリプト**: https://note.com/laughmakerclown/n/n43046d84c126
