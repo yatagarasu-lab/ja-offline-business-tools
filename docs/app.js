@@ -51,44 +51,89 @@
     });
   }
 
-  // --- 2. Offline PII Redactor & Restorer ---
+  // --- 2. Offline PII Redactor & Restorer (Separated Masked Copy Box vs Read-Only Restore Preview) ---
   const PII_RULES = [
     ["EMAIL", /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g],
     ["PHONE", /(?:\+81-?|0)\d{1,4}-\d{1,4}-\d{3,4}/g],
     ["POSTAL", /〒?\d{3}-\d{4}/g],
     ["API_KEY", /\b(?:sk|rk|pk|ghp|gho|AIza)[A-Za-z0-9_-]{12,}\b/g],
     ["LONG_ID", /\b\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b|\b\d{12,16}\b/g],
+    ["IP_ADDR", /\b(?:\d{1,3}\.){3}\d{1,3}\b/g],
+    // Labeled personal names (e.g. 担当: 山田太郎 / 氏名：佐藤花子) — preserves label, redacts name only
+    ["PERSON", /((?:担当(?:者)?|氏名|お名前|顧客名|宛先|ご担当)\s*[:：]\s*)([\u4e00-\u9fff\u3040-\u30ffA-Za-z]{2,12}(?:[ \u3000][\u4e00-\u9fff\u3040-\u30ffA-Za-z]{1,10})?)/g],
+    // Honorific personal names (e.g. 山田様 / 山田太郎様 / 佐藤さん / 田中殿)
+    ["PERSON", /([\u4e00-\u9fff\u30a0-\u30ff]{1,5}(?:[ \u3000][\u4e00-\u9fff\u30a0-\u30ff]{1,5})?)(様|さん|殿|氏)/g],
   ];
   let reverseMap = new Map();
   let lang = "ja";
 
+  function escapeRegex(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
   function runPiiMask() {
     const srcEl = document.getElementById("pii-in");
+    const customEl = document.getElementById("pii-custom");
     const outEl = document.getElementById("pii-out");
+    const restoreWrap = document.getElementById("pii-restore-wrap");
+    const restoredEl = document.getElementById("pii-restored-out");
     const statEl = document.getElementById("pii-stat");
     let text = srcEl.value || "";
     reverseMap = new Map();
     const forward = new Map();
+    const seqByLabel = new Map();
     let count = 0;
 
+    function registerToken(label, secret) {
+      if (!forward.has(secret)) {
+        const nextSeq = (seqByLabel.get(label) || 0) + 1;
+        seqByLabel.set(label, nextSeq);
+        const tok = `[${label}_${nextSeq}]`;
+        forward.set(secret, tok);
+        reverseMap.set(tok, secret);
+      }
+      count += 1;
+      return forward.get(secret);
+    }
+
+    // 1. User-specified custom sensitive terms (names, company names, project names) first
+    const customTerms = String((customEl && customEl.value) || "")
+      .split(/[,、\n]+/)
+      .map((s) => s.trim())
+      .filter((s) => s.length >= 2)
+      .sort((a, b) => b.length - a.length);
+    for (const term of customTerms) {
+      const re = new RegExp(escapeRegex(term), "g");
+      text = text.replace(re, (m) => registerToken("CUSTOM", m));
+    }
+
+    // 2. Built-in structured & labeled/honorific name rules
     for (const [label, regex] of PII_RULES) {
-      let seq = 0;
-      text = text.replace(regex, (match) => {
-        if (!forward.has(match)) {
-          seq += 1;
-          const tok = `[${label}_${seq}]`;
-          forward.set(match, tok);
-          reverseMap.set(tok, match);
+      text = text.replace(regex, (...args) => {
+        const full = args[0];
+        if (label === "PERSON" && args.length >= 5) {
+          // Group 1 & 2 depend on pattern type (labeled prefix vs honorific suffix)
+          const g1 = args[1];
+          const g2 = args[2];
+          if (/[:：]\s*$/.test(g1)) {
+            return g1 + registerToken("PERSON", g2);
+          }
+          return registerToken("PERSON", g1) + g2;
         }
-        count += 1;
-        return forward.get(match);
+        return registerToken(label, full);
       });
     }
+
     outEl.value = text;
+    // Always hide & clear separate restore preview when remasking to prevent stale sensitive exposure
+    if (restoreWrap && restoredEl) {
+      restoredEl.value = "";
+      restoreWrap.hidden = true;
+    }
     statEl.textContent =
       lang === "en"
-        ? `Masked ${count} items (${reverseMap.size} unique tokens) locally — 0 bytes sent externally.`
-        : `✅ ${count}件（ユニーク${reverseMap.size}種）をローカル仮名化しました（外部通信 0 バイト）`;
+        ? `Redacted ${count} pattern matches (${reverseMap.size} unique tokens) locally (0 bytes sent). Always visually review before pasting into external AI.`
+        : `✅ ${count}件（ユニーク${reverseMap.size}種）をローカル仮名化しました（外部通信 0 バイト・貼付前に必ず目視確認してください）`;
   }
 
   document.getElementById("form-pii").addEventListener("submit", (e) => {
@@ -98,8 +143,13 @@
     if (strip) strip.classList.add("ready-boost");
   });
 
+  const customInput = document.getElementById("pii-custom");
+  if (customInput) {
+    customInput.addEventListener("input", runPiiMask);
+  }
+
   const PII_PRESETS = {
-    mail: "株式会社〇〇 営業部 山田様\n連絡先: yamada.taro@example.co.jp / 携帯: 090-1234-5678 / 〒100-0001\nご注文番号 4242-4242-4242-4242 の見積り改定をお願いします。",
+    mail: "株式会社サンプル 営業部 山田太郎様\n連絡先: yamada.taro@example.co.jp / 携帯: 090-1234-5678 / 〒100-0001\nご注文番号 4242-4242-4242-4242 の見積り改定をお願いします。",
     log: "2026-11-23 ERROR auth failed for admin@corp.example.com (ip=192.168.10.25) token=sk_live_demo1234567890abcd phone=03-1234-5678",
     clear: "",
   };
@@ -107,6 +157,9 @@
     btn.addEventListener("click", () => {
       const k = btn.getAttribute("data-pii-preset");
       document.getElementById("pii-in").value = PII_PRESETS[k] ?? "";
+      if (customInput) {
+        customInput.value = k === "mail" ? "株式会社サンプル" : "";
+      }
       runPiiMask();
       const strip = document.querySelector("#panel-pii .offer-strip");
       if (strip && k !== "clear") strip.classList.add("ready-boost");
@@ -119,7 +172,7 @@
     try {
       await navigator.clipboard.writeText(out);
       const prev = btn.textContent;
-      btn.textContent = lang === "en" ? "✅ Copied" : "✅ コピーしました";
+      btn.textContent = lang === "en" ? "✅ Copied Masked Only" : "✅ 仮名化済みのみコピーしました";
       setTimeout(() => {
         btn.textContent = prev;
       }, 1500);
@@ -129,16 +182,21 @@
   });
 
   document.getElementById("pii-restore").addEventListener("click", () => {
-    const outEl = document.getElementById("pii-out");
-    let text = outEl.value || "";
+    const maskedText = document.getElementById("pii-out").value || "";
+    const restoreWrap = document.getElementById("pii-restore-wrap");
+    const restoredEl = document.getElementById("pii-restored-out");
+    let text = maskedText;
     for (const [tok, orig] of reverseMap.entries()) {
       text = text.split(tok).join(orig);
     }
-    outEl.value = text;
+    if (restoreWrap && restoredEl) {
+      restoredEl.value = text;
+      restoreWrap.hidden = false;
+    }
     document.getElementById("pii-stat").textContent =
       lang === "en"
-        ? "Restored original values from local browser memory."
-        : "↩️ ローカルメモリから元の値へ復元しました。";
+        ? "Restored into the separate read-only preview below. The copy box above stays masked."
+        : "↩️ 下の閲覧専用プレビュー枠へ復元しました（上のコピー欄は仮名化済みのまま保持されます）。";
   });
 
   // --- 3. 5-Marketplace EC Margin & GMROI Calculator ---
@@ -338,8 +396,9 @@
     tab_pii: "🛡️ Offline PII Redactor",
     tab_ec: "🧮 5-EC Margin & GMROI",
     tab_inv: "🧾 2026 JP Invoice 70% Check",
-    pii_title: "1-Second Offline PII & API-Key Redactor (Before Pasting into AI Chats)",
-    pii_desc: "Replaces emails, phones, postal codes, 12–16 digit IDs, and API keys with reversible local tokens ([EMAIL_1], etc.) without sending a single byte to any server.",
+    pii_title: "Offline PII & API-Key Pre-Processing Redactor (Local Helper)",
+    pii_desc: "Replaces structured patterns (emails, phones, postal codes, 12–16 digit IDs, IPs, API keys, labeled/honorific JP names, and custom terms) locally with 0 bytes sent. Pattern-based redaction is not 100% exhaustive—always visually review before pasting into external AI.",
+    pii_custom_label: "Custom Sensitive Terms to Redact (names, company, project — comma-separated)",
     pii_pre_mail: "📩 Try Customer Email Sample",
     pii_pre_log: "💻 Try Leaked API-Key Log",
     pii_pre_clear: "🧹 Clear",
@@ -348,9 +407,10 @@
     ec_pre_amz: "📦 Amazon FBA Example (¥6,800)",
     pii_in_label: "Original Text (100% Local Execution)",
     pii_btn_mask: "🛡️ Redact Locally Now",
-    pii_btn_copy: "📋 Copy Masked Text",
-    pii_btn_restore: "↩️ Restore Original Values",
-    pii_out_label: "Safe Masked Output for ChatGPT / Claude / Gemini",
+    pii_btn_copy: "📋 Copy Masked Text Only",
+    pii_btn_restore: "↩️ Preview Restored Separately",
+    pii_out_label: "Masked Output (Copy Box — Always Visually Review Before Pasting)",
+    pii_restore_warn: "⚠️ Restored Preview (Contains Original Sensitive Values — Read-Only, Do Not Paste into External AI)",
     pii_offer_title: "Want the standalone 1-file offline HTML + Python CLI on your machine forever?",
     pii_offer_sub: "One-time purchase (¥300 ≈ $2 USD via note.com, international cards accepted). Zero subscriptions.",
     pii_offer_btn: "⚡ Buy Full Source Pack — ¥300 (~$2 USD)",

@@ -294,6 +294,19 @@
       font-weight: 800;
       color: var(--accent);
     }
+    .restore-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 2px solid var(--warn);
+      background: var(--surface2);
+    }
+    .restore-warn {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--warn);
+      margin-bottom: 6px;
+    }
     .offer-strip {
       margin-top: 18px;
       padding: 16px;
@@ -383,13 +396,17 @@
         <!-- TAB 1: Offline PII Redactor & Restorer -->
         <section role="tabpanel" id="panel-pii" aria-labelledby="tab-pii">
           <div class="panel-card">
-            <h2 id="h-pii" data-i18n="pii_title">ChatGPT / Claude / Gemini 入力前の個人情報(PII) 1秒ローカル仮名化＆復元</h2>
-            <p class="muted" data-i18n="pii_desc">メール・電話番号・郵便番号・カード/12〜16桁番号・APIキーを一意トークン（[EMAIL_1] 等）へ置換し、AIの回答をボタン1つで元の値へ復元できます。</p>
+            <h2 id="h-pii" data-i18n="pii_title">ChatGPT / Claude / Gemini 入力前の個人情報(PII) ローカル下処理仮名化＆復元テスト</h2>
+            <p class="muted" data-i18n="pii_desc">メール・電話番号・郵便番号・カード/12〜16桁番号・APIキー・敬称/ラベル付き氏名・任意指定語を一意トークン（[EMAIL_1] / [PERSON_1] 等）へローカル置換する補助ツールです。完全検出は保証できないため、外部AIへ貼り付ける前に必ず目視確認してください。</p>
             <form id="form-pii" aria-labelledby="h-pii">
               <div class="preset-row" aria-label="Quick sample presets">
                 <button type="button" class="btn btn-sm" data-pii-preset="mail" data-i18n="pii_pre_mail">📩 顧客メール例で試す</button>
                 <button type="button" class="btn btn-sm" data-pii-preset="log" data-i18n="pii_pre_log">💻 APIキー混入エラーログ例</button>
                 <button type="button" class="btn btn-sm" data-pii-preset="clear" data-i18n="pii_pre_clear">🧹 クリア</button>
+              </div>
+              <div class="field" style="margin-bottom:10px;">
+                <label for="pii-custom" data-i18n="pii_custom_label">追加で伏せたい固有名詞（氏名・社名・案件名をカンマ区切りで任意指定）</label>
+                <input id="pii-custom" name="pii-custom" type="text" placeholder="例: 山田太郎, 株式会社〇〇, プロジェクトA">
               </div>
               <div class="field">
                 <label for="pii-in" data-i18n="pii_in_label">元の業務テキスト（ローカル処理・外部送信0バイト）</label>
