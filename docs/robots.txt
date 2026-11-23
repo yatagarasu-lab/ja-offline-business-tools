@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yatagarasu-lab.github.io/ja-offline-business-tools/sitemap.xml

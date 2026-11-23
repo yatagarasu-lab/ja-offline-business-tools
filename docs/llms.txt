@@ -1,0 +1,19 @@
+# ja-offline-business-tools
+
+> Zero-cloud, 100% browser-local & Python stdlib offline business tools for PII redaction before AI chat prompts, 5-marketplace Japanese EC profit & GMROI calculation, and Oct 2026 Japan Invoice System (80% -> 70% deduction) arithmetic & T-Number check-digit verification.
+
+## Live Free Browser Tools (Zero Data Sent, Strict CSP connect-src 'none')
+- [All-in-One Offline Browser Tools Hub (JP / EN)](https://yatagarasu-lab.github.io/ja-offline-business-tools/)
+- [1-Second Offline PII & API-Key Redactor + Local Restore](https://yatagarasu-lab.github.io/ja-offline-business-tools/#panel-pii)
+- [5-Marketplace EC Breakeven, Net Margin & Annual GMROI Calculator](https://yatagarasu-lab.github.io/ja-offline-business-tools/#panel-ec)
+- [Oct 2026 Japan Invoice 70% Deduction & T-Number Validator](https://yatagarasu-lab.github.io/ja-offline-business-tools/#panel-inv)
+
+## Open-Source CLI Repository (MIT License)
+- [GitHub Repository](https://github.com/yatagarasu-lab/ja-offline-business-tools)
+
+## Standalone Paid Offline Software Packs & Playbooks (note.com, Instant Access, Intl Cards & PayPay)
+- [¥300 (~$2 USD) Standalone Offline PII Redactor HTML + Python CLI Full Source](https://note.com/laughmakerclown/n/n0db6bc33ab1b)
+- [¥300 (~$2 USD) Standalone 5-EC Margin & GMROI Offline HTML + Batch CSV Python CLI Full Source](https://note.com/laughmakerclown/n/n3cd1dbf7c06d)
+- [¥500 (~$3.5 USD) Automated Daily Morning Briefing Python Script](https://note.com/laughmakerclown/n/n43046d84c126)
+- [¥1,980 (~$13 USD) 20% Net-Margin EC & Flea-Market Unit Economics Playbook](https://note.com/laughmakerclown/n/n78ceb516bcb4)
+- [¥4,980 (~$33 USD, 64% OFF) Complete AI Automation & Unit Economics Bundle Magazine](https://note.com/laughmakerclown/m/m3d642d71fd66)

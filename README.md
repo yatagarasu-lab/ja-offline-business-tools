@@ -42,6 +42,7 @@ python3 invoice_2026_check.py --verify-t-number T1234567890123
 より詳しい運用設計・ブラウザダブルクリック起動版の完全オフラインHTMLツール・24時間常駐ローカルAIパイプライン設計書は note にて公開しています。
 
 - **【¥300・動くHTML＆Python本体付】ChatGPT入力前の個人情報を1秒オフライン黒塗り＆自動復元ツール一式**: https://note.com/laughmakerclown/n/n0db6bc33ab1b
+- **【¥300・動くHTML＆Python本体付】5大EC手残り＆上限仕入・GMROI逆算＆CSV保存ツール一式**: https://note.com/laughmakerclown/n/n3cd1dbf7c06d
 - **【¥500】毎朝7時に売上・死活監視・優先タスクが届く Python朝刊ブリーフィング自動化スクリプト**: https://note.com/laughmakerclown/n/n43046d84c126
 - **【¥1,980】EC・フリマ物販の手残り20%死守 逆算検品式＆送料圧縮セット売り戦略**: https://note.com/laughmakerclown/n/n78ceb516bcb4
 - **【¥1,980】API課金ゼロで24時間動くローカルAI自律パイプライン完全設計書**: https://note.com/laughmakerclown/n/nd21e5fc1e917
