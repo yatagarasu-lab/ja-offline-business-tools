@@ -20,7 +20,7 @@
         panel.hidden = "until-found";
       }
     }
-    targetTab.scrollIntoView({ block: "nearest", inline: "nearest" });
+    targetTab.scrollIntoView({ block: "nearest", inline: "nearest", container: "nearest" });
     if (moveFocus) targetTab.focus();
   }
 
@@ -385,17 +385,138 @@
     document.getElementById(id).addEventListener("input", recalcInv);
   }
 
+  // --- 4B. Apple Silicon Mac Local AI Feasibility & Cloud API Savings Simulator ---
+  function recalcMacAi() {
+    const memRadio = document.querySelector('input[name="mac_mem"]:checked');
+    const goalRadio = document.querySelector('input[name="mac_goal"]:checked');
+    const memGb = Number((memRadio && memRadio.value) || 24);
+    const goal = String((goalRadio && goalRadio.value) || "full");
+    const spend = Math.max(0, parseNum("macai-spend", 6000));
+    const ratioPct = Math.min(100, Math.max(0, parseNum("macai-ratio", 80)));
+
+    const monthlySaved = Math.round((spend * ratioPct) / 100);
+    const annualSaved = monthlySaved * 12;
+    const kitPrice = 1480;
+    const paybackDays = monthlySaved > 0 ? Math.max(1, Math.ceil((kitPrice / monthlySaved) * 30)) : null;
+
+    let modelRec = "";
+    let loraStatus = "";
+    if (memGb >= 32) {
+      modelRec = "Qwen2.5-14B-4bit / 32B-4bit";
+      loraStatus = lang === "en" ? "✅ 14B LoRA Fast (batch=2, rank=16)" : "✅ 14B LoRA 余裕動作（batch=2 / rank=16）";
+    } else if (memGb >= 24) {
+      modelRec = "Qwen2.5-14B-4bit (Verified)";
+      loraStatus = lang === "en" ? "✅ 14B LoRA 75s Verified (batch=1, layers=8)" : "✅ 14B LoRA 75秒実測済（batch=1 / layers=8）";
+    } else if (memGb >= 16) {
+      modelRec = "Qwen2.5-7B-4bit";
+      loraStatus = lang === "en" ? "⚠️ Use 7B for LoRA (14B swaps on 16GB)" : "⚠️ LoRAは7B推奨（14Bはスワップ注意）";
+    } else {
+      modelRec = "Qwen2.5-3B-4bit";
+      loraStatus = lang === "en" ? "❌ LoRA Not Recommended (Inference & RAG only)" : "❌ LoRA非推奨（3B推論＋日本語RAG・NLI向け）";
+    }
+
+    const goalNote =
+      lang === "en"
+        ? goal === "rag"
+          ? "Recommended Stack: SQLite Trigram FTS5 + japanese-reranker-small-v2 (~281MB, no MeCab)."
+          : goal === "guard"
+            ? "Recommended Stack: mDeBERTa-v3-base-xnli (~558MB MPS) local contradiction guard."
+            : "Recommended Stack: 4-bit MLX LoRA + Trigram/Reranker RAG + NLI Guard (all $0 API)."
+        : goal === "rag"
+          ? "推奨構成：SQLite Trigram FTS5 ＋ japanese-reranker-small-v2（約281MB・MeCab不要）"
+          : goal === "guard"
+            ? "推奨構成：mDeBERTa-v3-base-xnli（約558MB・MPS）によるローカル矛盾・捏造検閲"
+            : "推奨構成：4bit MLX LoRA ＋ 日本語リランカーRAG ＋ NLI検閲の3点セット（API課金 ¥0）";
+
+    const box = document.getElementById("macai-out");
+    if (!box) return;
+    box.replaceChildren();
+    const h = document.createElement("div");
+    h.style.fontWeight = "800";
+    h.textContent = `${loraStatus} — ${goalNote}`;
+    box.appendChild(h);
+
+    const grid = document.createElement("div");
+    grid.className = "kpi-grid";
+    const items =
+      lang === "en"
+        ? [
+            ["Recommended Local Model", modelRec],
+            ["Monthly API Savings", `¥${monthlySaved.toLocaleString()}/mo`],
+            ["Annual API Savings", `¥${annualSaved.toLocaleString()}/yr`],
+            ["¥1,480 Kit Payback", paybackDays ? `~${paybackDays} days` : "—"],
+          ]
+        : [
+            ["推奨ローカルモデル", modelRec],
+            ["月間API削減見込み", `¥${monthlySaved.toLocaleString()}/月`],
+            ["年間API削減見込み", `¥${annualSaved.toLocaleString()}/年`],
+            ["¥1,480キット回収目安", paybackDays ? `約${paybackDays}日` : "—"],
+          ];
+    for (const [k, v] of items) {
+      const cell = document.createElement("div");
+      const lk = document.createElement("div");
+      lk.className = "muted";
+      lk.textContent = k;
+      const lv = document.createElement("div");
+      lv.className = "kpi-val";
+      lv.textContent = v;
+      cell.append(lk, lv);
+      grid.appendChild(cell);
+    }
+    box.appendChild(grid);
+  }
+
+  for (const el of document.querySelectorAll('input[name="mac_mem"], input[name="mac_goal"]')) {
+    el.addEventListener("change", () => {
+      recalcMacAi();
+      const strip = document.querySelector("#panel-macai .offer-strip");
+      if (strip) strip.classList.add("ready-boost");
+    });
+  }
+  for (const id of ["macai-spend", "macai-ratio"]) {
+    const inp = document.getElementById(id);
+    if (inp) {
+      inp.addEventListener("input", () => {
+        recalcMacAi();
+        const strip = document.querySelector("#panel-macai .offer-strip");
+        if (strip) strip.classList.add("ready-boost");
+      });
+    }
+  }
+
   // --- 5. Bilingual JA / EN Toggle ---
   const I18N_EN = {
     csp_badge: "CSP connect-src 'none' · 0 Bytes Sent",
     hero_badge: "No Sign-Up · 100% Free · Runs Locally in Your Browser",
-    hero_title: "Zero-Cloud Offline Business Tools:\nPII Redactor, EC Margin & Invoice Math",
+    hero_title: "Zero-Cloud Offline Business & Local AI Tools:\nPII Redactor, M4 Mac AI Lab, EC Margin & Invoice Math",
     hero_desc: "Every calculation and redaction runs strictly inside your browser with zero external requests enforced by Content-Security-Policy.",
-    hero_cta_300: "⚡ Get Offline HTML + Python PII Redactor — ¥300 (~$2 USD on note.com)",
-    hero_cta_bundle: "📦 Complete Automation & Unit-Economics Bundle — ¥4,980 (64% OFF)",
+    hero_cta_flagship: "🚀 Flagship: 24GB Mac $0-API Local AI Starter Kit (3 Tested Scripts — ¥1,480 / ~$10)",
+    hero_cta_300: "⚡ Starter ¥300: Offline HTML + Python PII Redactor",
+    hero_cta_bundle: "📦 Complete Automation Bundle — ¥4,980 (64% OFF)",
     tab_pii: "🛡️ Offline PII Redactor",
+    tab_macai: "🍎 Mac Local AI & API Savings",
     tab_ec: "🧮 5-EC Margin & GMROI",
     tab_inv: "🧾 2026 JP Invoice 70% Check",
+    macai_title: "Apple Silicon Mac Local AI Feasibility & Cloud API Savings Simulator",
+    macai_desc: "Estimate safe local LLM/LoRA sizing and annual cloud API savings from your Mac unified memory and current AI spend (benchmarked on M4 Pro 24GB).",
+    macai_mem_legend: "Mac Unified Memory (Apple Silicon M1–M4)",
+    macai_goal_legend: "Primary Local AI Goal",
+    macai_goal_full: "LoRA Training + JP RAG + NLI Guard",
+    macai_goal_rag: "Offline Japanese Document RAG",
+    macai_goal_guard: "Offline NLI Hallucination Guard",
+    macai_spend: "Current Monthly Cloud AI / API Spend (JPY)",
+    macai_ratio: "Share of Workloads Moved Locally (%)",
+    bm_h1: "M4 Pro (24GB) Benchmark",
+    bm_h2: "Measured Primary Result ($0 Cloud API)",
+    bm_r1_k: "Qwen2.5-14B-4bit MLX LoRA",
+    bm_r1_v: "75.19s training / Loss 2.4606 → 1.7716 (-28.0%) / Perplexity 11.71 → 5.88",
+    bm_r2_k: "57,320-Row JP Hybrid RAG + Reranker",
+    bm_r2_v: "~0.28s (281ms) warm / Zero MeCab or fugashi build needed",
+    bm_r3_k: "Local NLI Hallucination Guard",
+    bm_r3_v: "99.2%–99.9% contradiction detection on paraphrased fake claims (MPS, 0 bytes out)",
+    macai_offer_title: "Get all 3 M4 Pro 24GB live-tested Python scripts (LoRA, JP Reranker RAG, NLI Guard)",
+    macai_offer_sub: "5-minute setup + 16/24/32GB+ parameter cheat sheet — one-time ¥1,480 (~$10 USD on note.com).",
+    macai_offer_btn: "🚀 Buy 3-Script Local AI Kit — ¥1,480 (~$10)",
     pii_title: "Offline PII & API-Key Pre-Processing Redactor (Local Helper)",
     pii_desc: "Replaces structured patterns (emails, phones, postal codes, 12–16 digit IDs, IPs, API keys, labeled/honorific JP names, and custom terms) locally with 0 bytes sent. Pattern-based redaction is not 100% exhaustive—always visually review before pasting into external AI.",
     pii_custom_label: "Custom Sensitive Terms to Redact (names, company, project — comma-separated)",
@@ -434,14 +555,17 @@
     inv_offer_sub: "Arithmetic estimation only — not individualized tax or legal advice.",
     inv_offer_btn: "📖 Read Free Checklist (note.com)",
     cat_title: "Ready-to-Use Offline Software & Playbooks (Instant Purchase via note.com)",
+    p0_t: "24GB Mac $0-API Local AI Kit: 75s 14B LoRA + 0.28s JP RAG + 99.9% NLI Guard",
+    p0_d: "3 live-verified offline Python scripts tested on M4 Pro 24GB + 16/24/32GB+ parameter table. One-time ¥1,480.",
     p1_t: "Standalone Offline PII Redactor HTML + Python CLI Full Source",
     p1_d: "Double-click offline HTML app + zero-dependency Python CLI with local restore map. One-time fee, $0/month.",
     p2_t: "Standalone 5-EC Margin & GMROI Offline HTML + Batch CSV Python CLI",
     p2_d: "Double-click offline HTML calculator with CSV ledger export + batch SKU screener CLI. One-time ¥300.",
     p3_t: "Complete AI Automation & Business Unit-Economics Bundle (64% OFF)",
     p3_d: "All paid playbooks and scripts bundled at 64% off (¥14,120 value → ¥4,980), including future additions.",
-    buy_now: "Buy Now (note.com)",
-    buy_bundle: "Get 64% OFF Bundle (note.com)",
+    buy_flagship: "★ Buy for ¥1,480 (note.com)",
+    buy_now: "Buy for ¥300 (note.com)",
+    buy_bundle: "Buy Bundle for ¥4,980 (note.com)",
     foot_disc: "Disclaimer: All processing runs locally in your browser with zero external data transmission. Arithmetic tools do not constitute individualized tax or legal advice.",
   };
   const I18N_JA = {};
@@ -460,17 +584,19 @@
       if (dict[k]) el.textContent = dict[k];
     }
     runPiiMask();
+    recalcMacAi();
     recalcEc();
     recalcInv();
   });
 
-  // Honor direct URL hash (#panel-ec / #panel-inv / #panel-pii)
+  // Honor direct URL hash (#panel-macai / #panel-ec / #panel-inv / #panel-pii)
   const hashPanel = (window.location.hash || "").replace(/^#/, "");
   const hashTab = tabs.find((t) => t.dataset.panel === hashPanel);
   if (hashTab) selectTab(hashTab, false);
 
   // Initial calculation on load
   runPiiMask();
+  recalcMacAi();
   recalcEc();
   recalcInv();
 })();

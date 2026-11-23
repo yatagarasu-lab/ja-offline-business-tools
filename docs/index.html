@@ -261,7 +261,7 @@
       font-weight: 700;
       font-size: 0.9rem;
     }
-    input, select, textarea {
+    input:not([type="radio"]):not([type="checkbox"]), select, textarea {
       font: inherit;
       font-size: max(1rem, 1em);
       min-height: 48px;
@@ -271,6 +271,58 @@
       background: var(--surface2);
       color: var(--text);
       width: 100%;
+    }
+    fieldset.radio-group {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px 12px;
+      margin: 0 0 14px;
+      background: var(--surface2);
+    }
+    fieldset.radio-group legend {
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0 6px;
+    }
+    .radio-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .radio-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .radio-pill input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      flex: none;
+    }
+    .bench-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.88rem;
+    }
+    .bench-table th, .bench-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+    .bench-table th {
+      color: var(--muted);
+      font-weight: 700;
     }
     textarea {
       min-height: 126px;
@@ -380,14 +432,16 @@
       <h1 data-i18n="hero_title">外部サーバー送信ゼロで今すぐ使える<br>実務計算＆AI個人情報保護ツール集</h1>
       <p data-i18n="hero_desc">すべての計算・マスキング処理はお使いのブラウザ内だけで完結し、Content-Security-Policy (connect-src 'none') により外部通信を物理的に遮断しています。</p>
       <div class="cta-row">
-        <a class="btn btn-gold" href="https://note.com/laughmakerclown/n/n0db6bc33ab1b" target="_blank" rel="noopener noreferrer" data-i18n="hero_cta_300">⚡ ¥300でオフラインHTML＆Python本体を今すぐ入手（note即購入）</a>
-        <a class="btn btn-primary" href="https://note.com/laughmakerclown/m/m3d642d71fd66" target="_blank" rel="noopener noreferrer" data-i18n="hero_cta_bundle">📦 全実践設計書コンプリート全集（64%OFF ¥4,980）</a>
+        <a class="btn btn-gold" href="https://note.com/laughmakerclown/n/n21a7bbf8b309" target="_blank" rel="noopener noreferrer" data-i18n="hero_cta_flagship">🚀 【看板】24GB Mac・API¥0 ローカルAIスターターキット（実測コード3本・¥1,480）</a>
+        <a class="btn btn-primary" href="https://note.com/laughmakerclown/n/n0db6bc33ab1b" target="_blank" rel="noopener noreferrer" data-i18n="hero_cta_300">⚡ 入門 ¥300：オフラインPII黒塗りHTML＆Python本体</a>
+        <a class="btn" href="https://note.com/laughmakerclown/m/m3d642d71fd66" target="_blank" rel="noopener noreferrer" data-i18n="hero_cta_bundle">📦 全集マガジン（64%OFF ¥4,980）</a>
       </div>
     </section>
 
     <main>
       <div class="tablist" role="tablist" focusgroup="tablist nomemory" aria-label="Offline Utility Tools">
         <button type="button" role="tab" id="tab-pii" aria-selected="true" focusgroupstart data-panel="panel-pii" data-i18n="tab_pii">🛡️ 個人情報(PII) 1秒黒塗り＆復元</button>
+        <button type="button" role="tab" id="tab-macai" aria-selected="false" data-panel="panel-macai" data-i18n="tab_macai">🍎 MacローカルAI診断＆API節約</button>
         <button type="button" role="tab" id="tab-ec" aria-selected="false" data-panel="panel-ec" data-i18n="tab_ec">🧮 5大EC利益＆GMROI逆算</button>
         <button type="button" role="tab" id="tab-inv" aria-selected="false" data-panel="panel-inv" data-i18n="tab_inv">🧾 2026インボイス70%＆T番号検算</button>
       </div>
@@ -437,7 +491,75 @@
           </div>
         </section>
 
-        <!-- TAB 2: 5-Marketplace EC Profit & GMROI Calculator -->
+        <!-- TAB 2: Apple Silicon Mac Local AI Feasibility & Cloud API Savings Simulator -->
+        <section role="tabpanel" id="panel-macai" aria-labelledby="tab-macai" hidden="until-found">
+          <div class="panel-card">
+            <h2 id="h-macai" data-i18n="macai_title">Apple Silicon Mac ローカルAI動作診断＆月額API削減シミュレーター</h2>
+            <p class="muted" data-i18n="macai_desc">お使いのMacのユニファイドメモリと毎月のクラウドAI課金額から、「落ちずに動く推奨ローカルモデル・LoRA可否」と「年間削減できるAPIコスト・買い切り回収日数」をオフライン試算します（M4 Pro 24GB実測データ基準）。</p>
+            <form id="form-macai" aria-labelledby="h-macai">
+              <fieldset class="radio-group">
+                <legend data-i18n="macai_mem_legend">Macのユニファイドメモリ容量（Apple Silicon M1〜M4）</legend>
+                <div class="radio-row">
+                  <label class="radio-pill"><input type="radio" name="mac_mem" value="8"> <span>8 GB</span></label>
+                  <label class="radio-pill"><input type="radio" name="mac_mem" value="16"> <span>16 GB</span></label>
+                  <label class="radio-pill"><input type="radio" name="mac_mem" value="24" checked> <span>24 GB（M4 Pro実測）</span></label>
+                  <label class="radio-pill"><input type="radio" name="mac_mem" value="32"> <span>32 GB</span></label>
+                  <label class="radio-pill"><input type="radio" name="mac_mem" value="48"> <span>48 GB+</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="radio-group">
+                <legend data-i18n="macai_goal_legend">主なローカル移行目的</legend>
+                <div class="radio-row">
+                  <label class="radio-pill"><input type="radio" name="mac_goal" value="full" checked> <span data-i18n="macai_goal_full">LoRA学習＋日本語RAG＋ウソ検閲</span></label>
+                  <label class="radio-pill"><input type="radio" name="mac_goal" value="rag"> <span data-i18n="macai_goal_rag">社内資料の日本語オフライン検索</span></label>
+                  <label class="radio-pill"><input type="radio" name="mac_goal" value="guard"> <span data-i18n="macai_goal_guard">AI出力のウソ・矛盾自動検閲</span></label>
+                </div>
+              </fieldset>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="macai-spend" data-i18n="macai_spend">現在の月額クラウドAI / API課金（円）</label>
+                  <input id="macai-spend" name="macai_spend" type="text" inputmode="numeric" value="6000">
+                </div>
+                <div class="field">
+                  <label for="macai-ratio" data-i18n="macai_ratio">ローカルへ置き換える処理の割合（%）</label>
+                  <input id="macai-ratio" name="macai_ratio" type="text" inputmode="numeric" value="80">
+                </div>
+              </div>
+              <div id="macai-out" class="result-box" role="status" aria-live="polite"></div>
+            </form>
+            <table class="bench-table" aria-label="M4 Pro 24GB Verified Benchmarks">
+              <thead>
+                <tr>
+                  <th data-i18n="bm_h1">M4 Pro (24GB) 実測項目</th>
+                  <th data-i18n="bm_h2">一次計測結果（外部API課金 ¥0）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-i18n="bm_r1_k">Qwen2.5-14B-4bit MLX LoRA学習</td>
+                  <td data-i18n="bm_r1_v">学習 75.19秒 / Loss 2.4606 → 1.7716 (-28.0%) / Perplexity 11.71 → 5.88（半減）</td>
+                </tr>
+                <tr>
+                  <td data-i18n="bm_r2_k">日本語5.7万件DB検索＋リランカー</td>
+                  <td data-i18n="bm_r2_v">ウォーム約0.28秒（281ms） / MeCab・fugashi不要（SentencePiece採用）</td>
+                </tr>
+                <tr>
+                  <td data-i18n="bm_r3_k">ローカルNLIウソ・矛盾自動検閲</td>
+                  <td data-i18n="bm_r3_v">架空売上テストを矛盾率 99.2%〜99.9% で自動遮断（MPS・外部通信0バイト）</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="offer-strip">
+              <div>
+                <strong data-i18n="macai_offer_title">M4 Pro 24GB実機テスト済みの完結Pythonコード3本全文（LoRA・日本語RAG・NLI検閲）を今すぐ導入</strong>
+                <div class="muted" data-i18n="macai_offer_sub">初回5分セットアップ＋メモリ別(16/24/32GB+)パラメータ早見表付・買い切り¥1,480（note・クレカ/PayPay）</div>
+              </div>
+              <a class="btn btn-gold" href="https://note.com/laughmakerclown/n/n21a7bbf8b309" target="_blank" rel="noopener noreferrer" data-i18n="macai_offer_btn">🚀 ¥1,480で実測コード3本キットを購入（note）</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 3: 5-Marketplace EC Profit & GMROI Calculator -->
         <section role="tabpanel" id="panel-ec" aria-labelledby="tab-ec" hidden="until-found">
           <div class="panel-card">
             <h2 id="h-ec" data-i18n="ec_title">5大ECモール 損益分岐・手残り＆年間資金回転率(GMROI)逆算計算機</h2>
@@ -528,6 +650,16 @@
       <section aria-labelledby="h-catalog" style="margin-top:28px;">
         <h2 id="h-catalog" data-i18n="cat_title">即導入できるオフライン本体＆実践設計書（クレカ・PayPay即購入対応）</h2>
         <div class="catalog">
+          <article class="prod" style="border-color: var(--gold);">
+            <div>
+              <span class="badge">★ FLAGSHIP · ¥1,480 (~$10 USD)</span>
+              <h3 data-i18n="p0_t">24GB Mac・API課金¥0：14B 75秒LoRA＋日本語検索0.28秒＋ウソ99.9%検閲 スターターキット</h3>
+              <div class="price-tag">¥1,480</div>
+              <p class="muted" data-i18n="p0_d">M4 Pro 24GB実機で完全オフライン動作確認済みの完結Pythonコード3本全文＋16/24/32GB+別設定早見表。</p>
+            </div>
+            <a class="btn btn-gold" href="https://note.com/laughmakerclown/n/n21a7bbf8b309" target="_blank" rel="noopener noreferrer" data-i18n="buy_flagship">★ ¥1,480で購入（note）</a>
+          </article>
+
           <article class="prod">
             <div>
               <span class="badge">STARTER · ¥300 (~$2 USD)</span>
@@ -535,7 +667,7 @@
               <div class="price-tag">¥300</div>
               <p class="muted" data-i18n="p1_d">ダブルクリックで動く完全オフラインHTML＋一括処理Python CLIのソース全文。月額0円で一生使えます。</p>
             </div>
-            <a class="btn btn-gold" href="https://note.com/laughmakerclown/n/n0db6bc33ab1b" target="_blank" rel="noopener noreferrer" data-i18n="buy_now">今すぐ購入（note）</a>
+            <a class="btn btn-gold" href="https://note.com/laughmakerclown/n/n0db6bc33ab1b" target="_blank" rel="noopener noreferrer" data-i18n="buy_now">¥300で購入（note）</a>
           </article>
 
           <article class="prod">
@@ -545,7 +677,7 @@
               <div class="price-tag">¥300</div>
               <p class="muted" data-i18n="p2_d">2026改定後送料プリセット＆CSV書き出し付オフラインHTML＋候補CSV一括採点Python CLI全文。</p>
             </div>
-            <a class="btn btn-gold" href="https://note.com/laughmakerclown/n/n3cd1dbf7c06d" target="_blank" rel="noopener noreferrer" data-i18n="buy_now">今すぐ購入（note）</a>
+            <a class="btn btn-gold" href="https://note.com/laughmakerclown/n/n3cd1dbf7c06d" target="_blank" rel="noopener noreferrer" data-i18n="buy_now">¥300で購入（note）</a>
           </article>
 
           <article class="prod">
@@ -555,7 +687,7 @@
               <div class="price-tag">¥4,980</div>
               <p class="muted" data-i18n="p3_d">単品合計¥14,120相当の有料実践設計書を一括収録（64%OFF）。今後の追加記事も追加料金なしで閲覧可能。</p>
             </div>
-            <a class="btn btn-gold" href="https://note.com/laughmakerclown/m/m3d642d71fd66" target="_blank" rel="noopener noreferrer" data-i18n="buy_bundle">全集を64%OFFで購入（note）</a>
+            <a class="btn btn-gold" href="https://note.com/laughmakerclown/m/m3d642d71fd66" target="_blank" rel="noopener noreferrer" data-i18n="buy_bundle">¥4,980で全集を購入（note）</a>
           </article>
         </div>
       </section>

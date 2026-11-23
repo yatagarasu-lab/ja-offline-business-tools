@@ -1,11 +1,18 @@
 import unittest
 
+from check_mac_local_ai_env import detect_mac_specs
 from ec_margin_gmroi import calculate_ec_metrics
 from invoice_2026_check import estimate_oct2026_deduction_delta, verify_corporate_t_number
 from pii_redactor import redact_text, restore_text
 
 
 class TestOfflineBusinessTools(unittest.TestCase):
+    def test_mac_local_ai_env_diagnostic(self) -> None:
+        rep = detect_mac_specs()
+        self.assertIn(rep["os"], ("Darwin", "Linux", "Windows"))
+        self.assertIn("packages_installed", rep)
+        self.assertIn("recommended_llm", rep)
+
     def test_ec_margin_and_gmroi(self) -> None:
         res = calculate_ec_metrics(price_yen=5480, cost_yen=2400, shipping_yen=530, platform="mercari", expected_sell_days=10)
         self.assertEqual(res["pass_strict_gate"], True)
