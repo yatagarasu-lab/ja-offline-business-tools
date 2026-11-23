@@ -413,14 +413,18 @@
                 <textarea id="pii-in" name="pii_in">担当: 山田太郎（yamada.taro@example.co.jp / 090-1234-5678 / 〒100-0001 / 注文ID: 1234-5678-9012-3456 / Key: sk_live_demo1234567890abcd）の件をご確認お願いします。</textarea>
               </div>
               <div class="cta-row" style="margin:12px 0;">
-                <button type="submit" class="btn btn-primary" data-i18n="pii_btn_mask">🛡️ 1秒でローカル仮名化</button>
-                <button type="button" id="pii-copy" class="btn" data-i18n="pii_btn_copy">📋 仮名化テキストをコピー</button>
-                <button type="button" id="pii-restore" class="btn" data-i18n="pii_btn_restore">↩️ 元の値へ復元テスト</button>
+                <button type="submit" class="btn btn-primary" data-i18n="pii_btn_mask">🛡️ ローカル仮名化を実行</button>
+                <button type="button" id="pii-copy" class="btn" data-i18n="pii_btn_copy">📋 仮名化済みテキストのみコピー</button>
+                <button type="button" id="pii-restore" class="btn" data-i18n="pii_btn_restore">↩️ 別枠で復元プレビュー</button>
               </div>
               <div id="pii-stat" class="muted" role="status" aria-live="polite"></div>
               <div class="field" style="margin-top:10px;">
-                <label for="pii-out" data-i18n="pii_out_label">AIへ安全に貼れる仮名化済みテキスト</label>
-                <textarea id="pii-out" name="pii_out" readonly></textarea>
+                <label for="pii-out" data-i18n="pii_out_label">仮名化済みテキスト（コピー専用・貼り付け前に必ず目視確認してください）</label>
+                <textarea id="pii-out" name="pii-out" readonly></textarea>
+              </div>
+              <div id="pii-restore-wrap" class="restore-box" hidden>
+                <div class="restore-warn" data-i18n="pii_restore_warn">⚠️ 復元プレビュー（個人情報を含む元の値・閲覧専用／AIへ貼り付けないでください）</div>
+                <textarea id="pii-restored-out" name="pii-restored-out" readonly aria-label="Restored preview only"></textarea>
               </div>
             </form>
             <div class="offer-strip">
