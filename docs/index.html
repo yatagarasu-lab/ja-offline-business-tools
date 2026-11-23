@@ -298,13 +298,28 @@
       margin-top: 18px;
       padding: 16px;
       border-radius: 12px;
-      border: 1px solid var(--gold);
+      border: 2px solid var(--gold);
       background: var(--surface2);
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .offer-strip.ready-boost {
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 35%, transparent);
+    }
+    .preset-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 8px 0 12px;
+    }
+    .btn-sm {
+      min-height: 40px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
     }
     .catalog {
       margin-top: 24px;
@@ -371,6 +386,11 @@
             <h2 id="h-pii" data-i18n="pii_title">ChatGPT / Claude / Gemini 入力前の個人情報(PII) 1秒ローカル仮名化＆復元</h2>
             <p class="muted" data-i18n="pii_desc">メール・電話番号・郵便番号・カード/12〜16桁番号・APIキーを一意トークン（[EMAIL_1] 等）へ置換し、AIの回答をボタン1つで元の値へ復元できます。</p>
             <form id="form-pii" aria-labelledby="h-pii">
+              <div class="preset-row" aria-label="Quick sample presets">
+                <button type="button" class="btn btn-sm" data-pii-preset="mail" data-i18n="pii_pre_mail">📩 顧客メール例で試す</button>
+                <button type="button" class="btn btn-sm" data-pii-preset="log" data-i18n="pii_pre_log">💻 APIキー混入エラーログ例</button>
+                <button type="button" class="btn btn-sm" data-pii-preset="clear" data-i18n="pii_pre_clear">🧹 クリア</button>
+              </div>
               <div class="field">
                 <label for="pii-in" data-i18n="pii_in_label">元の業務テキスト（ローカル処理・外部送信0バイト）</label>
                 <textarea id="pii-in" name="pii_in">担当: 山田太郎（yamada.taro@example.co.jp / 090-1234-5678 / 〒100-0001 / 注文ID: 1234-5678-9012-3456 / Key: sk_live_demo1234567890abcd）の件をご確認お願いします。</textarea>
@@ -402,6 +422,11 @@
             <h2 id="h-ec" data-i18n="ec_title">5大ECモール 損益分岐・手残り＆年間資金回転率(GMROI)逆算計算機</h2>
             <p class="muted" data-i18n="ec_desc">メルカリ・Amazon・楽天・Yahoo!・BASEの手数料・送料・返品ロスを差し引き、赤字ライン（上限仕入原価・上限ACOS）を即座に判定します。</p>
             <form id="form-ec" aria-labelledby="h-ec">
+              <div class="preset-row" aria-label="Quick EC presets">
+                <button type="button" class="btn btn-sm" data-ec-preset="mercari_bad" data-i18n="ec_pre_bad">⚠️ メルカリ赤字になりやすい例 (¥2,000)</button>
+                <button type="button" class="btn btn-sm" data-ec-preset="mercari_bundle" data-i18n="ec_pre_bundle">✅ 3点まとめ売り高利益例 (¥4,980)</button>
+                <button type="button" class="btn btn-sm" data-ec-preset="amazon_fba" data-i18n="ec_pre_amz">📦 Amazon FBA標準例 (¥6,800)</button>
+              </div>
               <div class="form-grid">
                 <div class="field">
                   <label for="ec-mall" data-i18n="ec_mall">販売モール（標準手数料）</label>

@@ -94,7 +94,24 @@
   document.getElementById("form-pii").addEventListener("submit", (e) => {
     e.preventDefault();
     runPiiMask();
+    const strip = document.querySelector("#panel-pii .offer-strip");
+    if (strip) strip.classList.add("ready-boost");
   });
+
+  const PII_PRESETS = {
+    mail: "株式会社〇〇 営業部 山田様\n連絡先: yamada.taro@example.co.jp / 携帯: 090-1234-5678 / 〒100-0001\nご注文番号 4242-4242-4242-4242 の見積り改定をお願いします。",
+    log: "2026-11-23 ERROR auth failed for admin@corp.example.com (ip=192.168.10.25) token=sk_live_demo1234567890abcd phone=03-1234-5678",
+    clear: "",
+  };
+  for (const btn of document.querySelectorAll("[data-pii-preset]")) {
+    btn.addEventListener("click", () => {
+      const k = btn.getAttribute("data-pii-preset");
+      document.getElementById("pii-in").value = PII_PRESETS[k] ?? "";
+      runPiiMask();
+      const strip = document.querySelector("#panel-pii .offer-strip");
+      if (strip && k !== "clear") strip.classList.add("ready-boost");
+    });
+  }
 
   document.getElementById("pii-copy").addEventListener("click", async () => {
     const out = document.getElementById("pii-out").value;
@@ -201,7 +218,32 @@
   }
 
   for (const id of ["ec-mall", "ec-price", "ec-cost", "ec-ship", "ec-ret", "ec-days"]) {
-    document.getElementById(id).addEventListener("input", recalcEc);
+    document.getElementById(id).addEventListener("input", () => {
+      recalcEc();
+      const strip = document.querySelector("#panel-ec .offer-strip");
+      if (strip) strip.classList.add("ready-boost");
+    });
+  }
+
+  const EC_PRESETS = {
+    mercari_bad: { idx: 0, price: "2000", cost: "1100", ship: "580", ret: "2.0", days: "30" },
+    mercari_bundle: { idx: 0, price: "4980", cost: "1800", ship: "260", ret: "2.0", days: "12" },
+    amazon_fba: { idx: 1, price: "6800", cost: "2400", ship: "650", ret: "3.0", days: "18" },
+  };
+  for (const btn of document.querySelectorAll("[data-ec-preset]")) {
+    btn.addEventListener("click", () => {
+      const p = EC_PRESETS[btn.getAttribute("data-ec-preset")];
+      if (!p) return;
+      document.getElementById("ec-mall").selectedIndex = p.idx;
+      document.getElementById("ec-price").value = p.price;
+      document.getElementById("ec-cost").value = p.cost;
+      document.getElementById("ec-ship").value = p.ship;
+      document.getElementById("ec-ret").value = p.ret;
+      document.getElementById("ec-days").value = p.days;
+      recalcEc();
+      const strip = document.querySelector("#panel-ec .offer-strip");
+      if (strip) strip.classList.add("ready-boost");
+    });
   }
 
   // --- 4. 2026 Invoice 80% -> 70% Deduction & T-Number Check-Digit ---
@@ -298,6 +340,12 @@
     tab_inv: "🧾 2026 JP Invoice 70% Check",
     pii_title: "1-Second Offline PII & API-Key Redactor (Before Pasting into AI Chats)",
     pii_desc: "Replaces emails, phones, postal codes, 12–16 digit IDs, and API keys with reversible local tokens ([EMAIL_1], etc.) without sending a single byte to any server.",
+    pii_pre_mail: "📩 Try Customer Email Sample",
+    pii_pre_log: "💻 Try Leaked API-Key Log",
+    pii_pre_clear: "🧹 Clear",
+    ec_pre_bad: "⚠️ Thin-Margin Example (¥2,000)",
+    ec_pre_bundle: "✅ High-Margin 3-Item Bundle (¥4,980)",
+    ec_pre_amz: "📦 Amazon FBA Example (¥6,800)",
     pii_in_label: "Original Text (100% Local Execution)",
     pii_btn_mask: "🛡️ Redact Locally Now",
     pii_btn_copy: "📋 Copy Masked Text",
