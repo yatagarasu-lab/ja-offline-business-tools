@@ -1,6 +1,7 @@
 import unittest
 
 from check_mac_local_ai_env import detect_mac_specs
+from check_mcp_server import diagnose_mcp_stdio_server
 from ec_margin_gmroi import calculate_ec_metrics
 from invoice_2026_check import estimate_oct2026_deduction_delta, verify_corporate_t_number
 from pii_redactor import redact_text, restore_text
@@ -12,6 +13,15 @@ class TestOfflineBusinessTools(unittest.TestCase):
         self.assertIn(rep["os"], ("Darwin", "Linux", "Windows"))
         self.assertIn("packages_installed", rep)
         self.assertIn("recommended_llm", rep)
+
+    def test_mcp_doctor_rejects_non_json_pollution(self) -> None:
+        import sys
+        res = diagnose_mcp_stdio_server(
+            [sys.executable, "-c", "print('NOT_JSON_POLLUTION')"],
+            timeout_sec=2.0,
+        )
+        self.assertFalse(res["ok"])
+        self.assertGreaterEqual(res["stdout_pollution_count"], 1)
 
     def test_ec_margin_and_gmroi(self) -> None:
         res = calculate_ec_metrics(price_yen=5480, cost_yen=2400, shipping_yen=530, platform="mercari", expected_sell_days=10)
