@@ -5,9 +5,9 @@
 月額固定費0円・外部通信0バイト・Python標準ライブラリのみで動作する、個人事業主・EC物販セラー・開発者向けの実務CLIツール集です。
 
 🌐 **今すぐブラウザで無料体験（登録不要・外部送信0バイト / Free Instant Browser Demos）:**
-- 🧮 **5大ECモール損益分岐・手残り＆年間資金回転率(GMROI)逆算計算機**: https://fortune-linebot-rrwjs5trvq-an.a.run.app/calc/ec
-- 🛡️ **ChatGPT入力前の個人情報(PII) 1秒ローカル仮名化ツール**: https://fortune-linebot-rrwjs5trvq-an.a.run.app/calc/pii
-- 🧰 **オフライン完結・買い切り実務ソフトウェア一覧 (JP / EN)**: https://fortune-linebot-rrwjs5trvq-an.a.run.app/tools | https://fortune-linebot-rrwjs5trvq-an.a.run.app/en/tools
+- 🚀 **クリーン公式オフラインWebツール集 (JP / EN・CSP外部通信遮断)**: https://yatagarasu-lab.github.io/ja-offline-business-tools/
+- 🧮 **5大ECモール損益分岐・手残り＆年間資金回転率(GMROI)逆算計算機**: https://yatagarasu-lab.github.io/ja-offline-business-tools/#panel-ec
+- 🛡️ **ChatGPT入力前の個人情報(PII) 1秒ローカル仮名化＆復元ツール**: https://yatagarasu-lab.github.io/ja-offline-business-tools/#panel-pii
 
 ---
 
@@ -47,7 +47,7 @@ python3 invoice_2026_check.py --verify-t-number T1234567890123
 - **【¥1,980】API課金ゼロで24時間動くローカルAI自律パイプライン完全設計書**: https://note.com/laughmakerclown/n/nd21e5fc1e917
 - **【無料ツール＆記事全まとめ】プロフィール玄関ガイド**: https://note.com/laughmakerclown/n/n1e03a18405fb
 - **【無料保存版】2026年10月インボイス「80%→70%控除」3分実務チェック**: https://note.com/laughmakerclown/n/n5f2540e05867
-- **【64%OFF・¥4,980】有料実践設計書 全10本コンプリートマガジン**: https://note.com/laughmakerclown/m/m6a2736d19f27
+- **【64%OFF・¥4,980】有料実践設計書 コンプリート全集マガジン**: https://note.com/laughmakerclown/m/m3d642d71fd66
 
 ---
 
