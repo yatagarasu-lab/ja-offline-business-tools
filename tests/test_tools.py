@@ -1,4 +1,10 @@
+from pathlib import Path
+import sys
 import unittest
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from check_mac_local_ai_env import detect_mac_specs
 from check_mcp_server import diagnose_mcp_stdio_server
