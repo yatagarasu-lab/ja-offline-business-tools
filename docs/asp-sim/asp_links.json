@@ -1,6 +1,6 @@
 {
   "schema": "asp-links-config/v1",
-  "note_ja": "A8.net・タウンライフ・afb・レントラックス等の提携URLを取得したら、各スロットの url と label を差し替えるだけで全シミュレーターのCTAが即時更新されます。",
+  "note_ja": "A8.net・タウンライフ・afb・レントラックス等の提携URLを取得したら、各接続枠の url と label を差し替えるだけで全シミュレーターのCTAが即時更新されます。",
   "slots": {
     "real_estate_inheritance": {
       "active_asp": false,
