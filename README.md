@@ -52,6 +52,17 @@ python3 invoice_2026_check.py --verify-t-number T1234567890123
 
 ---
 
+## BOOTH Official Store（ZIP即時ダウンロード・クレカ / PayPay / コンビニ決済対応）
+
+検証済みのPython本体＋導入マニュアル一式をZIP形式でそのまま即時ダウンロードいただけます。
+
+- **🧾 【¥980・ZIP即時DL】2026年10月インボイス80%→70%対応 Mac純正Apple Vision領収書一括OCR→会計CSV完結ツール**: https://yatagarasueye.booth.pm/items/9216534
+- **🎙️ 【¥980・ZIP即時DL】Mac完全オフライン日本語会議文字起こし＆議事録タスク自動抽出ツール（MLX Whisper）**: https://yatagarasueye.booth.pm/items/9216545
+- **🛡️ 【¥1,480・ZIP即時DL】DB破壊・パストラバーサル・個人情報漏えいを物理遮断する安全Python MCPサーバー3本構築キット**: https://yatagarasueye.booth.pm/items/9216558
+- **🚀 【¥1,480・ZIP即時DL】24GB Mac・API課金¥0 14B 75秒LoRA・日本語検索0.28秒・ウソ99.9%検閲 完全ローカルAIスターターキット**: https://yatagarasueye.booth.pm/items/9216560
+
+---
+
 ## Detailed Guides & Ready-to-Use Offline Templates / 詳細解説・実践テンプレート（note）
 
 より詳しい運用設計・ブラウザダブルクリック起動版の完全オフラインHTMLツール・24時間常駐ローカルAIパイプライン設計書は note にて公開しています。
