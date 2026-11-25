@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="text-scale" content="scale">
-<title>業務自動化・LINE予約・店舗Web構築パートナー｜Yatagarasu Works</title>
-<meta name="description" content="中小企業・店舗・個人事業主向けの丸投げ業務自動化、LINE公式予約・自動応答構築、データ収集・請求書整理の自動化を最短48時間試作品先出しで対応します。">
+<title>業務自動化・LINE予約・MEO・法人データ整備パートナー｜Yatagarasu Works</title>
+<meta name="description" content="中小企業・店舗・個人事業主向けの丸投げ業務自動化（Python・GAS・n8n）、LINE公式予約・GoogleマップMEO、法人データ精査代行を最短48時間試作品先出し・API暴走防止設計で対応します。">
 <style>
   :root {
     --navy: #0f2942;
@@ -39,7 +39,7 @@
   main { padding: 1.5rem 1.25rem; }
   .kicker { color: #f0d799; font-weight: 700; font-size: 0.92rem; letter-spacing: 0.06em; }
   header h1 { margin: 0.4rem 0 0.7rem; font-size: clamp(1.5rem, 1.15rem + 1.2vw, 2.25rem); line-height: 1.35; }
-  header p { margin: 0; color: #dbe7f4; max-width: 48rem; }
+  header p { margin: 0; color: #dbe7f4; max-width: 50rem; }
   .badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block-start: 1.1rem; }
   .badge {
     background: rgba(255,255,255,0.14);
@@ -52,21 +52,20 @@
   }
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
-    gap: 1.15rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 1rem;
     margin-block-end: 1.75rem;
   }
   .card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 0.85rem;
-    padding: 1.35rem;
-    min-height: 11rem;
+    padding: 1.25rem;
   }
   .card h2, .section-card h2 {
-    margin: 0 0 0.65rem;
+    margin: 0 0 0.55rem;
     color: var(--navy);
-    font-size: 1.25rem;
+    font-size: 1.16rem;
   }
   .section-card {
     background: var(--card);
@@ -75,13 +74,13 @@
     padding: 1.5rem;
     margin-block-end: 1.5rem;
   }
-  .price { font-size: 1.35rem; font-weight: 800; color: var(--gold); margin-block: 0.4rem; }
-  .muted { color: var(--muted); font-size: 0.94rem; }
+  .price { font-size: 1.22rem; font-weight: 800; color: var(--gold); margin-block: 0.35rem; }
+  .muted { color: var(--muted); font-size: 0.93rem; }
   .demo-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block-end: 1rem; }
   button {
     font: inherit;
     font-size: max(1rem, 0.95em);
-    min-height: 48px;
+    min-block-size: 48px;
     padding: 0.55rem 1.1rem;
     border-radius: 0.55rem;
     border: 2px solid var(--border);
@@ -95,7 +94,7 @@
     border-color: var(--navy);
     color: #ffffff;
   }
-  button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible {
     outline: 3px solid var(--focus);
     outline-offset: 2px;
   }
@@ -116,7 +115,7 @@
   input, select, textarea {
     font: inherit;
     font-size: max(1rem, 1em);
-    min-height: 48px;
+    min-block-size: 48px;
     padding: 0.55rem 0.75rem;
     border: 2px solid #767676;
     border-radius: 0.5rem;
@@ -136,7 +135,7 @@
   }
   .steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
     gap: 0.9rem;
   }
   .step {
@@ -147,6 +146,29 @@
     padding: 1rem;
   }
   .step strong { color: var(--navy); display: block; margin-block-end: 0.3rem; }
+  .sim-banner {
+    background: #edf4fc;
+    border: 1px solid #bcd4ef;
+    border-radius: 0.8rem;
+    padding: 1.1rem 1.25rem;
+    margin-block-end: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+  }
+  .sim-cta {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 46px;
+    padding: 0.55rem 1.15rem;
+    border-radius: 0.5rem;
+    background: var(--navy);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+  }
   footer {
     font-size: 0.88rem;
     color: var(--muted);
@@ -159,13 +181,14 @@
 <body>
 <header>
   <div class="inner">
-    <div class="kicker">YATAGARASU WORKS｜中小企業・店舗・個人事業主向け 実務自動化パートナー</div>
-    <h1>面倒な手作業・LINE対応・データ整理を「丸投げ」で仕組み化します</h1>
-    <p>「ツールを買ったけれど設定できない」「毎月の集計や予約返信に時間を奪われている」現場のために、最短48時間で動く試作品を先出しし、導入から保守まで一気通貫で構築します。</p>
+    <div class="kicker">YATAGARASU WORKS｜中小企業・店舗・個人事業主向け 実務自動化＆集客パートナー</div>
+    <h1>面倒な手作業・LINE予約・Googleマップ・データ整理を「丸投げ」で仕組み化</h1>
+    <p>「AIや自動化を入れたいが社内に担当者がいない」「API従量課金の暴走や情報漏えいが怖い」現場のために、最短48時間で動く試作品を先出しし、安全設計から月額保守まで一気通貫で構築します。</p>
     <div class="badges">
       <span class="badge">48時間以内に動く試作品を先出し</span>
-      <span class="badge">セキュリティ・外部漏えい対策標準実装</span>
-      <span class="badge">納品後の自動テスト・保守対応</span>
+      <span class="badge">API従量課金の上限ロック標準実装</span>
+      <span class="badge">外部送信ゼロ・セキュリティ保護設計</span>
+      <span class="badge">初期費用¥0・月額MEO＋LINEプラン有</span>
     </div>
   </div>
 </header>
@@ -174,20 +197,33 @@
   <section class="grid" aria-label="主要サービスメニューと料金目安">
     <article class="card">
       <h2>1. LINE公式 予約・自動応答構築</h2>
-      <div class="price">¥50,000 〜 ¥150,000</div>
-      <p class="muted">飲食店・サロン・クリニック・不動産店向けに、24時間自動応答・予約受付・リマインド・リピート案内を丸ごと構築。電話対応と予約漏れを大幅削減します。</p>
+      <div class="price">¥30,000 〜 ¥180,000</div>
+      <p class="muted">飲食店・サロン・整体・スクール向けに24時間自動応答・予約受付・リマインドを構築。電話対応と予約漏れを大幅削減します。</p>
     </article>
     <article class="card">
-      <h2>2. 業務自動化・データ収集パイプライン</h2>
-      <div class="price">¥50,000 〜 ¥200,000</div>
-      <p class="muted">請求書・領収書PDFの自動集計、スプレッドシート/会計CSV変換、Web情報収集、定時レポート配信を自動化。毎日1〜3時間の手作業をゼロにします。</p>
+      <h2>2. Python・GAS・n8n業務自動化</h2>
+      <div class="price">¥35,000 〜 ¥250,000</div>
+      <p class="muted">領収書PDF整理・スプレッドシート転記・SaaS連携を全自動化。API課金の上限アラートとエラー自動停止まで標準組み込み。</p>
     </article>
     <article class="card">
-      <h2>3. 店舗・法人Webサイト刷新＆継続保守</h2>
-      <div class="price">構築 ¥80,000〜 / 保守 月¥30,000〜</div>
-      <p class="muted">スマホ1秒表示・問い合わせ導線最適化・口コミ返信支援まで一体設計。納品後も止まらない監視と毎月の改善をまるごとお任せいただけます。</p>
+      <h2>3. 店舗MEO＋口コミ返信＋LINE</h2>
+      <div class="price">初期¥0 / 月額 ¥29,800〜</div>
+      <p class="muted">ポータル送客手数料からの脱却を支援。Googleマップ最適化・誠実な口コミ返信・LINE直接予約導線を月額定額で伴走運用します。</p>
+    </article>
+    <article class="card">
+      <h2>4. 法人データ精査・競合調査代行</h2>
+      <div class="price">¥25,000 〜 / 月次更新可</div>
+      <p class="muted">公的一次情報から重複排除・URL死活確認済みの法人営業リスト・競合価格比較表を最短24時間で納品（サンプル20件無料先出し）。</p>
     </article>
   </section>
+
+  <div class="sim-banner">
+    <div>
+      <strong style="color:var(--navy);">無料シミュレーター：</strong>
+      <span class="muted">ポータル手数料脱却・法人化＆インボイス70%・相続手残りをブラウザ完結で1秒試算できます。</span>
+    </div>
+    <a class="sim-cta" href="../asp-sim/">無料3大キャッシュ試算を開く →</a>
+  </div>
 
   <section class="section-card" aria-labelledby="demoHeading">
     <h2 id="demoHeading">今すぐブラウザで触れる「納品品質」ミニ実働デモ（外部送信ゼロ）</h2>
@@ -254,18 +290,18 @@
   </section>
 
   <section class="section-card" aria-labelledby="flowHeading">
-    <h2 id="flowHeading">ご依頼から納品までの流れ（認識ズレを防ぐ4ステップ）</h2>
+    <h2 id="flowHeading">ご依頼から納品までの流れ（認識ズレと追加費用の不安をゼロに）</h2>
     <div class="steps">
       <div class="step"><strong>STEP 1｜現状ヒアリング（無料）</strong>一番ご負担の大きい手作業・現状の課題とご予算をチャットでお伺いします。</div>
-      <div class="step"><strong>STEP 2｜48時間以内に試作品先出し</strong>文章だけの提案ではなく、実際に画面で動く試作品をお見せして認識を揃えます。</div>
-      <div class="step"><strong>STEP 3｜本制作・自動テスト検証</strong>実データでの動作確認・セキュリティ保護・エラー時の安全停止まで組み込んで仕上げます。</div>
-      <div class="step"><strong>STEP 4｜納品・運用サポート</strong>分かりやすい操作手順書とセットで納品。ご希望に応じて月額保守・継続改善も対応します。</div>
+      <div class="step"><strong>STEP 2｜48時間以内に試作品先出し</strong>文章だけの提案ではなく、実際に画面で動く試作品（またはサンプル20件）をお見せして認識を揃えます。</div>
+      <div class="step"><strong>STEP 3｜本制作・安全上限＆自動テスト</strong>実データ検証・API従量課金の上限ロック・エラー時の安全停止まで組み込んで仕上げます。</div>
+      <div class="step"><strong>STEP 4｜納品・月額保守サポート</strong>分かりやすい操作手順書とセットで納品。ご希望に応じて月額3万〜5万円の保守・改善も承ります。</div>
     </div>
   </section>
 
   <footer>
     <strong>お問い合わせ・ご発注窓口：</strong>
-    クラウドワークス・ランサーズ等の正規プラットフォーム経由でのご契約（仮払いエスクロー対応・秘密保持契約NDA締結可能）にて安全に承っております。
+    クラウドワークス・ココナラ等の正規プラットフォーム経由でのご契約（仮払いエスクロー対応・秘密保持契約NDA締結可能）にて安全に承っております。
   </footer>
 </main>
 

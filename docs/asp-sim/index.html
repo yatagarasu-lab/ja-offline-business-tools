@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="text-scale" content="scale">
+<title>【完全無料・登録不要】相続・実家売却／法人化／店舗集客 3大キャッシュ試算シミュレーター</title>
+<meta name="description" content="個人情報入力・営業電話一切なし。ブラウザ内完結で、①相続・実家売却の手残り＆空き家6倍リスク、②個人事業主の法人化・2026年10月インボイス70%負担差、③店舗ポータル手数料脱却の年間利益増を1秒試算します。">
+<style>
+  :root {
+    --navy: #0f2942;
+    --navy-deep: #091a2b;
+    --gold: #a67c2e;
+    --bg: #f6f8fb;
+    --card: #ffffff;
+    --ink: #1a202c;
+    --muted: #4a5568;
+    --border: #cbd5e1;
+    --ok: #146c43;
+    --ok-bg: #eaf7f0;
+    --warn-bg: #fff8eb;
+    --warn-border: #e5b869;
+    --focus: #0b57d0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
+    padding-block-end: 4rem;
+  }
+  header {
+    background: linear-gradient(135deg, var(--navy-deep), var(--navy));
+    color: #ffffff;
+    padding: 2.2rem 1.25rem;
+    border-block-end: 4px solid var(--gold);
+  }
+  .inner, main { max-width: 64rem; margin-inline: auto; }
+  main { padding: 1.5rem 1.25rem; }
+  .kicker { color: #f0d799; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; }
+  header h1 { margin: 0.35rem 0 0.65rem; font-size: clamp(1.4rem, 1.1rem + 1.1vw, 2.1rem); line-height: 1.35; }
+  header p { margin: 0; color: #dbe7f4; max-width: 50rem; }
+  .trust-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block-start: 1rem; }
+  .trust-pill {
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.32);
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.86rem;
+    font-weight: 600;
+  }
+  .sim-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-block-end: 1.2rem;
+  }
+  .tab-btn {
+    font: inherit;
+    font-size: max(1rem, 0.95em);
+    min-inline-size: 44px;
+    min-block-size: 48px;
+    padding: 0.55rem 1.05rem;
+    border-radius: 0.6rem;
+    border: 2px solid var(--border);
+    background: #ffffff;
+    color: var(--navy);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .tab-btn[aria-expanded="true"] {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #ffffff;
+  }
+  .tab-btn:focus-visible, .copy-button:focus-visible, .cta-link:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+  /* NOTE: Per search-hidden-content guidance, borders/padding/backgrounds live on inner .panel-card, NOT on the hidden="until-found" host */
+  .panel-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    padding: 1.4rem;
+    margin-block-end: 1.4rem;
+  }
+  .panel-card h2 {
+    margin: 0 0 0.5rem;
+    color: var(--navy);
+    font-size: 1.28rem;
+  }
+  .muted { color: var(--muted); font-size: 0.94rem; }
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: 0.9rem;
+    margin-block: 1rem;
+  }
+  label { display: block; font-weight: 700; font-size: 0.92rem; margin-block-end: 0.25rem; }
+  input, select {
+    font: inherit;
+    font-size: max(1rem, 1em);
+    min-block-size: 48px;
+    padding: 0.55rem 0.75rem;
+    border: 2px solid #767676;
+    border-radius: 0.5rem;
+    width: 100%;
+    background: #ffffff;
+    color: var(--ink);
+  }
+  .result-box {
+    background: var(--ok-bg);
+    border: 1px solid #9fd8b8;
+    border-radius: 0.7rem;
+    padding: 1rem 1.15rem;
+    white-space: pre-wrap;
+    color: #103a24;
+    font-weight: 600;
+    margin-block: 0.85rem;
+  }
+  .warn-note {
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-border);
+    border-radius: 0.6rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: #5c3d00;
+    margin-block-end: 1rem;
+  }
+  .action-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-block-start: 0.85rem;
+  }
+  .copy { display: inline-flex; align-items: center; gap: 0.55rem; }
+  .copy-button {
+    font: inherit;
+    min-inline-size: 44px;
+    min-block-size: 44px;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--navy);
+    background: #ffffff;
+    color: var(--navy);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .copy-button[data-copied] { background: var(--ok); border-color: var(--ok); color: #ffffff; }
+  .copy-button[data-failed] { background: #b42318; border-color: #b42318; color: #ffffff; }
+  .tip { font-weight: 700; font-size: 0.9rem; color: var(--ok); opacity: 0; transition: opacity 0.15s; }
+  .copy-button[data-copied] + .tip,
+  .copy-button[data-failed] + .tip { opacity: 1; }
+  .cta-box {
+    margin-block-start: 1rem;
+    padding: 1rem 1.15rem;
+    border-radius: 0.75rem;
+    background: #f0f5fb;
+    border: 1px solid #bfd3ea;
+  }
+  .cta-badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--navy);
+    background: #dce8f8;
+    padding: 0.15rem 0.55rem;
+    border-radius: 0.35rem;
+    margin-block-end: 0.45rem;
+  }
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: 48px;
+    padding: 0.65rem 1.25rem;
+    border-radius: 0.55rem;
+    background: var(--navy);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    margin-block-start: 0.4rem;
+  }
+  .faq-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    padding: 1.4rem;
+    margin-block-start: 1.5rem;
+  }
+  .faq-section h2 { margin: 0 0 0.85rem; color: var(--navy); font-size: 1.2rem; }
+  .faq-section details {
+    border-block-end: 1px solid #e2e8f0;
+    padding-block: 0.65rem;
+  }
+  .faq-section summary {
+    list-style: none;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .faq-section summary::before {
+    content: "▸";
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+  .faq-section details[open] > summary::before { transform: rotate(90deg); }
+  .faq-section details::details-content {
+    interpolate-size: allow-keywords;
+    overflow: clip;
+    contain: layout;
+  }
+  .faq-section details:not([open])::details-content { block-size: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    .faq-section details::details-content {
+      transition: block-size 0.25s ease-in-out, content-visibility 0.25s ease-in-out, display 0.25s ease-in-out;
+      transition-behavior: allow-discrete;
+    }
+  }
+  footer {
+    margin-block-start: 1.6rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    background: #eef2f6;
+    border-radius: 0.7rem;
+    padding: 1rem 1.2rem;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <div class="kicker">完全無料・個人情報入力なし・営業電話ゼロ</div>
+    <h1>お金の損を防ぐ「3大キャッシュ試算」オフラインシミュレーター</h1>
+    <p>相続・実家の売却、個人事業主の法人化・インボイス負担、店舗のポータル手数料脱却まで、登録も電話番号入力も一切なしで手残り目安を1秒計算できます。</p>
+    <div class="trust-bar">
+      <span class="trust-pill">入力データは外部送信ゼロ</span>
+      <span class="trust-pill">Windows / Mac / iPhone / Android対応</span>
+      <span class="trust-pill">国税庁・公的基準ベース概算</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="sim-deck">
+    <div class="sim-tabs" aria-label="シミュレーター切替">
+      <button type="button" class="tab-btn" aria-expanded="true" aria-controls="sim-inheritance">① 相続・実家売却＆空き家リスク試算</button>
+      <button type="button" class="tab-btn" aria-expanded="false" aria-controls="sim-corp">② 法人化＆2026年インボイス70%試算</button>
+      <button type="button" class="tab-btn" aria-expanded="false" aria-controls="sim-shop">③ 店舗ポータル手数料脱却（MEO＋LINE）試算</button>
+    </div>
+
+    <div id="sim-inheritance" class="sim-panel">
+      <section class="panel-card" aria-labelledby="h-inh">
+        <h2 id="h-inh">① 相続・実家売却「手残りキャッシュ＆空き家6倍リスク」試算</h2>
+        <p class="muted">不動産会社へ電話する前に、基礎控除・譲渡費用目安・空き家放置時の固定資産税リスクを手元で静かに確認できます。</p>
+        <div class="form-grid">
+          <div>
+            <label for="inhPrice">実家・不動産の想定売却額（万円）</label>
+            <input type="text" id="inhPrice" inputmode="numeric" value="2800">
+          </div>
+          <div>
+            <label for="inhHeirs">法定相続人の人数（人）</label>
+            <input type="text" id="inhHeirs" inputmode="numeric" value="2">
+          </div>
+          <div>
+            <label for="inhOther">預貯金などその他遺産合計（万円）</label>
+            <input type="text" id="inhOther" inputmode="numeric" value="1800">
+          </div>
+          <div>
+            <label for="inhTaxNow">現在の年間固定資産税（万円）</label>
+            <input type="text" id="inhTaxNow" inputmode="numeric" value="12">
+          </div>
+        </div>
+        <div id="inhOut" class="result-box" role="status" aria-live="polite"></div>
+        <div class="warn-note">※本試算は国税庁の一般算式（基礎控除 3,000万円＋600万円×法定相続人数、仲介手数料上限 3%＋6万円＋税）に基づく概算目安です。個別の税務申告・特例判定は必ず税理士・司法書士へご確認ください。</div>
+        <div class="action-row">
+          <span class="copy">
+            <button type="button" class="copy-button" command="--copy" commandfor="inhOut">試算結果を家族共有用にコピー</button>
+            <span class="tip" role="status"></span>
+          </span>
+        </div>
+        <div class="cta-box">
+          <span id="ctaBadgeInh" class="cta-badge">無料比較・相談ガイド</span>
+          <div class="muted">試算した数字をもとに、営業電話を避けながら複数社の査定額や段取りを比較できます。</div>
+          <a id="ctaLinkInh" class="cta-link" href="../shisan/" rel="noopener">営業電話を避けて相場と相続段取りを整理する（無料）</a>
+        </div>
+      </section>
+    </div>
+
+    <div id="sim-corp" class="sim-panel" hidden="until-found">
+      <section class="panel-card" aria-labelledby="h-corp">
+        <h2 id="h-corp">② 個人事業主→法人化＆2026年10月インボイス70%負担試算</h2>
+        <p class="muted">所得水準による法人化検討目安と、2026年10月からのインボイス仕入税額控除（80%→70%）およびクラウド会計・自動化による年間時短メリットを一括試算します。</p>
+        <div class="form-grid">
+          <div>
+            <label for="corpIncome">年間事業所得（売上−経費・万円）</label>
+            <input type="text" id="corpIncome" inputmode="numeric" value="950">
+          </div>
+          <div>
+            <label for="corpExemptBuy">免税事業者への年間外注・仕入額（万円）</label>
+            <input type="text" id="corpExemptBuy" inputmode="numeric" value="300">
+          </div>
+          <div>
+            <label for="corpAdminHrs">毎月の経理・領収書入力時間（時間）</label>
+            <input type="text" id="corpAdminHrs" inputmode="numeric" value="15">
+          </div>
+          <div>
+            <label for="corpHourly">ご自身の時間単価目安（円／時間）</label>
+            <input type="text" id="corpHourly" inputmode="numeric" value="3500">
+          </div>
+        </div>
+        <div id="corpOut" class="result-box" role="status" aria-live="polite"></div>
+        <div class="warn-note">※社会保険料・役員報酬設計・自治体ごとの均等割は条件により異なります。実際の法人設立・申告判断は顧問税理士へご相談ください。</div>
+        <div class="action-row">
+          <span class="copy">
+            <button type="button" class="copy-button" command="--copy" commandfor="corpOut">試算結果を税理士相談メモ用にコピー</button>
+            <span class="tip" role="status"></span>
+          </span>
+        </div>
+        <div class="cta-box">
+          <span id="ctaBadgeCorp" class="cta-badge">無料ツール・自動化相談</span>
+          <div class="muted">2026年10月インボイス70%控除の端数・T番号検証ツールや経理自動化デモを今すぐ無料で利用できます。</div>
+          <a id="ctaLinkCorp" class="cta-link" href="../#panel-inv" rel="noopener">インボイス70%計算＆経理自動化ツールを無料で使う</a>
+        </div>
+      </section>
+    </div>
+
+    <div id="sim-shop" class="sim-panel" hidden="until-found">
+      <section class="panel-card" aria-labelledby="h-shop">
+        <h2 id="h-shop">③ 店舗オーナー向け「ポータル手数料脱却（GoogleマップMEO＋LINE予約）」利益試算</h2>
+        <p class="muted">グルメサイト・予約ポータルへの送客手数料を減らし、Googleマップ検索から手数料¥0の公式LINE直接予約へ切り替えた場合の年間手残り増加額を算出します。</p>
+        <div class="form-grid">
+          <div>
+            <label for="shopBookings">月間の総予約件数（件）</label>
+            <input type="text" id="shopBookings" inputmode="numeric" value="180">
+          </div>
+          <div>
+            <label for="shopTicket">平均客単価（円）</label>
+            <input type="text" id="shopTicket" inputmode="numeric" value="6500">
+          </div>
+          <div>
+            <label for="shopFeePct">ポータル送客手数料＋月額掲載費の実効率（%）</label>
+            <input type="text" id="shopFeePct" inputmode="numeric" value="8">
+          </div>
+          <div>
+            <label for="shopShiftPct">LINE直接予約へ移行する割合（%）</label>
+            <input type="text" id="shopShiftPct" inputmode="numeric" value="40">
+          </div>
+        </div>
+        <div id="shopOut" class="result-box" role="status" aria-live="polite"></div>
+        <div class="action-row">
+          <span class="copy">
+            <button type="button" class="copy-button" command="--copy" commandfor="shopOut">試算結果をコピー</button>
+            <span class="tip" role="status"></span>
+          </span>
+        </div>
+        <div class="cta-box">
+          <span id="ctaBadgeShop" class="cta-badge">初期費用¥0・月額定額プラン</span>
+          <div class="muted">整体・美容室・飲食店向けの「初期費用¥0・Googleマップ最適化＋口コミ返信＋LINE直接予約」実働デモをご確認いただけます。</div>
+          <a id="ctaLinkShop" class="cta-link" href="../b2b/" rel="noopener">初期費用¥0・店舗LINE予約＆MEO構築デモを見る</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <section class="faq-section" aria-labelledby="faqHeading">
+    <h2 id="faqHeading">よくあるご質問（安全性・計算根拠）</h2>
+    <details>
+      <summary>入力した資産額や売上データが外部サーバーへ送信されることはありますか？</summary>
+      <p class="muted">一切ありません。本ページの計算処理はすべてお使いのブラウザ内部（JavaScript）だけで完結し、氏名・電話番号・メールアドレスの入力も不要です。</p>
+    </details>
+    <details>
+      <summary>なぜ無料で公開しているのですか？</summary>
+      <p class="muted">不動産査定やクラウド会計・業務自動化などの比較検討をされる方へ正確な試算環境を無料提供し、提携サービス案内や法人向け業務自動化受託（Yatagarasu Works）によって運営費を賄っているためです。</p>
+    </details>
+    <details>
+      <summary>試算結果をそのまま税務申告や契約に使えますか？</summary>
+      <p class="muted">本ツールは検討の出発点となる概算目安を素早く把握するためのものです。最終的な税額判定・登記・補助金申請などは必ず税理士・司法書士等の有資格者または公式機関にてご確認ください。</p>
+    </details>
+  </section>
+
+  <footer>
+    <strong>関連無料ツール：</strong>
+    <a href="../">オフライン業務ツール総合ハブ</a> ／
+    <a href="../shisan/">くらしと資産の安心シート</a> ／
+    <a href="../b2b/">法人・店舗向け業務自動化＆LINE構築（Yatagarasu Works）</a>
+  </footer>
+</main>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (v) => {
+    const n = parseFloat(String(v || "").replace(/[^0-9.]/g, ""));
+    return Number.isFinite(n) ? n : 0;
+  };
+
+  function calcInheritance() {
+    const priceMan = num($("inhPrice").value);
+    const heirs = Math.max(1, Math.round(num($("inhHeirs").value)));
+    const otherMan = num($("inhOther").value);
+    const taxNowMan = num($("inhTaxNow").value);
+
+    const totalEstateMan = priceMan + otherMan;
+    const basicDeductionMan = 3000 + 600 * heirs;
+    const taxableBaseMan = Math.max(0, totalEstateMan - basicDeductionMan);
+    const brokerageMan = priceMan > 0 ? Math.round((priceMan * 0.03 + 6) * 1.1) : 0;
+    const netSaleBeforeTaxMan = Math.max(0, priceMan - brokerageMan);
+    const vacantRiskAnnualMan = Math.round(taxNowMan * 4.5); // 住宅用地特例解除時の実効3〜6倍増の保守中央目安
+
+    const taxStatus = taxableBaseMan === 0
+      ? "基礎控除（" + basicDeductionMan.toLocaleString("ja-JP") + "万円）の範囲内 → 原則・相続税申告不要の目安"
+      : "基礎控除超過額：約 " + taxableBaseMan.toLocaleString("ja-JP") + "万円（小規模宅地等の特例・配偶者控除の適用確認を推奨）";
+
+    $("inhOut").textContent =
+      `【相続・実家売却 1秒試算結果】
+` +
+      `・遺産総額目安：${totalEstateMan.toLocaleString("ja-JP")}万円 ／ 相続税の基礎控除：${basicDeductionMan.toLocaleString("ja-JP")}万円
+` +
+      `・相続税判定目安：${taxStatus}
+` +
+      `・実家売却時の仲介手数料上限目安：約 ${brokerageMan.toLocaleString("ja-JP")}万円 → 諸費用控除後目安：約 ${netSaleBeforeTaxMan.toLocaleString("ja-JP")}万円
+` +
+      `・空き家放置（管理不全空き家指定）リスク：固定資産税が年 約${taxNowMan}万円 → 最大 約${vacantRiskAnnualMan}〜${Math.round(taxNowMan * 6)}万円/年へ増額の恐れ`;
+  }
+
+  function calcCorp() {
+    const incomeMan = num($("corpIncome").value);
+    const exemptBuyMan = num($("corpExemptBuy").value);
+    const hrs = num($("corpAdminHrs").value);
+    const hourly = Math.max(1000, num($("corpHourly").value));
+
+    const verdict = incomeMan >= 900
+      ? "法人化を本格試算すべき水準（所得税累進率との差が出やすい所得帯）"
+      : (incomeMan >= 600
+        ? "法人化検討ゾーン（役員報酬・社保・消費税免税期間の総合比較が有効）"
+        : "現状は個人事業主＋青色申告65万円控除＆経理自動化が有利になりやすい水準");
+
+    // 2026年10月インボイス経過措置 80% -> 70%（10%分の消費税差＝支払額×10/110×10%）
+    const invExtraTaxYen = Math.round((exemptBuyMan * 10000) * (10 / 110) * 0.10);
+    const savedAdminHrsYr = Math.round(hrs * 0.70 * 12);
+    const savedAdminYenYr = Math.round(savedAdminHrsYr * hourly);
+
+    $("corpOut").textContent =
+      `【法人化＆2026年インボイス・経理時短 試算結果】
+` +
+      `・法人化検討目安：${verdict}
+` +
+      `・2026年10月インボイス控除縮小（80%→70%）による追加消費税負担目安：年間 約¥${invExtraTaxYen.toLocaleString("ja-JP")}
+` +
+      `・クラウド会計＋領収書自動化（作業70%削減想定）の年間時短効果：約 ${savedAdminHrsYr}時間 ／ 人件費換算 約¥${savedAdminYenYr.toLocaleString("ja-JP")}/年`;
+  }
+
+  function calcShop() {
+    const bookings = num($("shopBookings").value);
+    const ticket = num($("shopTicket").value);
+    const feePct = num($("shopFeePct").value);
+    const shiftPct = Math.min(100, num($("shopShiftPct").value));
+
+    const monthlyRev = bookings * ticket;
+    const monthlyFeeSaved = Math.round(monthlyRev * (feePct / 100) * (shiftPct / 100));
+    const annualFeeSaved = monthlyFeeSaved * 12;
+    const netAfterPlan = annualFeeSaved - (29800 * 12);
+
+    $("shopOut").textContent =
+      `【ポータル手数料脱却（GoogleマップMEO＋LINE直接予約）利益試算】
+` +
+      `・月間予約売上目安：約¥${monthlyRev.toLocaleString("ja-JP")}（直接移行 ${shiftPct}% 想定）
+` +
+      `・削減できる送客手数料：毎月 約¥${monthlyFeeSaved.toLocaleString("ja-JP")} ／ 年間 約¥${annualFeeSaved.toLocaleString("ja-JP")}
+` +
+      `・初期費用¥0・月額¥29,800代行プラン導入後の年間実質純利益差：${netAfterPlan >= 0 ? "+" : ""}¥${netAfterPlan.toLocaleString("ja-JP")}/年`;
+  }
+
+  // Search-hidden-content accessible tabs with beforematch synchronization + Safari fallback
+  const deck = document.querySelector(".sim-deck");
+  const buttons = Array.from(document.querySelectorAll(".tab-btn"));
+  const panels = Array.from(document.querySelectorAll(".sim-panel"));
+
+  function activatePanel(targetId) {
+    panels.forEach((p) => {
+      if (p.id === targetId) {
+        p.removeAttribute("hidden");
+      } else {
+        p.setAttribute("hidden", "until-found");
+      }
+    });
+    buttons.forEach((b) => {
+      b.setAttribute("aria-expanded", b.getAttribute("aria-controls") === targetId ? "true" : "false");
+    });
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => activatePanel(btn.getAttribute("aria-controls")));
+  });
+
+  if ("onbeforematch" in HTMLElement.prototype) {
+    deck.addEventListener("beforematch", (e) => {
+      const matched = e.target.closest(".sim-panel");
+      if (matched) activatePanel(matched.id);
+    });
+  } else {
+    // Fallback per search-hidden-content guidance: reveal all linearly on browsers without until-found
+    panels.forEach((p) => p.removeAttribute("hidden"));
+    buttons.forEach((b) => b.setAttribute("aria-expanded", "true"));
+  }
+
+  // Accessible copy-button with CommandEvent single-path fallback + VoiceOver repeat dedup
+  const timers = new WeakMap();
+  let lastMessage = "";
+
+  function legacyCopy(text) {
+    const previousFocus = document.activeElement;
+    const field = Object.assign(document.createElement("textarea"), { value: text });
+    field.setAttribute("readonly", "");
+    field.style.cssText = "position:fixed;inset-block-start:0;opacity:0";
+    document.body.append(field);
+    field.select();
+    try {
+      return document.execCommand("copy");
+    } finally {
+      field.remove();
+      previousFocus?.focus({ preventScroll: true });
+    }
+  }
+
+  function reportCopy(button, ok) {
+    const tip = button.nextElementSibling;
+    clearTimeout(timers.get(button));
+    button.removeAttribute("data-copied");
+    button.removeAttribute("data-failed");
+    let message = ok ? "コピーしました" : "コピーできませんでした";
+    if (message === lastMessage) message += " ";
+    lastMessage = message;
+    if (tip) tip.textContent = "";
+    void button.offsetWidth;
+    button.setAttribute(ok ? "data-copied" : "data-failed", "");
+    requestAnimationFrame(() => { if (tip) tip.textContent = message; });
+    timers.set(button, setTimeout(() => {
+      button.removeAttribute("data-copied");
+      button.removeAttribute("data-failed");
+      if (tip) tip.textContent = "";
+    }, 2000));
+  }
+
+  async function doCopy(button, target) {
+    const text = target.matches("input, textarea") ? target.value : target.innerText.trim();
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      reportCopy(button, true);
+    } catch {
+      reportCopy(button, legacyCopy(text));
+    }
+  }
+
+  if ("CommandEvent" in window) {
+    document.addEventListener("command", (e) => {
+      if (e.command === "--copy") doCopy(e.source, e.target);
+    }, true);
+  } else {
+    document.addEventListener("click", (e) => {
+      if (e.defaultPrevented) return;
+      const btn = e.target.closest('button[command="--copy"]');
+      if (!btn) return;
+      const target = document.getElementById(btn.getAttribute("commandfor"));
+      if (target) doCopy(btn, target);
+    });
+  }
+
+  // Optional dynamic ASP link hydration from sibling ./asp_links.json (zero-fail progressive enhancement)
+  fetch("./asp_links.json", { cache: "no-store" })
+    .then((r) => (r.ok ? r.json() : null))
+    .then((cfg) => {
+      if (!cfg || !cfg.slots) return;
+      const applySlot = (key, linkId, badgeId) => {
+        const s = cfg.slots[key];
+        if (!s || !s.url) return;
+        const a = $(linkId);
+        const b = $(badgeId);
+        if (a) {
+          a.href = s.url;
+          if (s.label) a.textContent = s.label;
+          if (s.active_asp) a.setAttribute("rel", "sponsored noopener");
+        }
+        if (b && s.pr_disclosure) b.textContent = s.active_asp ? "PR・" + s.pr_disclosure : s.pr_disclosure;
+      };
+      applySlot("real_estate_inheritance", "ctaLinkInh", "ctaBadgeInh");
+      applySlot("corp_accounting", "ctaLinkCorp", "ctaBadgeCorp");
+      applySlot("shop_meo_line", "ctaLinkShop", "ctaBadgeShop");
+    })
+    .catch(() => {});
+
+  ["inhPrice", "inhHeirs", "inhOther", "inhTaxNow"].forEach((id) => $(id).addEventListener("input", calcInheritance));
+  ["corpIncome", "corpExemptBuy", "corpAdminHrs", "corpHourly"].forEach((id) => $(id).addEventListener("input", calcCorp));
+  ["shopBookings", "shopTicket", "shopFeePct", "shopShiftPct"].forEach((id) => $(id).addEventListener("input", calcShop));
+  calcInheritance();
+  calcCorp();
+  calcShop();
+})();
+</script>
+</body>
+</html>
