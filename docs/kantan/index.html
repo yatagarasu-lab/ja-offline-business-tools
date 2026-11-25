@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="text-scale" content="scale">
+<title>考えなくてOK！スマホ1タップ無料コピペ文面集（断り方・お詫び・メルカリ値下げ撃退）</title>
+<meta name="description" content="会員登録なし・アプリ不要。気まずいLINEの断り方・返信忘れのお詫び・メルカリの大幅値下げ撃退コメントを、スマホから1タップでコピーしてそのまま送れます。">
+<style>
+  :root {
+    --bg: #fdfaf5;
+    --card: #ffffff;
+    --ink: #1e242b;
+    --muted: #5a6573;
+    --brand: #0f766e;
+    --brand-dark: #0b5a54;
+    --accent: #d97706;
+    --border: #d8e0e6;
+    --ok: #15803d;
+    --danger: #b91c1c;
+    --focus: #0b57d0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, -apple-system, sans-serif;
+    line-height: 1.65;
+    padding-block-end: 4rem;
+  }
+  header {
+    background: linear-gradient(135deg, var(--brand-dark), var(--brand));
+    color: #ffffff;
+    padding: 1.8rem 1.15rem;
+    border-block-end: 4px solid var(--accent);
+  }
+  .inner, main { max-width: 52rem; margin-inline: auto; }
+  main { padding: 1.25rem 1rem; }
+  header h1 { margin: 0 0 0.45rem; font-size: clamp(1.35rem, 1.05rem + 1.2vw, 1.95rem); line-height: 1.35; }
+  header p { margin: 0; color: #e6f6f4; font-size: 1rem; }
+  .pills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-block-start: 0.85rem; }
+  .pill {
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 0.22rem 0.7rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block-end: 1.15rem;
+  }
+  .filter-btn {
+    font: inherit;
+    font-size: max(1rem, 0.95em);
+    min-height: 48px;
+    padding: 0.5rem 0.95rem;
+    border-radius: 999px;
+    border: 2px solid var(--border);
+    background: #ffffff;
+    color: var(--ink);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .filter-btn[aria-pressed="true"] {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #ffffff;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: 1rem;
+    margin-block-end: 2rem;
+  }
+  .phrase-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.85rem;
+    padding: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .phrase-card[hidden] { display: none; }
+  .cat-tag {
+    display: inline-block;
+    background: #e6f4f1;
+    color: var(--brand-dark);
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.18rem 0.55rem;
+    border-radius: 0.4rem;
+    margin-block-end: 0.35rem;
+  }
+  .phrase-card h3 { margin: 0; font-size: 1.06rem; color: #111827; }
+  .phrase-text {
+    margin: 0;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.6rem;
+    padding: 0.85rem;
+    font-size: 0.98rem;
+    white-space: pre-wrap;
+    flex: 1;
+  }
+  .copy-row { display: flex; align-items: center; }
+  .copy { position: relative; display: inline-flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; }
+  .copy-button {
+    font: inherit;
+    font-size: max(1rem, 0.96em);
+    min-inline-size: 9.5rem;
+    min-block-size: 48px;
+    padding: 0.55rem 1.1rem;
+    border-radius: 0.6rem;
+    border: 2px solid var(--brand);
+    background: var(--brand);
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .copy-button:hover { background: var(--brand-dark); }
+  .copy-button[data-copied] { background: var(--ok); border-color: var(--ok); }
+  .copy-button[data-failed] { background: var(--danger); border-color: var(--danger); }
+  .copy-button:focus-visible, .filter-btn:focus-visible, .buy-btn:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .tip {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--ok);
+    opacity: 0;
+    transition: opacity 0.18s ease;
+  }
+  .copy-button[data-copied] + .tip { opacity: 1; color: var(--ok); }
+  .copy-button[data-failed] + .tip { opacity: 1; color: var(--danger); }
+  @media (prefers-reduced-motion: reduce) {
+    .tip { transition: none; }
+  }
+
+  .upsell-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
+    gap: 1.1rem;
+  }
+  .upsell {
+    background: #ffffff;
+    border: 2px solid var(--brand);
+    border-radius: 0.95rem;
+    padding: 1.3rem;
+  }
+  .upsell.warm { border-color: var(--accent); }
+  .price-pill {
+    display: inline-block;
+    background: #fef3c7;
+    color: #92400e;
+    font-weight: 800;
+    padding: 0.22rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    margin-block-end: 0.5rem;
+  }
+  .upsell h2 { margin: 0 0 0.5rem; font-size: 1.18rem; line-height: 1.4; }
+  .upsell p { margin: 0 0 0.9rem; color: var(--muted); font-size: 0.95rem; }
+  .buy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-block-size: 52px;
+    padding: 0.7rem 1rem;
+    border-radius: 0.65rem;
+    background: var(--brand);
+    color: #ffffff;
+    font-weight: 800;
+    text-decoration: none;
+    text-align: center;
+  }
+  .upsell.warm .buy-btn { background: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <h1>もう文章で悩まない！1タップ無料コピペ文面集</h1>
+    <p>「断りたいけど嫌われたくない」「メルカリの大幅値下げに何て返せばいい？」をスマホ1タップで解決。会員登録もアプリも不要です。</p>
+    <div class="pills">
+      <span class="pill">スマホ1タップでコピー</span>
+      <span class="pill">会員登録・ダウンロードなし</span>
+      <span class="pill">LINE・メール・メルカリ対応</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="filter-bar" role="group" aria-label="場面の絞り込み">
+    <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">すべて表示（8選）</button>
+    <button type="button" class="filter-btn" data-filter="気まずい誘いを断る" aria-pressed="false">断り方</button>
+    <button type="button" class="filter-btn" data-filter="お詫び・催促" aria-pressed="false">お詫び・催促</button>
+    <button type="button" class="filter-btn" data-filter="メルカリ神対応" aria-pressed="false">メルカリ神対応</button>
+  </div>
+
+  <section class="grid" aria-label="無料コピペ文面サンプル">
+    
+    <article class="phrase-card" data-cat="気まずい誘いを断る">
+      <div class="card-head">
+        <span class="cat-tag">気まずい誘いを断る</span>
+        <h3>飲み会・遊びを嫌われずに断る</h3>
+      </div>
+      <p id="txt_s1" class="phrase-text">お誘いありがとうございます！すごく嬉しいのですが、その日はどうしても外せない予定があって…。また別の機会にぜひ誘ってください！</p>
+      <div class="copy-row">
+        <span class="copy">
+          <button type="button" class="copy-button" command="--copy" commandfor="txt_s1">
+            <span class="btn-label">1タップでコピー</span>
+          </button>
+          <span class="tip" role="status"></span>
+        </span>
+      </div>
+    </article>
+    <article class="phrase-card" data-cat="気まずい誘いを断る">
+      <div class="card-head">
+        <span class="cat-tag">気まずい誘いを断る</span>
+        <h3>急な残業・お願いを角を立てずに断る</h3>
+      </div>
+      <p id="txt_s2" class="phrase-text">お疲れ様です。あいにく本日は定時後に外せない予定があり、残業が難しい状況です。明日の朝一番で優先して対応いたします！</p>
+      <div class="copy-row">
+        <span class="copy">
+          <button type="button" class="copy-button" command="--copy" commandfor="txt_s2">
+            <span class="btn-label">1タップでコピー</span>
+          </button>
+          <span class="tip" role="status"></span>
+        </span>
+      </div>
+    </article>
+    <article class="phrase-card" data-cat="お詫び・催促">
+      <div class="card-head">
+        <span class="cat-tag">お詫び・催促</span>
+        <h3>LINE・メールの返信を数日忘れたお詫び</h3>
+      </div>
+      <p id="txt_s3" class="phrase-text">お返事が大変遅くなり申し訳ありません！バタバタして見落としておりました。ご心配をおかけしてすみません。</p>
+      <div class="copy-row">
+        <span class="copy">
+          <button type="button" class="copy-button" command="--copy" commandfor="txt_s3">
+            <span class="btn-label">1タップでコピー</span>
+          </button>
+          <span class="tip" role="status"></span>
+        </span>
+      </div>
+    </article>
+    <article class="phrase-card" data-cat="お詫び・催促">
+      <div class="card-head">
+        <span class="cat-tag">お詫び・催促</span>
+        <h3>立て替えたお金をイヤミなく催促する</h3>
+      </div>
+      <p id="txt_s4" class="phrase-text">先日はありがとうございました！とても楽しかったです。お手数ですが、立て替えていた〇〇円の件、お時間のあるときにお願いできると助かります！</p>
+      <div class="copy-row">
+        <span class="copy">
+          <button type="button" class="copy-button" command="--copy" commandfor="txt_s4">
+            <span class="btn-label">1タップでコピー</span>
+          </button>
+          <span class="tip" role="status"></span>
+        </span>
+      </div>
+    </article>
+    <article class="phrase-card" data-cat="メルカリ神対応">
+      <div class="card-head">
+        <span class="cat-tag">メルカリ神対応</span>
+        <h3>半額など非常識な値下げ交渉を撃退</h3>
+      </div>
+      <p id="txt_s5" class="phrase-text">コメントありがとうございます！申し訳ありませんが、送料と手数料がかかるため大幅なお値下げは考えておりません。現在価格にてご検討いただけますと幸いです。</p>
+      <div class="copy-row">
+        <span class="copy">
+          <button type="button" class="copy-button" command="--copy" commandfor="txt_s5">
+            <span class="btn-label">1タップでコピー</span>
+          </button>
+          <span class="tip" role="status"></span>
+        </span>
+      </div>
+    </article>
+    <article class="phrase-card" data-cat="メルカリ神対応">
+      <div class="card-head">
+        <span class="cat-tag">メルカリ神対応</span>
+        <h3>「いくらまで下げられますか？」への神返し</h3>
+      </div>
+      <p id="txt_s6" class="phrase-text">コメントありがとうございます！ご希望の金額はおいくらでしょうか？大幅なお値下げは難しいのですが、常識の範囲内でしたら検討させていただきます！</p>
+      <div class="copy-row">
+        <span class="copy">
+          <button type="button" class="copy-button" command="--copy" commandfor="txt_s6">
+            <span class="btn-label">1タップでコピー</span>
+          </button>
+          <span class="tip" role="status"></span>
+        </span>
+      </div>
+    </article>
+    <article class="phrase-card" data-cat="メルカリ神対応">
+      <div class="card-head">
+        <span class="cat-tag">メルカリ神対応</span>
+        <h3>購入された直後の安心メッセージ</h3>
+      </div>
+      <p id="txt_s7" class="phrase-text">このたびはご購入いただきありがとうございます！取引終了まで丁寧に対応いたします。〇月〇日ごろまでに発送予定ですので、今しばらくお待ちくださいませ。</p>
+      <div class="copy-row">
+        <span class="copy">
+          <button type="button" class="copy-button" command="--copy" commandfor="txt_s7">
+            <span class="btn-label">1タップでコピー</span>
+          </button>
+          <span class="tip" role="status"></span>
+        </span>
+      </div>
+    </article>
+    <article class="phrase-card" data-cat="メルカリ神対応">
+      <div class="card-head">
+        <span class="cat-tag">メルカリ神対応</span>
+        <h3>トラブルを9割防ぐ万能プロフィール文</h3>
+      </div>
+      <p id="txt_s8" class="phrase-text">ご覧いただきありがとうございます！即購入大歓迎です（交渉中でも先に購入された方優先となります）。ペットなし・喫煙者なし、丁寧梱包を心がけています！</p>
+      <div class="copy-row">
+        <span class="copy">
+          <button type="button" class="copy-button" command="--copy" commandfor="txt_s8">
+            <span class="btn-label">1タップでコピー</span>
+          </button>
+          <span class="tip" role="status"></span>
+        </span>
+      </div>
+    </article>
+  </section>
+
+  <section class="upsell-grid" aria-label="完全版ワンコイン案内">
+    <div class="upsell">
+      <span class="price-pill">スマホでそのまま読める・¥300買い切り</span>
+      <h2>神フレーズ完全版80選（断り方・お詫び・催促・義実家・仕事・恋愛）</h2>
+      <p>ダウンロードや解凍いらず。noteを開いたその場から全80パターンをコピーしてそのままLINE・メールに貼れます。</p>
+      <a class="buy-btn" href="https://note.com/laughmakerclown/n/ndf69efce9e35" target="_blank" rel="noopener">noteで全80選を見る（¥300・PayPay/クレカ/携帯決済）</a>
+    </div>
+    <div class="upsell warm">
+      <span class="price-pill">スマホでそのまま読める・¥300買い切り</span>
+      <h2>メルカリ丸写しテンプレ完全版60選（商品説明・大幅値下げ撃退・クレーム対応・送料表）</h2>
+      <p>説明文づくりと値下げコメント返信のストレスをゼロに。送料で赤字にならない早見表もそのまま収録しています。</p>
+      <a class="buy-btn" href="https://note.com/laughmakerclown/n/n830505e89ba8" target="_blank" rel="noopener">noteで全60選を見る（¥300・PayPay/クレカ/携帯決済）</a>
+    </div>
+  </section>
+</main>
+
+<script>
+(() => {
+  const timers = new WeakMap();
+  let lastMessage = "";
+
+  function legacyCopy(text) {
+    const prev = document.activeElement;
+    const field = Object.assign(document.createElement("textarea"), { value: text });
+    field.setAttribute("readonly", "");
+    field.style.cssText = "position:fixed;inset-block-start:0;opacity:0";
+    document.body.append(field);
+    field.select();
+    try {
+      return document.execCommand("copy");
+    } finally {
+      field.remove();
+      if (prev && typeof prev.focus === "function") prev.focus({ preventScroll: true });
+    }
+  }
+
+  function report(button, ok) {
+    const tip = button.nextElementSibling;
+    clearTimeout(timers.get(button));
+    button.removeAttribute("data-copied");
+    button.removeAttribute("data-failed");
+    let message = ok ? "コピーしました！" : "コピーできませんでした";
+    if (message === lastMessage) message += "\u00A0";
+    lastMessage = message;
+    if (tip) tip.textContent = "";
+    void button.offsetWidth;
+    button.setAttribute(ok ? "data-copied" : "data-failed", "");
+    const lbl = button.querySelector(".btn-label");
+    if (lbl) lbl.textContent = ok ? "✓ コピー済み" : "再試行";
+    requestAnimationFrame(() => { if (tip) tip.textContent = message; });
+    timers.set(button, setTimeout(() => {
+      button.removeAttribute("data-copied");
+      button.removeAttribute("data-failed");
+      if (lbl) lbl.textContent = "1タップでコピー";
+      if (tip) tip.textContent = "";
+    }, 2000));
+  }
+
+  async function copy(button, target) {
+    const text = target.matches("input, textarea") ? target.value : target.innerText.trim();
+    if (!text) return;
+    try {
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+        await navigator.clipboard.writeText(text);
+      } else if (!legacyCopy(text)) {
+        throw new Error("copy failed");
+      }
+      report(button, true);
+    } catch {
+      if (legacyCopy(text)) report(button, true);
+      else report(button, false);
+    }
+  }
+
+  if ("CommandEvent" in window) {
+    document.addEventListener("command", (event) => {
+      if (event.command === "--copy") copy(event.source, event.target);
+    }, true);
+  } else {
+    document.addEventListener("click", (event) => {
+      if (event.defaultPrevented) return;
+      const button = event.target.closest('button[command="--copy"]');
+      if (!button) return;
+      const target = document.getElementById(button.getAttribute("commandfor"));
+      if (target) copy(button, target);
+    });
+  }
+
+  document.querySelectorAll(".filter-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const f = btn.dataset.filter;
+      document.querySelectorAll(".filter-btn").forEach((b) => b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
+      document.querySelectorAll(".phrase-card").forEach((card) => {
+        card.hidden = f !== "all" && card.dataset.cat !== f;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
