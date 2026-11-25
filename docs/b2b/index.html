@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="text-scale" content="scale">
+<title>業務自動化・LINE予約・店舗Web構築パートナー｜Yatagarasu Works</title>
+<meta name="description" content="中小企業・店舗・個人事業主向けの丸投げ業務自動化、LINE公式予約・自動応答構築、データ収集・請求書整理の自動化を最短48時間試作品先出しで対応します。">
+<style>
+  :root {
+    --navy: #0f2942;
+    --navy-dark: #091b2d;
+    --gold: #a67c2e;
+    --bg: #f6f8fa;
+    --card: #ffffff;
+    --ink: #1a202c;
+    --muted: #4a5568;
+    --border: #d0d7de;
+    --ok: #146c43;
+    --ok-bg: #eaf7f0;
+    --focus: #0b57d0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
+    padding-block-end: 4rem;
+  }
+  header {
+    background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+    color: #ffffff;
+    padding: 2.5rem 1.25rem;
+    border-block-end: 4px solid var(--gold);
+  }
+  .inner, main { max-width: 66rem; margin-inline: auto; }
+  main { padding: 1.5rem 1.25rem; }
+  .kicker { color: #f0d799; font-weight: 700; font-size: 0.92rem; letter-spacing: 0.06em; }
+  header h1 { margin: 0.4rem 0 0.7rem; font-size: clamp(1.5rem, 1.15rem + 1.2vw, 2.25rem); line-height: 1.35; }
+  header p { margin: 0; color: #dbe7f4; max-width: 48rem; }
+  .badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block-start: 1.1rem; }
+  .badge {
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+    gap: 1.15rem;
+    margin-block-end: 1.75rem;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.85rem;
+    padding: 1.35rem;
+    min-height: 11rem;
+  }
+  .card h2, .section-card h2 {
+    margin: 0 0 0.65rem;
+    color: var(--navy);
+    font-size: 1.25rem;
+  }
+  .section-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    padding: 1.5rem;
+    margin-block-end: 1.5rem;
+  }
+  .price { font-size: 1.35rem; font-weight: 800; color: var(--gold); margin-block: 0.4rem; }
+  .muted { color: var(--muted); font-size: 0.94rem; }
+  .demo-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block-end: 1rem; }
+  button {
+    font: inherit;
+    font-size: max(1rem, 0.95em);
+    min-height: 48px;
+    padding: 0.55rem 1.1rem;
+    border-radius: 0.55rem;
+    border: 2px solid var(--border);
+    background: #ffffff;
+    color: var(--navy);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  button[aria-selected="true"], .btn-primary {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #ffffff;
+  }
+  button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .demo-box {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 0.7rem;
+    padding: 1.15rem;
+  }
+  .demo-box[hidden] { display: none; }
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: 0.85rem;
+    margin-block-end: 0.9rem;
+  }
+  label { display: block; font-weight: 700; font-size: 0.92rem; margin-block-end: 0.25rem; }
+  input, select, textarea {
+    font: inherit;
+    font-size: max(1rem, 1em);
+    min-height: 48px;
+    padding: 0.55rem 0.75rem;
+    border: 2px solid #767676;
+    border-radius: 0.5rem;
+    width: 100%;
+    background: #ffffff;
+    color: var(--ink);
+  }
+  .out-box {
+    margin-block-start: 0.85rem;
+    background: var(--ok-bg);
+    border: 1px solid #a7dfc0;
+    border-radius: 0.6rem;
+    padding: 0.95rem 1.1rem;
+    white-space: pre-wrap;
+    color: #103a24;
+    font-weight: 600;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 0.9rem;
+  }
+  .step {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--gold);
+    border-radius: 0.65rem;
+    padding: 1rem;
+  }
+  .step strong { color: var(--navy); display: block; margin-block-end: 0.3rem; }
+  footer {
+    font-size: 0.88rem;
+    color: var(--muted);
+    background: #eef2f6;
+    border-radius: 0.7rem;
+    padding: 1rem 1.2rem;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <div class="kicker">YATAGARASU WORKS｜中小企業・店舗・個人事業主向け 実務自動化パートナー</div>
+    <h1>面倒な手作業・LINE対応・データ整理を「丸投げ」で仕組み化します</h1>
+    <p>「ツールを買ったけれど設定できない」「毎月の集計や予約返信に時間を奪われている」現場のために、最短48時間で動く試作品を先出しし、導入から保守まで一気通貫で構築します。</p>
+    <div class="badges">
+      <span class="badge">48時間以内に動く試作品を先出し</span>
+      <span class="badge">セキュリティ・外部漏えい対策標準実装</span>
+      <span class="badge">納品後の自動テスト・保守対応</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="grid" aria-label="主要サービスメニューと料金目安">
+    <article class="card">
+      <h2>1. LINE公式 予約・自動応答構築</h2>
+      <div class="price">¥50,000 〜 ¥150,000</div>
+      <p class="muted">飲食店・サロン・クリニック・不動産店向けに、24時間自動応答・予約受付・リマインド・リピート案内を丸ごと構築。電話対応と予約漏れを大幅削減します。</p>
+    </article>
+    <article class="card">
+      <h2>2. 業務自動化・データ収集パイプライン</h2>
+      <div class="price">¥50,000 〜 ¥200,000</div>
+      <p class="muted">請求書・領収書PDFの自動集計、スプレッドシート/会計CSV変換、Web情報収集、定時レポート配信を自動化。毎日1〜3時間の手作業をゼロにします。</p>
+    </article>
+    <article class="card">
+      <h2>3. 店舗・法人Webサイト刷新＆継続保守</h2>
+      <div class="price">構築 ¥80,000〜 / 保守 月¥30,000〜</div>
+      <p class="muted">スマホ1秒表示・問い合わせ導線最適化・口コミ返信支援まで一体設計。納品後も止まらない監視と毎月の改善をまるごとお任せいただけます。</p>
+    </article>
+  </section>
+
+  <section class="section-card" aria-labelledby="demoHeading">
+    <h2 id="demoHeading">今すぐブラウザで触れる「納品品質」ミニ実働デモ（外部送信ゼロ）</h2>
+    <p class="muted">ご発注前に品質をご確認いただけるよう、代表的な3パターンの簡易デモをこの画面上で動かせるようにしています。</p>
+    <div class="demo-tabs" role="tablist" aria-label="デモ切替">
+      <button type="button" role="tab" data-tab="line" aria-selected="true">① 店舗LINE自動応答デモ</button>
+      <button type="button" role="tab" data-tab="invoice" aria-selected="false">② 業務時短・ROI試算デモ</button>
+      <button type="button" role="tab" data-tab="review" aria-selected="false">③ Google口コミ丁寧返信デモ</button>
+    </div>
+
+    <div id="panel_line" class="demo-box" role="tabpanel">
+      <div class="form-row">
+        <div>
+          <label for="shopName">店舗・会社名</label>
+          <input type="text" id="shopName" value="さくら整体院">
+        </div>
+        <div>
+          <label for="custIntent">お客様からの問い合わせ内容</label>
+          <select id="custIntent">
+            <option value="reserve">明日の午後に予約したいです</option>
+            <option value="price">初回料金と所要時間を教えてください</option>
+            <option value="cancel">急用で予約日時を変更したいです</option>
+          </select>
+        </div>
+      </div>
+      <div id="lineOut" class="out-box" role="status" aria-live="polite"></div>
+    </div>
+
+    <div id="panel_invoice" class="demo-box" role="tabpanel" hidden>
+      <div class="form-row">
+        <div>
+          <label for="dailyMins">現在の手作業時間（分／営業日）</label>
+          <input type="text" id="dailyMins" inputmode="numeric" value="45">
+        </div>
+        <div>
+          <label for="hourlyCost">担当者の人件費目安（円／時間）</label>
+          <input type="text" id="hourlyCost" inputmode="numeric" value="2500">
+        </div>
+        <div>
+          <label for="buildFee">自動化構築費の目安（円）</label>
+          <input type="text" id="buildFee" inputmode="numeric" value="100000">
+        </div>
+      </div>
+      <div id="roiOut" class="out-box" role="status" aria-live="polite"></div>
+    </div>
+
+    <div id="panel_review" class="demo-box" role="tabpanel" hidden>
+      <div class="form-row">
+        <div>
+          <label for="revShop">店舗名</label>
+          <input type="text" id="revShop" value="ビストロ・みらい">
+        </div>
+        <div>
+          <label for="revTone">お客様の口コミ種別</label>
+          <select id="revTone">
+            <option value="star5">★5 高評価（接客と料理が最高でした！）</option>
+            <option value="star3">★3 普通（味は良いが少し待ち時間が長かった）</option>
+            <option value="star2">★2 厳しいご指摘（提供ミス・説明不足があった）</option>
+          </select>
+        </div>
+      </div>
+      <div id="revOut" class="out-box" role="status" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="section-card" aria-labelledby="flowHeading">
+    <h2 id="flowHeading">ご依頼から納品までの流れ（認識ズレを防ぐ4ステップ）</h2>
+    <div class="steps">
+      <div class="step"><strong>STEP 1｜現状ヒアリング（無料）</strong>一番ご負担の大きい手作業・現状の課題とご予算をチャットでお伺いします。</div>
+      <div class="step"><strong>STEP 2｜48時間以内に試作品先出し</strong>文章だけの提案ではなく、実際に画面で動く試作品をお見せして認識を揃えます。</div>
+      <div class="step"><strong>STEP 3｜本制作・自動テスト検証</strong>実データでの動作確認・セキュリティ保護・エラー時の安全停止まで組み込んで仕上げます。</div>
+      <div class="step"><strong>STEP 4｜納品・運用サポート</strong>分かりやすい操作手順書とセットで納品。ご希望に応じて月額保守・継続改善も対応します。</div>
+    </div>
+  </section>
+
+  <footer>
+    <strong>お問い合わせ・ご発注窓口：</strong>
+    クラウドワークス・ランサーズ等の正規プラットフォーム経由でのご契約（仮払いエスクロー対応・秘密保持契約NDA締結可能）にて安全に承っております。
+  </footer>
+</main>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const num = (v) => {
+    const s = String(v || "").replace(/[^0-9.]/g, "");
+    const n = parseFloat(s);
+    return Number.isFinite(n) ? n : 0;
+  };
+  function updateLine() {
+    const shop = $("shopName").value.trim() || "当店";
+    const intent = $("custIntent").value;
+    const replies = {
+      reserve: `【${shop} 自動応答】ご連絡ありがとうございます！明日の午後ですと「14:00〜」「16:30〜」に空きがございます。ご希望のお時間帯をタップしてお選びください（仮予約が30秒で完了します）。`,
+      price: `【${shop} 自動応答】お問い合わせありがとうございます！初回コースは60分 ¥5,500（カウンセリング込）でございます。そのまま空き枠の確認・ご予約も可能です。`,
+      cancel: `【${shop} 自動応答】日時変更のご連絡ありがとうございます。ご希望の変更候補日を2つほどお送りいただければ、自動で空き枠を照合してご案内いたします。`
+    };
+    $("lineOut").textContent = replies[intent] || replies.reserve;
+  }
+  function updateRoi() {
+    const mins = Math.max(1, num($("dailyMins").value));
+    const wage = Math.max(500, num($("hourlyCost").value));
+    const fee = Math.max(10000, num($("buildFee").value));
+    const monthlySavedHours = (mins / 60) * 22 * 0.85;
+    const monthlySavedYen = Math.round(monthlySavedHours * wage);
+    const annualSavedYen = monthlySavedYen * 12;
+    const paybackMonths = monthlySavedYen > 0 ? (fee / monthlySavedYen).toFixed(1) : "-";
+    $("roiOut").textContent =
+      `自動化による削減見込（稼働85%削減想定）：毎月 約${monthlySavedHours.toFixed(1)}時間 ／ 月間コスト削減 約¥${monthlySavedYen.toLocaleString("ja-JP")}
+` +
+      `年間コスト削減効果：約¥${annualSavedYen.toLocaleString("ja-JP")}（初期投資の回収目安：約 ${paybackMonths}ヶ月）`;
+  }
+  function updateRev() {
+    const shop = $("revShop").value.trim() || "当店";
+    const tone = $("revTone").value;
+    const map = {
+      star5: `このたびは${shop}へご来店いただき、また大変温かいお言葉を頂戴し誠にありがとうございます！スタッフ一同大きな励みになります。季節ごとのメニューもご用意しておりますので、ぜひまたお気軽にお立ち寄りくださいませ。`,
+      star3: `このたびは${shop}をご利用いただき誠にありがとうございます。お味について嬉しいお言葉をいただく一方、待ち時間でご不便をおかけし申し訳ございません。ご案内オペレーションを見直し、次回はより快適にお過ごしいただけるよう改善いたします。`,
+      star2: `このたびは${shop}にてご不快な思いをおかけし、心よりお詫び申し上げます。頂戴したご指摘を真摯に受け止め、確認手順とスタッフ共有を即時徹底いたしました。貴重なご意見をありがとうございました。`
+    };
+    $("revOut").textContent = map[tone] || map.star5;
+  }
+
+  document.querySelectorAll(".demo-tabs button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const target = btn.dataset.tab;
+      document.querySelectorAll(".demo-tabs button").forEach((b) => b.setAttribute("aria-selected", b === btn ? "true" : "false"));
+      ["line", "invoice", "review"].forEach((k) => { $("panel_" + k).hidden = k !== target; });
+    });
+  });
+  ["shopName", "custIntent"].forEach((id) => $(id).addEventListener("input", updateLine));
+  ["dailyMins", "hourlyCost", "buildFee"].forEach((id) => $(id).addEventListener("input", updateRoi));
+  ["revShop", "revTone"].forEach((id) => $(id).addEventListener("input", updateRev));
+  updateLine();
+  updateRoi();
+  updateRev();
+})();
+</script>
+</body>
+</html>
