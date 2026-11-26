@@ -1,6 +1,6 @@
 {
   "schema": "media-portal-feed/v1",
-  "updated_at_utc": "2026-11-26T08:04:47.475439+00:00",
+  "updated_at_utc": "2026-11-26T19:52:24.643127+00:00",
   "history_featured": {
     "episode_id": "history_ep01",
     "title_ja": "【一次史料で比較】世界の教科書はどう教える？学校で習った世界史5つの通説と一次公文書【漫画アニメ解説】",
@@ -198,12 +198,12 @@
       ]
     },
     {
-      "source_name": "Yahoo!経済",
-      "impact_domain": "仕事・家計",
-      "impact_score": 78,
-      "title": "中小企業の賃上げ税制 縮小で調整",
-      "summary": "中小企業の賃上げ税制 縮小で調整",
-      "link": "https://news.yahoo.co.jp/pickup/6604006?source=rss",
+      "source_name": "NHK主要ニュース",
+      "impact_domain": "インフラ・家計",
+      "impact_score": 77,
+      "title": "ラグビーリーグワン フィジー出身選手が死亡 熱中症疑いで搬送",
+      "summary": "ラグビーリーグワンの2部にあたるディビジョン2の「九州電力キューデンヴォルテクス」は、チームに所属するサイモニ・ヴニランギ選手が熱中症の疑いで病院に搬送され、その後、死亡したと発表しました。",
+      "link": "http://www3.nhk.or.jp/news/html/20260808/k10015200291000.html",
       "angles": [
         "① 家計の固定費への直撃：値上げ・金利・制度変更は年間数万円単位の手残り差を生む",
         "② 放置損を防ぐチェック：控除・補助・契約プランの見直し期限を早めに確認するのが鉄則",
