@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="text-scale" content="scale">
+<title>真実のアーカイブ＆暮らしのニュース研究室｜一次史料歴史アニメ・速報図解・学びのコミュニティ</title>
+<meta name="description" content="一次公文書と世界の教科書比較で読み解く歴史ドキュメンタリーアニメ、最新トレンドの暮らし・家計影響3点図解、および知恵を共有する学びのコミュニティ公式ホームページ。">
+<style>
+  :root {
+    --navy: #0e2238;
+    --navy-deep: #071322;
+    --gold: #b58932;
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --ink: #1a202c;
+    --muted: #4a5568;
+    --border: #cbd5e1;
+    --ok: #146c43;
+    --ok-bg: #eaf7f0;
+    --focus: #0b57d0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
+    padding-block-end: 4rem;
+  }
+  header {
+    background: linear-gradient(135deg, var(--navy-deep), var(--navy));
+    color: #ffffff;
+    padding: 2.3rem 1.25rem;
+    border-block-end: 4px solid var(--gold);
+  }
+  .inner, main { max-width: 68rem; margin-inline: auto; }
+  main { padding: 1.5rem 1.25rem; }
+  .kicker { color: #f2d99b; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; }
+  header h1 { margin: 0.4rem 0 0.7rem; font-size: clamp(1.45rem, 1.1rem + 1.2vw, 2.2rem); line-height: 1.35; }
+  header p { margin: 0; color: #dbe7f4; max-width: 52rem; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block-start: 1rem; }
+  .pill {
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.32);
+    border-radius: 999px;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.86rem;
+    font-weight: 600;
+  }
+  .hub-tabs { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-block-end: 1.25rem; }
+  .tab-btn {
+    font: inherit;
+    font-size: max(1rem, 0.95em);
+    min-inline-size: 44px;
+    min-block-size: 48px;
+    padding: 0.55rem 1.1rem;
+    border-radius: 0.6rem;
+    border: 2px solid var(--border);
+    background: #ffffff;
+    color: var(--navy);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .tab-btn[aria-expanded="true"] { background: var(--navy); border-color: var(--navy); color: #ffffff; }
+  .tab-btn:focus-visible, .copy-button:focus-visible, .cta-btn:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+  /* Styling placed on inner .panel-card wrapper per search-hidden-content best practices */
+  .panel-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    padding: 1.45rem;
+    margin-block-end: 1.4rem;
+  }
+  .panel-card h2 { margin: 0 0 0.55rem; color: var(--navy); font-size: 1.3rem; }
+  .muted { color: var(--muted); font-size: 0.94rem; }
+  .chapter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
+    gap: 1rem;
+    margin-block-start: 1rem;
+  }
+  .chapter-card {
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--gold);
+    border-radius: 0.75rem;
+    padding: 1.1rem;
+    background: #fcfdff;
+  }
+  .chapter-card h3 { margin: 0.3rem 0 0.5rem; font-size: 1.06rem; color: var(--navy); }
+  .badge-yr {
+    display: inline-block;
+    background: #eef3f9;
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.16rem 0.55rem;
+    border-radius: 0.35rem;
+  }
+  .cmp-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+    gap: 0.65rem;
+    margin-block: 0.6rem;
+  }
+  .cmp-myth { background: #fff5f5; border: 1px solid #f5c2c7; border-radius: 0.5rem; padding: 0.65rem 0.8rem; font-size: 0.9rem; }
+  .cmp-fact { background: var(--ok-bg); border: 1px solid #a7dfc0; border-radius: 0.5rem; padding: 0.65rem 0.8rem; font-size: 0.9rem; }
+  .trend-card {
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--navy);
+    border-radius: 0.75rem;
+    padding: 1rem 1.15rem;
+    margin-block-end: 0.9rem;
+    background: #fcfdff;
+  }
+  .trend-card h3 { margin: 0.25rem 0 0.45rem; font-size: 1.06rem; }
+  .trend-card ul { margin: 0.4rem 0 0; padding-inline-start: 1.25rem; }
+  .salon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: 1rem;
+    margin-block: 1rem;
+  }
+  .salon-card {
+    border: 1px solid var(--border);
+    border-radius: 0.8rem;
+    padding: 1.15rem;
+    background: #f8fafc;
+  }
+  .salon-card h3 { margin: 0 0 0.45rem; color: var(--navy); font-size: 1.08rem; }
+  .price-tag { font-size: 1.25rem; font-weight: 800; color: var(--gold); margin-block: 0.3rem; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-block-start: 0.9rem; align-items: center; }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: 46px;
+    padding: 0.55rem 1.15rem;
+    border-radius: 0.55rem;
+    background: var(--navy);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .cta-btn.secondary { background: #ffffff; color: var(--navy); border: 2px solid var(--navy); }
+  .copy { display: inline-flex; align-items: center; gap: 0.5rem; margin-block-start: 0.55rem; }
+  .copy-button {
+    font: inherit;
+    font-size: 0.9rem;
+    min-inline-size: 44px;
+    min-block-size: 44px;
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--navy);
+    background: #ffffff;
+    color: var(--navy);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .copy-button[data-copied] { background: var(--ok); border-color: var(--ok); color: #ffffff; }
+  .copy-button[data-failed] { background: #b42318; border-color: #b42318; color: #ffffff; }
+  .tip { font-weight: 700; font-size: 0.88rem; color: var(--ok); opacity: 0; transition: opacity 0.15s; }
+  .copy-button[data-copied] + .tip, .copy-button[data-failed] + .tip { opacity: 1; }
+  .faq-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    padding: 1.35rem;
+    margin-block-start: 1.4rem;
+  }
+  .faq-box h2 { margin: 0 0 0.75rem; color: var(--navy); font-size: 1.18rem; }
+  details { border-block-end: 1px solid #e2e8f0; padding-block: 0.65rem; }
+  summary {
+    list-style: none;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+  summary::before { content: "▸"; display: inline-block; transition: transform 0.2s; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  details::details-content { interpolate-size: allow-keywords; overflow: clip; contain: layout; }
+  details:not([open])::details-content { block-size: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    details::details-content {
+      transition: block-size 0.25s ease-in-out, content-visibility 0.25s ease-in-out, display 0.25s ease-in-out;
+      transition-behavior: allow-discrete;
+    }
+  }
+  footer {
+    margin-block-start: 1.6rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    background: #eef2f6;
+    border-radius: 0.7rem;
+    padding: 1rem 1.2rem;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <div class="kicker">YATAGARASU MEDIA LAB｜一次史料アーカイブ × 暮らしの速報図解 × 学びのコミュニティ</div>
+    <h1>一次情報で「本当の歴史」と「今日のニュース」を読み解く公式アーカイブ</h1>
+    <p>煽りや感情論を一切排し、確認可能な一次公文書・世界各国の教科書比較・公式発表データだけをもとに、子どもから大人まで10分で本質がわかる図解と学びの場を提供しています。</p>
+    <div class="pill-row">
+      <span class="pill">一次出典100%明記</span>
+      <span class="pill">毎日自動更新のトレンド図解</span>
+      <span class="pill">対立ではなく事実共有で平和をつくる</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="hub-deck">
+    <div class="hub-tabs" aria-label="コンテンツ切替">
+      <button type="button" class="tab-btn" aria-expanded="true" aria-controls="sec-history">① 一次史料×世界の教科書比較（歴史アニメ）</button>
+      <button type="button" class="tab-btn" aria-expanded="false" aria-controls="sec-trends">② 最新トレンド速報「暮らし・家計への影響」図解</button>
+      <button type="button" class="tab-btn" aria-expanded="false" aria-controls="sec-salon">③ 学びのコミュニティ（オンラインサロン＆無料ツール）</button>
+    </div>
+
+    <div id="sec-history" class="hub-panel">
+      <section class="panel-card" aria-labelledby="h-hist">
+        <h2 id="h-hist">『史料アーカイブ劇場』第1話：学校で習った世界史5つの通説と一次公文書</h2>
+        <p class="muted" id="histMeta">全5章25シーン（9分漫画アニメ解説）の一次史料比較と出典リストを無料公開しています。学校の調べ学習・大人の学び直しにご活用ください。</p>
+        <div id="chaptersContainer" class="chapter-grid"></div>
+      </section>
+    </div>
+
+    <div id="sec-trends" class="hub-panel" hidden="until-found">
+      <section class="panel-card" aria-labelledby="h-trend">
+        <h2 id="h-trend">最新トレンド速報「私たちの暮らし・仕事・家計への3影響」図解アーカイブ</h2>
+        <p class="muted" id="trendUpdated">NHK・Yahoo!・Googleトレンドの一次発表から、家計・仕事・テクノロジーへの影響が大きい重要ニュースを厳選し独自分析しています。</p>
+        <div id="trendsContainer"></div>
+      </section>
+    </div>
+
+    <div id="sec-salon" class="hub-panel" hidden="until-found">
+      <section class="panel-card" aria-labelledby="h-salon">
+        <h2 id="h-salon">真実と知恵を共有する「学びのオンラインサロン」＆無料実務ツール</h2>
+        <p class="muted">特定の思想や宗教的勧誘は一切行わず、純粋に「一次史料から歴史と経済を学び、暮らしの実利と穏やかな世界をつくる」開かれた学びのコミュニティを運営しています。</p>
+        <div class="salon-grid">
+          <article class="salon-card">
+            <h3>無料アーカイブ会員（今すぐ利用可）</h3>
+            <div class="price-tag">月額 ¥0</div>
+            <p class="muted">歴史比較年表・最新ニュース3点図解・無料オフライン計算シミュレーター（相続・法人化・インボイス・店舗集客）をすべて登録不要で利用できます。</p>
+          </article>
+          <article class="salon-card">
+            <h3>研究メンバーシップ（準備中・先行公開）</h3>
+            <div class="price-tag">月額 ¥980 予定</div>
+            <p class="muted">取り上げてほしい歴史テーマ・海外一次史料のリクエスト投票、保存版PDF年表、暮らしと仕事の自動化テンプレ配布を予定しています。</p>
+          </article>
+          <article class="salon-card">
+            <h3>暮らし・実務の無料ツール＆記事庫</h3>
+            <div class="price-tag">¥0 〜 ¥1,980</div>
+            <p class="muted">動画や記事で信頼してくださった方向けに、営業電話ゼロのオフライン計算ツールや実務ガイドをnote・公式サイトで公開しています。</p>
+          </article>
+        </div>
+        <div class="cta-row">
+          <a class="cta-btn" href="https://note.com/laughmakerclown" target="_blank" rel="noopener">公式note（記事・マガジン一覧）を見る</a>
+          <a class="cta-btn secondary" href="https://yatagarasu-lab.github.io/ja-offline-business-tools/asp-sim/">無料3大キャッシュ試算を使う</a>
+          <a class="cta-btn secondary" href="https://yatagarasu-lab.github.io/ja-offline-business-tools/b2b/">法人・店舗の業務自動化相談</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <section class="faq-box" aria-labelledby="faqMediaHeading">
+    <h2 id="faqMediaHeading">編集方針・安全性について</h2>
+    <details>
+      <summary>歴史解説で特定の国や民族を攻撃することはありますか？</summary>
+      <p class="muted">一切ありません。対立を煽るのではなく、公文書館・国際機関・歴史研究で確認できる一次史料と複数地域の記述を中立的に並べることで、誤解を解くことを目的としています。</p>
+    </details>
+    <details>
+      <summary>宗教団体やスピリチュアル勧誘とは関係がありますか？</summary>
+      <p class="muted">一切無関係です。本サイトおよびコミュニティは、検証可能な一次データ・歴史史料・実務ツールを扱う純粋な教育・メディア研究室です。高額献金や不安を煽る勧誘は永久に禁止しています。</p>
+    </details>
+    <details>
+      <summary>子どもや学生の自由研究・調べ学習に引用してもよいですか？</summary>
+      <p class="muted">はい、大歓迎です。各章に記載している一次史料名（国立公文書館・国連文書・歴史書等）をご自身でも直接確認しながらご活用ください。</p>
+    </details>
+  </section>
+
+  <footer>
+    <strong>Yatagarasu Media &amp; Tools：</strong>
+    <a href="../">オフライン業務ツール総合</a> ／
+    <a href="https://yatagarasu-lab.github.io/ja-offline-business-tools/asp-sim/">無料3大キャッシュ試算</a> ／
+    <a href="https://yatagarasu-lab.github.io/ja-offline-business-tools/shisan/">くらしと資産の安心シート</a> ／
+    <a href="https://yatagarasu-lab.github.io/ja-offline-business-tools/b2b/">Yatagarasu Works（法人自動化）</a>
+  </footer>
+</main>
+
+<script id="initialFeedData" type="application/json">{"schema": "media-portal-feed/v1", "updated_at_utc": "2026-11-26T08:04:47.475439+00:00", "history_featured": {"episode_id": "history_ep01", "title_ja": "【一次史料で比較】世界の教科書はどう教える？学校で習った世界史5つの通説と一次公文書【漫画アニメ解説】", "duration_sec": 553.6, "chapters": [{"chapter": "第1章｜大航海時代の真実", "year": "1405〜1492年", "headline": "ヨーロッパ人が海に出る前、すでにインド洋は巨大国際市場だった", "myth": ["1492年以降に初めて世界の海が繋がった", "欧州の技術だけが突出していた"], "primary_fact": ["1405〜1433年 鄭和の南海遠征は7回実施", "インド洋はすでに多言語・多通貨の国際交易圏"], "citation": "馬歓『瀛涯勝覧』（1451年）・明史一次記録"}, {"chapter": "第2章｜「鎖国」の一次実態", "year": "1639〜1853年", "headline": "実は江戸時代の公式文書に「鎖国」という言葉は存在しなかった", "myth": ["江戸時代は世界と完全に断絶していた", "海外の情報は一切入ってこなかった"], "primary_fact": ["「鎖国」は1801年の翻訳書で初出の言葉", "幕府は貿易と外交を「4つの口」で厳格管理"], "citation": "志筑忠雄訳『鎖国論』（1801年）・ケンペル『日本誌』"}, {"chapter": "第3章｜産業革命の裏側", "year": "インド綿布と特許記録", "headline": "きっかけは「高品質なインド綿布に勝つため」の必死の挑戦", "myth": ["欧州の布が最初から世界一だった", "国内需要だけで機械化が進んだ"], "primary_fact": ["インド産綿布の圧倒的人気が欧州市場を席巻", "輸入制限と機械化投資で逆転に成功"], "citation": "イギリス東インド会社貿易台帳・1700/1721年キャラコ規制法公文書"}, {"chapter": "第4章｜1919年 パリ講和会議", "year": "賛成11 対 反対5", "headline": "多数決では「賛成多数」だった—議長裁定が分けた歴史の分岐点", "myth": ["賛成：11票（フランス・中国・ブラジル等含む）", "反対・棄権：英米など少数派"], "primary_fact": ["議長の米ウィルソン大統領が「全会一致が必要」と裁定", "当時の植民地体制や国内移民政策の利害が衝突"], "citation": "David Hunter Miller『The Drafting of the Covenant』（1928年一次議事録集）"}, {"chapter": "第5章｜世界の教科書比較", "year": "欧州の共同歴史教科書", "headline": "かつて激しく戦ったフランスとドイツが作った「共通の歴史教科書」", "myth": ["100年以上にわたり隣国同士で戦争を反復", "互いの教科書で相手を敵対的に記述"], "primary_fact": ["2006年 仏独共通歴史教科書を両国で刊行", "見解が分かれる点は両論と一次史料を併記"], "citation": "仏独共通歴史教科書『Histoire / Geschichte』（2006年刊）"}], "global_english": [{"chapter": "Chapter 1 (1405-1543)", "en_title": "Before Europe Sailed: Primary Logs of the Indian Ocean Trade Network & Tanegashima", "primary_sources": "Ma Huan (1451), Alvaro Velho Vasco da Gama Log (1497-1499), Luis Frois Letters"}, {"chapter": "Chapter 2 (1639-1853)", "en_title": "The Myth of Total Isolation: Edo Japan's Four Gateways & Dutch Intelligence Reports", "primary_sources": "Oranda Fusetsugaki (1641-1858, National Archives of Japan), Shizuki Tadao (1801)"}, {"chapter": "Chapter 3 (1760-1850)", "en_title": "The Global Economics Behind the Industrial Revolution: Calico Ledgers & Factory Acts", "primary_sources": "East India Company Ledgers, Watt Patent No.913 (1769), Sadler Report (1832)"}, {"chapter": "Chapter 4 (1919-1948)", "en_title": "11 Votes to 5: The 1919 Paris Peace Conference Racial Equality Minutes", "primary_sources": "League of Nations Commission Minutes (April 11, 1919), FRUS, UN UDHR (1948)"}, {"chapter": "Chapter 5 (2006-Present)", "en_title": "How France & Germany Built a Shared History Textbook Using Primary Sources", "primary_sources": "Histoire/Geschichte (2006), Georg Eckert Institute, UNESCO MIL Framework"}]}, "trends_live": [{"source_name": "NHK経済・テック", "impact_domain": "AI・テクノロジー", "impact_score": 99, "title": "オープンAI 開発一時中断 AIみずからサイバー攻撃実行のおそれ", "summary": "生成AIの「ChatGPT」の開発を手がけるアメリカのオープンAIは、AIモデル「アストラ」の開発の一時中断を7日、発表しました。理由について、AIの能力が大幅に向上し、みずからの判断で重大なサイバー攻撃を実行するおそれが排除できないとしています。", "link": "http://www3.nhk.or.jp/news/html/20260808/k10015200151000.html", "angles": ["① 仕事・日常ツールへの波及：AIの安全審査や利用ルール強化で業務フローの見直しが必要に", "② 個人情報・セキュリティ防衛：便利な無料AIや連携サービスほど権限設定と情報入力ルールを確認", "③ 今後の注目点：規制や一時停止は「安全設計できるサービス」への需要シフトを意味する"]}, {"source_name": "NHK経済・テック", "impact_domain": "AI・テクノロジー", "impact_score": 99, "title": "秋田市に日本最大級のデータセンター整備計画", "summary": "AI向けのデータセンターの需要が急速に高まる中、秋田市のIT企業がアメリカの企業と共同で市内に日本で最大級のデータセンターの整備を計画していることがわかりました。会社では整備費について2兆円以上を見込んでいて、UAE＝アラブ首長国連邦の政府系ファンドからの投資の受け入れに向けて協議を進めるとしています。", "link": "http://www3.nhk.or.jp/news/html/20260807/k10015199451000.html", "angles": ["① 仕事・日常ツールへの波及：AIの安全審査や利用ルール強化で業務フローの見直しが必要に", "② 個人情報・セキュリティ防衛：便利な無料AIや連携サービスほど権限設定と情報入力ルールを確認", "③ 今後の注目点：規制や一時停止は「安全設計できるサービス」への需要シフトを意味する"]}, {"source_name": "NHK経済・テック", "impact_domain": "税金・制度", "impact_score": 90, "title": "食料品の消費税減税 ねらいは カギを握る片山財務相に聞く", "summary": "暮らしに関わる食料品の消費税減税。カギを握る片山財務大臣が閣議決定後、NHKのインタビューに応じました。財源は確保できるのか。足元の財務省内に反対論はないのか。ニュースウオッチ9の広内キャスターが直撃しました。", "link": "http://www3.nhk.or.jp/news/html/20260807/k10015199621000.html", "angles": ["① 家計の固定費への直撃：値上げ・金利・制度変更は年間数万円単位の手残り差を生む", "② 放置損を防ぐチェック：控除・補助・契約プランの見直し期限を早めに確認するのが鉄則", "③ 企業・働き方への影響：物価と金利の動きは賃上げ・採用・副業単価にも波及する"]}, {"source_name": "NHK経済・テック", "impact_domain": "経済・金融", "impact_score": 88, "title": "シャープ イラン情勢と円安で業績予想を下方修正", "summary": "大手電機メーカーの「シャープ」は、イラン情勢や円安の影響による原材料や燃料価格の高騰で、今年度の業績予想を下方修正し、最終的な利益が、当初の予想から40％余り減少するとの見通しを明らかにしました。", "link": "http://www3.nhk.or.jp/news/html/20260807/k10015199531000.html", "angles": ["① 家計の固定費への直撃：値上げ・金利・制度変更は年間数万円単位の手残り差を生む", "② 放置損を防ぐチェック：控除・補助・契約プランの見直し期限を早めに確認するのが鉄則", "③ 企業・働き方への影響：物価と金利の動きは賃上げ・採用・副業単価にも波及する"]}, {"source_name": "NHK経済・テック", "impact_domain": "家計・制度", "impact_score": 88, "title": "公的年金積立金運用実績 四半期として過去最高の黒字 GPIF", "summary": "公的年金の積立金を運用しているGPIF＝年金積立金管理運用独立行政法人は、ことし4月から6月までの運用実績が24兆円余りの黒字で、四半期としては過去最高になったと発表しました。", "link": "http://www3.nhk.or.jp/news/html/20260807/k10015199351000.html", "angles": ["① 家計の固定費への直撃：値上げ・金利・制度変更は年間数万円単位の手残り差を生む", "② 放置損を防ぐチェック：控除・補助・契約プランの見直し期限を早めに確認するのが鉄則", "③ 企業・働き方への影響：物価と金利の動きは賃上げ・採用・副業単価にも波及する"]}, {"source_name": "NHK経済・テック", "impact_domain": "セキュリティ・IT", "impact_score": 86, "title": "ニチレイ サイバー攻撃影響などで売り上げ50億円減少の見通し", "summary": "冷凍食品大手のニチレイは、サイバー攻撃によるシステム障害で倉庫からの出庫業務が一時停止したことなどによる売り上げの減少が、通期で50億円にのぼるという見通しを明らかにしました。", "link": "http://www3.nhk.or.jp/news/html/20260807/k10015199521000.html", "angles": ["① 仕事・日常ツールへの波及：AIの安全審査や利用ルール強化で業務フローの見直しが必要に", "② 個人情報・セキュリティ防衛：便利な無料AIや連携サービスほど権限設定と情報入力ルールを確認", "③ 今後の注目点：規制や一時停止は「安全設計できるサービス」への需要シフトを意味する"]}, {"source_name": "Yahoo!IT・AI", "impact_domain": "AI・テクノロジー", "impact_score": 82, "title": "AI登場「創造性」問い直す機会に", "summary": "AI登場「創造性」問い直す機会に", "link": "https://news.yahoo.co.jp/pickup/6603882?source=rss", "angles": ["① 仕事・日常ツールへの波及：AIの安全審査や利用ルール強化で業務フローの見直しが必要に", "② 個人情報・セキュリティ防衛：便利な無料AIや連携サービスほど権限設定と情報入力ルールを確認", "③ 今後の注目点：規制や一時停止は「安全設計できるサービス」への需要シフトを意味する"]}, {"source_name": "Yahoo!経済", "impact_domain": "仕事・家計", "impact_score": 78, "title": "中小企業の賃上げ税制 縮小で調整", "summary": "中小企業の賃上げ税制 縮小で調整", "link": "https://news.yahoo.co.jp/pickup/6604006?source=rss", "angles": ["① 家計の固定費への直撃：値上げ・金利・制度変更は年間数万円単位の手残り差を生む", "② 放置損を防ぐチェック：控除・補助・契約プランの見直し期限を早めに確認するのが鉄則", "③ 企業・働き方への影響：物価と金利の動きは賃上げ・採用・副業単価にも波及する"]}]}</script>
+<script>
+(() => {
+  const esc = (s) => String(s || "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+  function renderFeed(feed) {
+    if (!feed) return;
+    const hf = feed.history_featured || {};
+    const chBox = document.getElementById("chaptersContainer");
+    if (chBox && Array.isArray(hf.chapters)) {
+      chBox.innerHTML = hf.chapters.map((ch, idx) => {
+        const cid = "cite_" + idx;
+        const myths = (ch.myth || []).map((m) => `<div>・${esc(m)}</div>`).join("");
+        const facts = (ch.primary_fact || []).map((f) => `<div>▶ ${esc(f)}</div>`).join("");
+        return `
+          <article class="chapter-card">
+            <span class="badge-yr">${esc(ch.chapter)} ｜ ${esc(ch.year)}</span>
+            <h3>${esc(ch.headline)}</h3>
+            <div class="cmp-box">
+              <div class="cmp-myth"><strong>よくある通説</strong>${myths}</div>
+              <div class="cmp-fact"><strong>一次史料の記録</strong>${facts}</div>
+            </div>
+            <div class="muted" id="${cid}">出典：${esc(ch.citation)}</div>
+            <span class="copy">
+              <button type="button" class="copy-button" command="--copy" commandfor="${cid}">出典メモをコピー</button>
+              <span class="tip" role="status"></span>
+            </span>
+          </article>`;
+      }).join("");
+    }
+
+    const trBox = document.getElementById("trendsContainer");
+    const trUpd = document.getElementById("trendUpdated");
+    if (trUpd && feed.updated_at_utc) {
+      trUpd.textContent = `最新取得 (UTC): ${feed.updated_at_utc} ｜ 一次発表から家計・仕事・ITへの影響が大きいニュースを厳選図解しています。`;
+    }
+    if (trBox && Array.isArray(feed.trends_live)) {
+      trBox.innerHTML = feed.trends_live.map((t) => {
+        const angs = (t.angles || []).map((a) => `<li>${esc(a)}</li>`).join("");
+        return `
+          <article class="trend-card">
+            <span class="badge-yr">${esc(t.impact_domain)} ｜ ${esc(t.source_name)} ｜ 影響度 ${esc(t.impact_score)}点</span>
+            <h3><a href="${esc(t.link)}" target="_blank" rel="noopener">${esc(t.title)}</a></h3>
+            <p class="muted">${esc(t.summary)}</p>
+            <ul>${angs}</ul>
+          </article>`;
+      }).join("") || "<p>最新ニュースを取得中です。</p>";
+    }
+  }
+
+  try {
+    const seed = JSON.parse(document.getElementById("initialFeedData").textContent || "{}");
+    renderFeed(seed);
+  } catch {}
+
+  fetch("./media_feed.json", { cache: "no-store" })
+    .then((r) => (r.ok ? r.json() : null))
+    .then((fresh) => { if (fresh) renderFeed(fresh); })
+    .catch(() => {});
+
+  // Accessible search-hidden-content tabs with beforematch sync + fallback
+  const deck = document.querySelector(".hub-deck");
+  const btns = Array.from(document.querySelectorAll(".tab-btn"));
+  const panels = Array.from(document.querySelectorAll(".hub-panel"));
+
+  function showPanel(id) {
+    panels.forEach((p) => {
+      if (p.id === id) p.removeAttribute("hidden");
+      else p.setAttribute("hidden", "until-found");
+    });
+    btns.forEach((b) => b.setAttribute("aria-expanded", b.getAttribute("aria-controls") === id ? "true" : "false"));
+  }
+  btns.forEach((b) => b.addEventListener("click", () => showPanel(b.getAttribute("aria-controls"))));
+  if ("onbeforematch" in HTMLElement.prototype) {
+    deck.addEventListener("beforematch", (e) => {
+      const p = e.target.closest(".hub-panel");
+      if (p) showPanel(p.id);
+    });
+  } else {
+    panels.forEach((p) => p.removeAttribute("hidden"));
+    btns.forEach((b) => b.setAttribute("aria-expanded", "true"));
+  }
+
+  // Accessible copy-button with single-path CommandEvent fallback + VoiceOver dedup
+  const timers = new WeakMap();
+  let lastMsg = "";
+  function legacyCopy(text) {
+    const prev = document.activeElement;
+    const ta = Object.assign(document.createElement("textarea"), { value: text });
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;inset-block-start:0;opacity:0";
+    document.body.append(ta);
+    ta.select();
+    try { return document.execCommand("copy"); } finally { ta.remove(); prev?.focus({ preventScroll: true }); }
+  }
+  function report(btn, ok) {
+    const tip = btn.nextElementSibling;
+    clearTimeout(timers.get(btn));
+    btn.removeAttribute("data-copied");
+    btn.removeAttribute("data-failed");
+    let msg = ok ? "コピーしました" : "コピー失敗";
+    if (msg === lastMsg) msg += "\u00A0";
+    lastMsg = msg;
+    if (tip) tip.textContent = "";
+    void btn.offsetWidth;
+    btn.setAttribute(ok ? "data-copied" : "data-failed", "");
+    requestAnimationFrame(() => { if (tip) tip.textContent = msg; });
+    timers.set(btn, setTimeout(() => {
+      btn.removeAttribute("data-copied");
+      btn.removeAttribute("data-failed");
+      if (tip) tip.textContent = "";
+    }, 2000));
+  }
+  async function doCopy(btn, target) {
+    const txt = target.matches("input, textarea") ? target.value : target.innerText.trim();
+    if (!txt) return;
+    try { await navigator.clipboard.writeText(txt); report(btn, true); } catch { report(btn, legacyCopy(txt)); }
+  }
+  if ("CommandEvent" in window) {
+    document.addEventListener("command", (e) => { if (e.command === "--copy") doCopy(e.source, e.target); }, true);
+  } else {
+    document.addEventListener("click", (e) => {
+      if (e.defaultPrevented) return;
+      const b = e.target.closest('button[command="--copy"]');
+      if (!b) return;
+      const t = document.getElementById(b.getAttribute("commandfor"));
+      if (t) doCopy(b, t);
+    });
+  }
+})();
+</script>
+</body>
+</html>
