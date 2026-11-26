@@ -7,6 +7,14 @@
 - [1-Second Offline PII & API-Key Redactor + Local Restore](https://yatagarasu-lab.github.io/ja-offline-business-tools/#panel-pii)
 - [5-Marketplace EC Breakeven, Net Margin & Annual GMROI Calculator](https://yatagarasu-lab.github.io/ja-offline-business-tools/#panel-ec)
 - [Oct 2026 Japan Invoice 70% Deduction & T-Number Validator](https://yatagarasu-lab.github.io/ja-offline-business-tools/#panel-inv)
+- [Zero-Call Free 3-in-1 Cash Simulators (Inheritance Tax / Incorporation & Invoice 70% / Local MEO)](https://yatagarasu-lab.github.io/ja-offline-business-tools/asp-sim/)
+- [Primary-Source World History Anime & Daily Breaking-News Impact Media Hub](https://yatagarasu-lab.github.io/ja-offline-business-tools/media/)
+- [Personal Asset & Inheritance Offline Planning Sheet](https://yatagarasu-lab.github.io/ja-offline-business-tools/shisan/)
+- [BtoB Local AI & Workflow Automation Agency Portfolio (Yatagarasu Works)](https://yatagarasu-lab.github.io/ja-offline-business-tools/b2b/)
+
+## Official Educational & News YouTube Channels
+- [史料アーカイブ劇場 (@shiryo_archive_jp) — Primary-Source World History Documentaries](https://www.youtube.com/@shiryo_archive_jp)
+- [暮らしと経済の速報図解ラボ (@kurashi_trend_lab) — Daily 60s Breaking-News Impact Shorts](https://www.youtube.com/@kurashi_trend_lab)
 
 ## Open-Source CLI Repository (MIT License)
 - [GitHub Repository](https://github.com/yatagarasu-lab/ja-offline-business-tools)

@@ -6,6 +6,11 @@
 
 🌐 **今すぐブラウザで無料体験（登録不要・外部送信0バイト / Free Instant Browser Demos）:**
 - 🚀 **クリーン公式オフラインWebツール集 (JP / EN・CSP外部通信遮断)**: https://yatagarasu-lab.github.io/ja-offline-business-tools/
+- 📺 **公式メディア＆学びのハブ（一次史料歴史アニメ・毎日自動更新の速報図解）**: https://yatagarasu-lab.github.io/ja-offline-business-tools/media/
+- 💴 **営業電話ゼロ・無料3大キャッシュ試算（相続・法人化インボイス70%・店舗MEO）**: https://yatagarasu-lab.github.io/ja-offline-business-tools/asp-sim/
+- 🛡️ **くらしと資産の安心シート（不動産30年・相続台帳チェッカー）**: https://yatagarasu-lab.github.io/ja-offline-business-tools/shisan/
+- 🏢 **Yatagarasu Works（法人・店舗向け業務自動化＆保守ポートフォリオ）**: https://yatagarasu-lab.github.io/ja-offline-business-tools/b2b/
+- 🎬 **YouTube公式チャンネル**: [史料アーカイブ劇場 (@shiryo_archive_jp)](https://www.youtube.com/@shiryo_archive_jp) ／ [暮らしと経済の速報図解ラボ (@kurashi_trend_lab)](https://www.youtube.com/@kurashi_trend_lab)
 - 🍎 **Apple Silicon Mac ローカルAI動作診断＆月額API削減シミュレーター**: https://yatagarasu-lab.github.io/ja-offline-business-tools/#panel-macai
 - 🛡️ **ChatGPT入力前の個人情報(PII) 1秒ローカル仮名化＆復元ツール**: https://yatagarasu-lab.github.io/ja-offline-business-tools/#panel-pii
 - 🧮 **5大ECモール損益分岐・手残り＆年間資金回転率(GMROI)逆算計算機**: https://yatagarasu-lab.github.io/ja-offline-business-tools/#panel-ec
