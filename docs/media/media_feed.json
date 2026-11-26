@@ -1,6 +1,48 @@
 {
-  "schema": "media-portal-feed/v1",
-  "updated_at_utc": "2026-11-26T19:52:24.643127+00:00",
+  "schema": "media-portal-feed/v2",
+  "updated_at_utc": "2026-11-26T20:21:41.869456+00:00",
+  "live_youtube_videos": [
+    {
+      "channel_handle": "@shiryo_archive_jp",
+      "title": "【一次史料で比較】なぜ物価は上がり続ける？1971年ニクソン演説と通貨ルール60秒解説 #Shorts #経済史",
+      "watch_url": "https://www.youtube.com/shorts/PzUvGl_uvHc",
+      "orientation": "9:16",
+      "duration_sec": 50.45,
+      "published_at_utc": "2026-11-26T20:21:04.383031+00:00"
+    },
+    {
+      "channel_handle": "@shiryo_archive_jp",
+      "title": "【一次史料で比較】お金とインフレの本当の歴史｜金本位制の終焉から2026年物価高まで一次公文書5つの分岐点【漫画アニメ解説】",
+      "watch_url": "https://www.youtube.com/watch?v=Ftsk55MkKEI",
+      "orientation": "16:9",
+      "duration_sec": 593.44,
+      "published_at_utc": "2026-11-26T20:19:46.860388+00:00"
+    },
+    {
+      "channel_handle": "@shiryo_archive_jp",
+      "title": "【一次史料で比較】江戸時代の公式文書に「鎖国」の文字はなかった？60秒アニメ解説 #Shorts #歴史解説",
+      "watch_url": "https://www.youtube.com/shorts/ySsHgbo83YE",
+      "orientation": "9:16",
+      "duration_sec": 54.32,
+      "published_at_utc": "2026-11-26T20:18:29.452297+00:00"
+    },
+    {
+      "channel_handle": "@kurashi_trend_lab",
+      "title": "【速報図解】オープンAI 開発一時中断 AIみずからサイバー攻撃実行のおそれ｜暮らし・仕事への3影響 #Shorts #ニュース解説",
+      "watch_url": "https://www.youtube.com/shorts/qPKanL-ldpQ",
+      "orientation": "9:16",
+      "duration_sec": 55.02,
+      "published_at_utc": "2026-11-26T20:13:18.711336+00:00"
+    },
+    {
+      "channel_handle": "@shiryo_archive_jp",
+      "title": "【一次史料で比較】世界の教科書はどう教える？学校で習った世界史5つの通説と一次公文書【漫画アニメ解説】",
+      "watch_url": "https://www.youtube.com/watch?v=Xfbs0tpSEnI",
+      "orientation": "16:9",
+      "duration_sec": 553.6,
+      "published_at_utc": "2026-11-26T20:11:15.776174+00:00"
+    }
+  ],
   "history_featured": {
     "episode_id": "history_ep01",
     "title_ja": "【一次史料で比較】世界の教科書はどう教える？学校で習った世界史5つの通説と一次公文書【漫画アニメ解説】",
@@ -105,6 +147,216 @@
       }
     ]
   },
+  "history_episodes": [
+    {
+      "episode_id": "history_ep01",
+      "title_ja": "【一次史料で比較】世界の教科書はどう教える？学校で習った世界史5つの通説と一次公文書【漫画アニメ解説】",
+      "duration_sec": 553.6,
+      "chapters": [
+        {
+          "chapter": "第1章｜大航海時代の真実",
+          "year": "1405〜1492年",
+          "headline": "ヨーロッパ人が海に出る前、すでにインド洋は巨大国際市場だった",
+          "myth": [
+            "1492年以降に初めて世界の海が繋がった",
+            "欧州の技術だけが突出していた"
+          ],
+          "primary_fact": [
+            "1405〜1433年 鄭和の南海遠征は7回実施",
+            "インド洋はすでに多言語・多通貨の国際交易圏"
+          ],
+          "citation": "馬歓『瀛涯勝覧』（1451年）・明史一次記録"
+        },
+        {
+          "chapter": "第2章｜「鎖国」の一次実態",
+          "year": "1639〜1853年",
+          "headline": "実は江戸時代の公式文書に「鎖国」という言葉は存在しなかった",
+          "myth": [
+            "江戸時代は世界と完全に断絶していた",
+            "海外の情報は一切入ってこなかった"
+          ],
+          "primary_fact": [
+            "「鎖国」は1801年の翻訳書で初出の言葉",
+            "幕府は貿易と外交を「4つの口」で厳格管理"
+          ],
+          "citation": "志筑忠雄訳『鎖国論』（1801年）・ケンペル『日本誌』"
+        },
+        {
+          "chapter": "第3章｜産業革命の裏側",
+          "year": "インド綿布と特許記録",
+          "headline": "きっかけは「高品質なインド綿布に勝つため」の必死の挑戦",
+          "myth": [
+            "欧州の布が最初から世界一だった",
+            "国内需要だけで機械化が進んだ"
+          ],
+          "primary_fact": [
+            "インド産綿布の圧倒的人気が欧州市場を席巻",
+            "輸入制限と機械化投資で逆転に成功"
+          ],
+          "citation": "イギリス東インド会社貿易台帳・1700/1721年キャラコ規制法公文書"
+        },
+        {
+          "chapter": "第4章｜1919年 パリ講和会議",
+          "year": "賛成11 対 反対5",
+          "headline": "多数決では「賛成多数」だった—議長裁定が分けた歴史の分岐点",
+          "myth": [
+            "賛成：11票（フランス・中国・ブラジル等含む）",
+            "反対・棄権：英米など少数派"
+          ],
+          "primary_fact": [
+            "議長の米ウィルソン大統領が「全会一致が必要」と裁定",
+            "当時の植民地体制や国内移民政策の利害が衝突"
+          ],
+          "citation": "David Hunter Miller『The Drafting of the Covenant』（1928年一次議事録集）"
+        },
+        {
+          "chapter": "第5章｜世界の教科書比較",
+          "year": "欧州の共同歴史教科書",
+          "headline": "かつて激しく戦ったフランスとドイツが作った「共通の歴史教科書」",
+          "myth": [
+            "100年以上にわたり隣国同士で戦争を反復",
+            "互いの教科書で相手を敵対的に記述"
+          ],
+          "primary_fact": [
+            "2006年 仏独共通歴史教科書を両国で刊行",
+            "見解が分かれる点は両論と一次史料を併記"
+          ],
+          "citation": "仏独共通歴史教科書『Histoire / Geschichte』（2006年刊）"
+        }
+      ],
+      "global_english": [
+        {
+          "chapter": "Chapter 1 (1405-1543)",
+          "en_title": "Before Europe Sailed: Primary Logs of the Indian Ocean Trade Network & Tanegashima",
+          "primary_sources": "Ma Huan (1451), Alvaro Velho Vasco da Gama Log (1497-1499), Luis Frois Letters"
+        },
+        {
+          "chapter": "Chapter 2 (1639-1853)",
+          "en_title": "The Myth of Total Isolation: Edo Japan's Four Gateways & Dutch Intelligence Reports",
+          "primary_sources": "Oranda Fusetsugaki (1641-1858, National Archives of Japan), Shizuki Tadao (1801)"
+        },
+        {
+          "chapter": "Chapter 3 (1760-1850)",
+          "en_title": "The Global Economics Behind the Industrial Revolution: Calico Ledgers & Factory Acts",
+          "primary_sources": "East India Company Ledgers, Watt Patent No.913 (1769), Sadler Report (1832)"
+        },
+        {
+          "chapter": "Chapter 4 (1919-1948)",
+          "en_title": "11 Votes to 5: The 1919 Paris Peace Conference Racial Equality Minutes",
+          "primary_sources": "League of Nations Commission Minutes (April 11, 1919), FRUS, UN UDHR (1948)"
+        },
+        {
+          "chapter": "Chapter 5 (2006-Present)",
+          "en_title": "How France & Germany Built a Shared History Textbook Using Primary Sources",
+          "primary_sources": "Histoire/Geschichte (2006), Georg Eckert Institute, UNESCO MIL Framework"
+        }
+      ]
+    },
+    {
+      "episode_id": "history_ep02",
+      "title_ja": "【一次史料で比較】お金とインフレの本当の歴史｜金本位制の終焉から2026年物価高まで一次公文書5つの分岐点【漫画アニメ解説】",
+      "duration_sec": 593.44,
+      "chapters": [
+        {
+          "chapter": "第1章｜ブレトン・ウッズ協定",
+          "year": "1944年7月",
+          "headline": "世界44カ国が決めた「金1オンス＝35ドル」という歴史的約束",
+          "myth": [
+            "1930年代の切り下げ競争とブロック経済",
+            "国際貿易の決済ルールが崩壊"
+          ],
+          "primary_fact": [
+            "米ドルのみを金と35ドル固定で裏付け",
+            "IMFと世界銀行を創設し国際貿易を安定化"
+          ],
+          "citation": "United Nations Monetary and Financial Conference Final Act（1944年7月22日）"
+        },
+        {
+          "chapter": "第2章｜ニクソン・ショック",
+          "year": "1971年8月15日",
+          "headline": "日曜夜のテレビ演説—わずか18分で終わった「金と紙幣の交換」",
+          "myth": [
+            "あくまで「一時的（temporarily）」停止と説明",
+            "物価凍結・10%輸入課徴金と同時発表"
+          ],
+          "primary_fact": [
+            "金塊の裏付けがない管理通貨制度へ完全移行",
+            "各国中央銀行が通貨発行量を政策判断で決定"
+          ],
+          "citation": "Richard Nixon, Address to the Nation on the New Economic Policy（1971年8月15日原文）"
+        },
+        {
+          "chapter": "第3章｜プラザ合意の原文",
+          "year": "1985年9月22日",
+          "headline": "ニューヨークのホテルで5カ国が署名—1年で1ドル240円から150円へ",
+          "myth": [
+            "1985年9月 約1ドル＝240円の超ドル高",
+            "米国製造業の貿易赤字が政治問題化"
+          ],
+          "primary_fact": [
+            "1年で150円台へ約40%もの急激な円高",
+            "日本の輸出企業は円高不況への対応に迫られる"
+          ],
+          "citation": "G5 Plaza Accord Joint Communiqué 原文（1985年9月22日）"
+        },
+        {
+          "chapter": "第4章｜2013年 日銀声明",
+          "year": "2013年4月4日",
+          "headline": "「2年程度で物価2%」—量的・質的金融緩和の一次公表文を読む",
+          "myth": [
+            "リーマンショック後の超円高（一時75円台）",
+            "デフレ定着による企業収益と雇用の低迷"
+          ],
+          "primary_fact": [
+            "物価安定目標2%の明文化",
+            "国債大量買入れとマネタリーベース2倍拡大"
+          ],
+          "citation": "日本銀行公表文『量的・質的金融緩和の導入について』（2013年4月4日原文）"
+        },
+        {
+          "chapter": "第5章｜2026年の一次統計",
+          "year": "実質賃金とCPI",
+          "headline": "額面給与が増えても苦しく感じる理由—「名目」と「実質」の差",
+          "myth": [
+            "額面（名目）の給与や預金残高だけを見る",
+            "10年前の1万円と今の1万円を同じ価値と思う"
+          ],
+          "primary_fact": [
+            "名目成長率 − 物価上昇率 ＝ 実質購買力",
+            "インフレ下では現金比率100%にも目減りリスク"
+          ],
+          "citation": "厚生労働省『毎月勤労統計調査』・総務省『消費者物価指数』"
+        }
+      ],
+      "global_english": [
+        {
+          "chapter": "Chapter 1 (1944-1960)",
+          "en_title": "Bretton Woods ($35/oz Gold) & Triffin's Mathematical Warning in US Congress",
+          "primary_sources": "Bretton Woods Final Act (1944), Triffin Congressional Testimony (1960)"
+        },
+        {
+          "chapter": "Chapter 2 (1971-1982)",
+          "en_title": "The 18-Minute Speech That Ended Gold Convertibility & Volcker's 20% Rate Reset",
+          "primary_sources": "Nixon Address (Aug 15, 1971), FOMC Minutes (1979-1982)"
+        },
+        {
+          "chapter": "Chapter 3 (1985-2000)",
+          "en_title": "The Plaza Accord Communiqué: From ¥240/$ to Bubble & 30 Years of Deflation",
+          "primary_sources": "G5 Plaza Communiqué (Sep 22, 1985), Bank of Japan & OECD Wage Data"
+        },
+        {
+          "chapter": "Chapter 4 (2013-2024)",
+          "en_title": "BOJ's 2013 QQE Statement to Japan's First Rate Hike in 17 Years",
+          "primary_sources": "BOJ Policy Statements (Apr 4, 2013 & Mar 19, 2024)"
+        },
+        {
+          "chapter": "Chapter 5 (2026 Outlook)",
+          "en_title": "Nominal vs Real Purchasing Power: 3 Historical Principles for Household Defense",
+          "primary_sources": "Japan CPI & Monthly Labour Survey, Siegel Long-Run Asset Series"
+        }
+      ]
+    }
+  ],
   "trends_live": [
     {
       "source_name": "NHK経済・テック",
