@@ -1,7 +1,23 @@
 {
   "schema": "media-portal-feed/v2",
-  "updated_at_utc": "2026-11-27T22:33:01.453606+00:00",
+  "updated_at_utc": "2026-11-27T23:30:03.742953+00:00",
   "live_youtube_videos": [
+    {
+      "channel_handle": "@AI_Money_Labc",
+      "title": "【2026年手残り防衛】利益600万〜900万の個人事業主が「法人化しないと毎年数十万円損する分岐点」を60秒図解 #Shorts #節税",
+      "watch_url": "https://www.youtube.com/shorts/jI9vMhnq_X4",
+      "orientation": "9:16",
+      "duration_sec": 50.8,
+      "published_at_utc": "2026-11-27T23:12:40.068817+00:00"
+    },
+    {
+      "channel_handle": "@マインドハック-v1c",
+      "title": "【心理トラップ】なぜ「無料一括見積もり」を押した瞬間に営業電話が止まらなくなるのか？返報性の悪用と回避法 #Shorts #心理学",
+      "watch_url": "https://www.youtube.com/shorts/bgRD0nygBjQ",
+      "orientation": "9:16",
+      "duration_sec": 49.0,
+      "published_at_utc": "2026-11-27T23:11:14.090317+00:00"
+    },
     {
       "channel_handle": "@mirai_omochabako",
       "title": "【速報図解】ニチレイ サイバー攻撃影響などで売り上げ50億円減少の見通し｜暮らし・仕事への3影響 #Shorts #ニュース解説",
