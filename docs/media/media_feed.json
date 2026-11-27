@@ -1,7 +1,15 @@
 {
   "schema": "media-portal-feed/v2",
-  "updated_at_utc": "2026-11-27T04:43:21.488640+00:00",
+  "updated_at_utc": "2026-11-27T09:32:32.111330+00:00",
   "live_youtube_videos": [
+    {
+      "channel_handle": "@kurashi_trend_lab",
+      "title": "【速報図解】食料品の消費税減税 ねらいは カギを握る片山財務相に聞く｜暮らし・仕事への3影響 #Shorts #ニュース解説",
+      "watch_url": "https://www.youtube.com/shorts/U-UTwpwWSNQ",
+      "orientation": "9:16",
+      "duration_sec": 54.98,
+      "published_at_utc": "2026-11-27T09:32:32.106740+00:00"
+    },
     {
       "channel_handle": "@shiryo_archive_jp",
       "title": "【一次統計で検証】AIに仕事が奪われるは本当？自動織機・ATM・MIT研究60秒解説 #Shorts #AI #歴史解説",
