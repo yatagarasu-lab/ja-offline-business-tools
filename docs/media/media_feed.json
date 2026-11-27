@@ -1,7 +1,15 @@
 {
   "schema": "media-portal-feed/v2",
-  "updated_at_utc": "2026-11-27T21:22:25.278370+00:00",
+  "updated_at_utc": "2026-11-27T22:33:01.453606+00:00",
   "live_youtube_videos": [
+    {
+      "channel_handle": "@mirai_omochabako",
+      "title": "【速報図解】ニチレイ サイバー攻撃影響などで売り上げ50億円減少の見通し｜暮らし・仕事への3影響 #Shorts #ニュース解説",
+      "watch_url": "https://www.youtube.com/shorts/0q3AU5Yp2XI",
+      "orientation": "9:16",
+      "duration_sec": 55.02,
+      "published_at_utc": "2026-11-27T22:33:01.421621+00:00"
+    },
     {
       "channel_handle": "@mirai_omochabako",
       "title": "【要注意】仕事の領収書や契約書を無料変換サイトに上げていませんか？外部送信0バイトで処理する安全な方法 #Shorts #AI活用",
