@@ -61,6 +61,7 @@ python3 invoice_2026_check.py --verify-t-number T1234567890123
 
 検証済みのPython本体＋導入マニュアル一式をZIP形式でそのまま即時ダウンロードいただけます。
 
+- **⚡ 【NEW・¥300・Win/Mac両対応 ZIP即時DL】外部送信0バイト 個人情報(PII)1秒黒塗りHTML＆5大EC手残り・2026インボイス70%実務ツール3本パック**: https://yatagarasueye.booth.pm/items/9233199
 - **🧾 【¥980・ZIP即時DL】2026年10月インボイス80%→70%対応 Mac純正Apple Vision領収書一括OCR→会計CSV完結ツール**: https://yatagarasueye.booth.pm/items/9216534
 - **🎙️ 【¥980・ZIP即時DL】Mac完全オフライン日本語会議文字起こし＆議事録タスク自動抽出ツール（MLX Whisper）**: https://yatagarasueye.booth.pm/items/9216545
 - **🛡️ 【¥1,480・ZIP即時DL】DB破壊・パストラバーサル・個人情報漏えいを物理遮断する安全Python MCPサーバー3本構築キット**: https://yatagarasueye.booth.pm/items/9216558
