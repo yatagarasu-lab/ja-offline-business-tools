@@ -1,7 +1,71 @@
 {
   "schema": "media-portal-feed/v2",
-  "updated_at_utc": "2026-11-26T22:31:16.593260+00:00",
+  "updated_at_utc": "2026-11-27T04:43:21.488640+00:00",
   "live_youtube_videos": [
+    {
+      "channel_handle": "@shiryo_archive_jp",
+      "title": "【一次統計で検証】AIに仕事が奪われるは本当？自動織機・ATM・MIT研究60秒解説 #Shorts #AI #歴史解説",
+      "watch_url": "https://www.youtube.com/shorts/nJCQzkPuLTc",
+      "orientation": "9:16",
+      "duration_sec": 55.01,
+      "published_at_utc": "2026-11-27T04:42:32.735369+00:00"
+    },
+    {
+      "channel_handle": "@shiryo_archive_jp",
+      "title": "【一次史料で比較】AIは本当に仕事を奪うのか？印刷機・蒸気機関・電気・PC・AI「5大技術革命」の一次統計【漫画アニメ解説】",
+      "watch_url": "https://www.youtube.com/watch?v=phkEEwMnB7Y",
+      "orientation": "16:9",
+      "duration_sec": 600.9,
+      "published_at_utc": "2026-11-27T04:41:15.562401+00:00"
+    },
+    {
+      "channel_handle": "@mirai_omochabako",
+      "title": "【情報漏えい対策】ChatGPTに仕事メールを貼る前に「外部送信0バイト」で1秒黒塗りする無料ワザ #Shorts #ChatGPT #AI活用",
+      "watch_url": "https://www.youtube.com/shorts/H4n_s-3AfL0",
+      "orientation": "9:16",
+      "duration_sec": 36.73,
+      "published_at_utc": "2026-11-27T04:39:31.133785+00:00"
+    },
+    {
+      "channel_handle": "@AI_Money_Labc",
+      "title": "【不動産投資の罠】表面利回り10%でも赤字転落する「デッドクロスと金利+1%」の現実を60秒図解 #Shorts #資産防衛",
+      "watch_url": "https://www.youtube.com/shorts/s4etqfBjbYM",
+      "orientation": "9:16",
+      "duration_sec": 40.19,
+      "published_at_utc": "2026-11-27T04:38:09.890756+00:00"
+    },
+    {
+      "channel_handle": "@AI_Money_Labc",
+      "title": "【2026年10月改正】インボイス80%→70%控除で個人事業主・法人の手残りがいくら減る？60秒図解 #Shorts #インボイス制度",
+      "watch_url": "https://www.youtube.com/shorts/r1zuU79UgMY",
+      "orientation": "9:16",
+      "duration_sec": 43.1,
+      "published_at_utc": "2026-11-27T04:36:52.702237+00:00"
+    },
+    {
+      "channel_handle": "@kurashi_trend_lab",
+      "title": "【速報図解】シャープ イラン情勢と円安で業績下方修正｜家計・物価への3影響 #Shorts #ニュース解説",
+      "watch_url": "https://www.youtube.com/shorts/PcG5iE_cERc",
+      "orientation": "9:16",
+      "duration_sec": 55.02,
+      "published_at_utc": "2026-11-27T04:35:35.401541+00:00"
+    },
+    {
+      "channel_handle": "@kurashi_trend_lab",
+      "title": "【速報図解】食料品の消費税減税 ねらいは？家計・物価・制度への3影響 #Shorts #ニュース解説",
+      "watch_url": "https://www.youtube.com/shorts/yo-X6VN-VRk",
+      "orientation": "9:16",
+      "duration_sec": 54.98,
+      "published_at_utc": "2026-11-27T04:34:18.454044+00:00"
+    },
+    {
+      "channel_handle": "@kurashi_trend_lab",
+      "title": "【速報図解】秋田市に日本最大級のデータセンター整備計画｜暮らし・仕事への3影響 #Shorts #ニュース解説",
+      "watch_url": "https://www.youtube.com/shorts/gUE70JKIhAc",
+      "orientation": "9:16",
+      "duration_sec": 55.06,
+      "published_at_utc": "2026-11-27T04:33:01.141550+00:00"
+    },
     {
       "channel_handle": "@shiryo_archive_jp",
       "title": "【一次史料で比較】なぜ物価は上がり続ける？1971年ニクソン演説と通貨ルール60秒解説 #Shorts #経済史",
@@ -355,6 +419,110 @@
           "primary_sources": "Japan CPI & Monthly Labour Survey, Siegel Long-Run Asset Series"
         }
       ]
+    },
+    {
+      "episode_id": "history_ep03",
+      "title_ja": "【一次史料で比較】AIは本当に仕事を奪うのか？印刷機・蒸気機関・電気・PC・AI「5大技術革命」の一次統計【漫画アニメ解説】",
+      "duration_sec": 600.9,
+      "chapters": [
+        {
+          "chapter": "第1章｜活版印刷の衝撃",
+          "year": "1455年 マインツ",
+          "headline": "グーテンベルクの印刷機—写本職人のギルドが猛反発した一次記録",
+          "myth": [
+            "手書き職人の生計が一瞬で奪われる",
+            "機械で刷った本は品質が劣ると批判"
+          ],
+          "primary_fact": [
+            "書籍価格が数十分の1へ急落",
+            "知識の爆発的普及で印刷・製本・書店が急拡大"
+          ],
+          "citation": "エリザベス・アイゼンステイン『印刷革命』・パリ大学ギルド一次記録"
+        },
+        {
+          "chapter": "第2章｜織機導入後の雇用統計",
+          "year": "1800〜1900年",
+          "headline": "自動織機が普及した後、イギリスの繊維業の雇用は実は4倍に増えた",
+          "myth": [
+            "作業時間が98%減れば雇用も98%減るはず",
+            "機械化＝失業者激増という単純計算"
+          ],
+          "primary_fact": [
+            "価格低下で世界中の消費需要が爆発",
+            "工場雇用は4倍増＋機械保守・鉄道職が急増"
+          ],
+          "citation": "James Bessen『Learning by Doing』一次繊維産業雇用統計（1800-1900）"
+        },
+        {
+          "chapter": "第3章｜電気革命の40年法則",
+          "year": "1882〜1925年",
+          "headline": "電気が発明されても、工場の生産性が跳ね上がるまで30年以上かかった理由",
+          "myth": [
+            "蒸気機関をそのまま大型電動モーターへ置換",
+            "工場の建物や作業フローは昔のまま放置"
+          ],
+          "primary_fact": [
+            "各機械に小型モーターを付け工場設計を刷新",
+            "業務プロセス自体を再設計して初めて生産性急増"
+          ],
+          "citation": "Paul David『The Dynamo and the Computer』（American Economic Review, 1990）"
+        },
+        {
+          "chapter": "第4章｜表計算ソフトと経理職",
+          "year": "1980〜2010年 米国",
+          "headline": "手書き帳簿の記帳係は40万人減ったが、会計士・財務分析は60万人増えた",
+          "myth": [
+            "紙の帳簿への手書き転記・電卓集計",
+            "ルール通りの単純計算のみを行う職種"
+          ],
+          "primary_fact": [
+            "会計士・財務分析・経営コンサルタント",
+            "計算コスト激減で企業ごとの分析需要が急増"
+          ],
+          "citation": "U.S. Bureau of Labor Statistics（BLS）職業別雇用統計（1980-2015）"
+        },
+        {
+          "chapter": "第5章｜2026年 AI時代の一次統計",
+          "year": "OECD・WEF最新調査",
+          "headline": "AIが代替するのは「職業まるごと」ではなく「業務内のタスク単位」",
+          "myth": [
+            "明日すべてのホワイトカラーが失業する",
+            "AIに勝つにはAIを一切使わないしかない"
+          ],
+          "primary_fact": [
+            "タスク単位でAIが肩代わりし生産性を底上げ",
+            "AIを指揮・検品・統合できる人材の需要が急増"
+          ],
+          "citation": "OECD Employment Outlook・WEF Future of Jobs Report 一次調査"
+        }
+      ],
+      "global_english": [
+        {
+          "chapter": "Chapter 1 (1455-1500)",
+          "en_title": "Gutenberg's Printing Press: Scribal Guild Petitions vs 20 Million Books",
+          "primary_sources": "Paris Guild Petitions, British Library ISTC Incunabula Catalogue"
+        },
+        {
+          "chapter": "Chapter 2 (1811-1900)",
+          "en_title": "Power Looms & Luddites: Why 98% Less Labor per Cloth Quadrupled Factory Jobs",
+          "primary_sources": "UK National Archives HO 42, British Census & Allen Engels' Pause"
+        },
+        {
+          "chapter": "Chapter 3 (1882-1930)",
+          "en_title": "Electricity's 40-Year Redesign Lesson & the Automobile Employment Boom",
+          "primary_sources": "Paul David (AER 1990), U.S. Census Historical Statistics (1900-1930)"
+        },
+        {
+          "chapter": "Chapter 4 (1970-2020)",
+          "en_title": "Spreadsheets, 400,000 ATMs & MIT's Proof That 60% of Jobs Didn't Exist in 1940",
+          "primary_sources": "U.S. BLS Occupational Series, Autor et al. (QJE 2024)"
+        },
+        {
+          "chapter": "Chapter 5 (2023-2026)",
+          "en_title": "Generative AI Primary Labor Stats & 3 Actionable Principles for Individuals",
+          "primary_sources": "OECD Employment Outlook, WEF Future of Jobs, Japan METI AI Guidelines"
+        }
+      ]
     }
   ],
   "trends_live": [
@@ -440,9 +608,9 @@
       "source_name": "Yahoo!IT・AI",
       "impact_domain": "AI・テクノロジー",
       "impact_score": 82,
-      "title": "AI登場「創造性」問い直す機会に",
-      "summary": "AI登場「創造性」問い直す機会に",
-      "link": "https://news.yahoo.co.jp/pickup/6603882?source=rss",
+      "title": "AIの果実を国民へ 米台韓で動き",
+      "summary": "AIの果実を国民へ 米台韓で動き",
+      "link": "https://news.yahoo.co.jp/pickup/6604165?source=rss",
       "angles": [
         "① 仕事・日常ツールへの波及：AIの安全審査や利用ルール強化で業務フローの見直しが必要に",
         "② 個人情報・セキュリティ防衛：便利な無料AIや連携サービスほど権限設定と情報入力ルールを確認",
@@ -450,16 +618,16 @@
       ]
     },
     {
-      "source_name": "NHK主要ニュース",
-      "impact_domain": "インフラ・家計",
-      "impact_score": 77,
-      "title": "ラグビーリーグワン フィジー出身選手が死亡 熱中症疑いで搬送",
-      "summary": "ラグビーリーグワンの2部にあたるディビジョン2の「九州電力キューデンヴォルテクス」は、チームに所属するサイモニ・ヴニランギ選手が熱中症の疑いで病院に搬送され、その後、死亡したと発表しました。",
-      "link": "http://www3.nhk.or.jp/news/html/20260808/k10015200291000.html",
+      "source_name": "Yahoo!IT・AI",
+      "impact_domain": "AI・テクノロジー",
+      "impact_score": 82,
+      "title": "実刑判決 AIとの会話履歴が証拠に",
+      "summary": "実刑判決 AIとの会話履歴が証拠に",
+      "link": "https://news.yahoo.co.jp/pickup/6604140?source=rss",
       "angles": [
-        "① 家計の固定費への直撃：値上げ・金利・制度変更は年間数万円単位の手残り差を生む",
-        "② 放置損を防ぐチェック：控除・補助・契約プランの見直し期限を早めに確認するのが鉄則",
-        "③ 企業・働き方への影響：物価と金利の動きは賃上げ・採用・副業単価にも波及する"
+        "① 仕事・日常ツールへの波及：AIの安全審査や利用ルール強化で業務フローの見直しが必要に",
+        "② 個人情報・セキュリティ防衛：便利な無料AIや連携サービスほど権限設定と情報入力ルールを確認",
+        "③ 今後の注目点：規制や一時停止は「安全設計できるサービス」への需要シフトを意味する"
       ]
     }
   ]
