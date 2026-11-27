@@ -1,7 +1,39 @@
 {
   "schema": "media-portal-feed/v2",
-  "updated_at_utc": "2026-11-27T21:10:06.024497+00:00",
+  "updated_at_utc": "2026-11-27T21:22:25.278370+00:00",
   "live_youtube_videos": [
+    {
+      "channel_handle": "@mirai_omochabako",
+      "title": "【要注意】仕事の領収書や契約書を無料変換サイトに上げていませんか？外部送信0バイトで処理する安全な方法 #Shorts #AI活用",
+      "watch_url": "https://www.youtube.com/shorts/K_3780HW3Pw",
+      "orientation": "9:16",
+      "duration_sec": 48.12,
+      "published_at_utc": "2026-11-27T21:19:50.647465+00:00"
+    },
+    {
+      "channel_handle": "@マインドハック-v1c",
+      "title": "【行動経済学】なぜ9割の人は「年間10万円損する固定費・契約」を放置するのか？現状維持バイアスの正体 #Shorts #心理学",
+      "watch_url": "https://www.youtube.com/shorts/HaoSBlhk_YE",
+      "orientation": "9:16",
+      "duration_sec": 43.59,
+      "published_at_utc": "2026-11-27T21:18:22.461412+00:00"
+    },
+    {
+      "channel_handle": "@ロストヒストリー",
+      "title": "【江戸金融の衝撃】世界最古の先物取引所はウォール街ではなく大阪だった！60秒古文書解説 #Shorts #歴史解説",
+      "watch_url": "https://www.youtube.com/shorts/HaF47m2pRA4",
+      "orientation": "9:16",
+      "duration_sec": 53.9,
+      "published_at_utc": "2026-11-27T21:16:52.334227+00:00"
+    },
+    {
+      "channel_handle": "@ロストヒストリー",
+      "title": "【一次古文書で検証】江戸時代の「お金と金融」5つの常識のウソ｜世界最古の先物市場・両替商・鎖国統計【漫画アニメ解説】",
+      "watch_url": "https://www.youtube.com/watch?v=IhYYwvaClwg",
+      "orientation": "16:9",
+      "duration_sec": 495.93,
+      "published_at_utc": "2026-11-27T21:15:29.723858+00:00"
+    },
     {
       "channel_handle": "@AI_Money_Labc",
       "title": "【速報図解】公的年金積立金運用実績 四半期として過去最高の黒字 GPIF｜暮らし・仕事への3影響 #Shorts #ニュース解説",
@@ -537,6 +569,107 @@
           "chapter": "Chapter 5 (2023-2026)",
           "en_title": "Generative AI Primary Labor Stats & 3 Actionable Principles for Individuals",
           "primary_sources": "OECD Employment Outlook, WEF Future of Jobs, Japan METI AI Guidelines"
+        }
+      ]
+    },
+    {
+      "episode_id": "history_ep04",
+      "title_ja": "【一次古文書で検証】江戸時代の「お金と金融」5つの常識のウソ｜世界最古の先物市場・両替商・鎖国統計【漫画アニメ解説】",
+      "duration_sec": 495.93,
+      "chapters": [
+        {
+          "chapter": "第1章｜年貢と検地帳",
+          "year": "1603年〜",
+          "headline": "「五公五民」は本当に農民から収穫の半分を奪っていたのか？",
+          "myth": [
+            "収穫したお米の50%をそのまま徴収",
+            "村に余剰のお金は一切残らない"
+          ],
+          "primary_fact": [
+            "課税基準の『石高』は固定され新田や裏作は対象外",
+            "実収ベースの平均年貢率は3割前後〜地域差大"
+          ],
+          "citation": "全国近世村落『年貢割付状』『皆済目録』一次分析"
+        },
+        {
+          "chapter": "第2章｜堂島米会所",
+          "year": "1730年（享保15年）",
+          "headline": "ウォール街より130年以上前！世界初の公認「先物取引所」は大阪にあった",
+          "myth": [
+            "先物取引は19世紀シカゴ商品取引所が最初"
+          ],
+          "primary_fact": [
+            "享保15年『帳合米取引』を幕府が正式認可",
+            "標準銘柄・限月決済・差金決済・証拠金の4要件を完備"
+          ],
+          "citation": "『堂島旧記』『大阪市史』享保15年8月13日町触"
+        },
+        {
+          "chapter": "第3章｜三井越後屋の革命",
+          "year": "1673年（延宝元年）",
+          "headline": "呉服の「現銀掛け値なし」と「小裂切り売り」が商業の常識を壊した！",
+          "myth": [
+            "盆と暮れの年2回払い（貸し倒れリスク大）",
+            "1反丸ごと高額販売＋客ごとに値段をふっかける"
+          ],
+          "primary_fact": [
+            "誰でも同じ明朗定価＋その場での現金即時決済",
+            "必要な分だけ買う『小裂切り売り』で庶民市場を開拓"
+          ],
+          "citation": "三井文庫所蔵『商売記』『宗竺遺書』一次原文"
+        },
+        {
+          "chapter": "第4章｜宵越しの銭の真相",
+          "year": "明暦の大火以降",
+          "headline": "江戸っ子は浪費家だったのか？実は「超合理的なリスク計算」だった！",
+          "myth": [
+            "江戸の職人は見栄っ張りで計画性のない浪費家"
+          ],
+          "primary_fact": [
+            "江戸は平均3〜6年に一度の大火で木造長屋が焼失",
+            "庶民向けの安全な預金銀行も火災保険もなかった"
+          ],
+          "citation": "『武江年表』江戸火災記録・『守貞謾稿』一次資料"
+        },
+        {
+          "chapter": "第5章｜鎖国貿易の一次統計",
+          "year": "四つの口",
+          "headline": "「完全閉鎖」ではなかった！4つの窓口から動いていた巨額の国際貿易",
+          "myth": [
+            "200年以上、外国との貿易も情報もほぼゼロ"
+          ],
+          "primary_fact": [
+            "17世紀の日本は世界有数の銀・銅輸出大国",
+            "オランダ風説書で欧州の戦争・経済情報も毎年入手"
+          ],
+          "citation": "『長崎会所五冊物』『オランダ商館日記』一次統計"
+        }
+      ],
+      "global_english": [
+        {
+          "chapter": "Chapter 1 (1603-1800)",
+          "en_title": "Beyond Rice Taxes: Cadastral Ledgers, Cash Taxation & Japan's Tri-Metallic Currency",
+          "primary_sources": "Edo Land Surveys (Kenchicho), Tax Receipts & Shogunate Currency Edicts"
+        },
+        {
+          "chapter": "Chapter 2 (1730)",
+          "en_title": "Dojima Rice Exchange: The World's First Official Futures Market 118 Years Before Chicago",
+          "primary_sources": "Osaka City Archives (Kyoho 15 Edict, 1730), Dojima Broker Rules"
+        },
+        {
+          "chapter": "Chapter 3 (1673-1691)",
+          "en_title": "Mitsui Echigoya's Fixed-Price Cash Revolution & Edo-Osaka Cashless Bill Clearing",
+          "primary_sources": "Mitsui Bunko Archives (1673 Store Code & 1691 Official Remittance Ledgers)"
+        },
+        {
+          "chapter": "Chapter 4 (1657-1850)",
+          "en_title": "Why Edo Citizens Kept No Overnight Cash: Rational Risk Management & Jinkoki Math",
+          "primary_sources": "Morisada Manko, Buko Nenpyo Fire Records & Yoshida Mitsuyoshi's Jinkoki (1627)"
+        },
+        {
+          "chapter": "Chapter 5 (1639-1853)",
+          "en_title": "The Four Gates of 'Sakoku': Nagasaki Trade Ledgers & Import Substitution Strategy",
+          "primary_sources": "Nagasaki Kaisho Trade Accounts, Dutch Deshima Diaries & Arai Hakuseki (1715)"
         }
       ]
     }
