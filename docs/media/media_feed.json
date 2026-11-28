@@ -1,7 +1,15 @@
 {
   "schema": "media-portal-feed/v2",
-  "updated_at_utc": "2026-11-28T03:34:26.943306+00:00",
+  "updated_at_utc": "2026-11-28T08:33:29.000953+00:00",
   "live_youtube_videos": [
+    {
+      "channel_handle": "@AI_Money_Labc",
+      "title": "【速報図解】実刑判決 AIとの会話履歴が証拠に｜暮らし・仕事への3影響 #Shorts #ニュース解説",
+      "watch_url": "https://www.youtube.com/shorts/ciffmysEYss",
+      "orientation": "9:16",
+      "duration_sec": 54.98,
+      "published_at_utc": "2026-11-28T08:32:30.933362+00:00"
+    },
     {
       "channel_handle": "@AI_Money_Labc",
       "title": "【速報図解】AIの果実を国民へ 米台韓で動き｜暮らし・仕事への3影響 #Shorts #ニュース解説",
