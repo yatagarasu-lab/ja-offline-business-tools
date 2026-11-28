@@ -1,7 +1,23 @@
 {
   "schema": "media-portal-feed/v2",
-  "updated_at_utc": "2026-11-28T08:33:29.000953+00:00",
+  "updated_at_utc": "2026-11-28T12:04:41.061243+00:00",
   "live_youtube_videos": [
+    {
+      "channel_handle": "@mirai_omochabako",
+      "title": "【要注意】ChatGPTに顧客名や見積書をそのまま貼ってませんか？通信0バイトで1秒保護する無料ワザ #Shorts #ChatGPT #AI活用",
+      "watch_url": "https://www.youtube.com/shorts/uSDRIQeIG0w",
+      "orientation": "9:16",
+      "duration_sec": 41.48,
+      "published_at_utc": "2026-11-28T12:04:06.433762+00:00"
+    },
+    {
+      "channel_handle": "@マインドハック-v1c",
+      "title": "【12月注意】申し込みだけでは今年のふるさと納税にならない？5自治体カウントと12/31締切の罠 #Shorts #ふるさと納税",
+      "watch_url": "https://www.youtube.com/shorts/kP68_f-qUP0",
+      "orientation": "9:16",
+      "duration_sec": 42.15,
+      "published_at_utc": "2026-11-28T11:53:46.675790+00:00"
+    },
     {
       "channel_handle": "@AI_Money_Labc",
       "title": "【速報図解】実刑判決 AIとの会話履歴が証拠に｜暮らし・仕事への3影響 #Shorts #ニュース解説",
@@ -177,22 +193,6 @@
       "orientation": "9:16",
       "duration_sec": 54.32,
       "published_at_utc": "2026-11-26T20:18:29.452297+00:00"
-    },
-    {
-      "channel_handle": "@kurashi_trend_lab",
-      "title": "【速報図解】オープンAI 開発一時中断 AIみずからサイバー攻撃実行のおそれ｜暮らし・仕事への3影響 #Shorts #ニュース解説",
-      "watch_url": "https://www.youtube.com/shorts/qPKanL-ldpQ",
-      "orientation": "9:16",
-      "duration_sec": 55.02,
-      "published_at_utc": "2026-11-26T20:13:18.711336+00:00"
-    },
-    {
-      "channel_handle": "@shiryo_archive_jp",
-      "title": "【一次史料で比較】世界の教科書はどう教える？学校で習った世界史5つの通説と一次公文書【漫画アニメ解説】",
-      "watch_url": "https://www.youtube.com/watch?v=Xfbs0tpSEnI",
-      "orientation": "16:9",
-      "duration_sec": 553.6,
-      "published_at_utc": "2026-11-26T20:11:15.776174+00:00"
     }
   ],
   "history_featured": {
@@ -797,9 +797,9 @@
       "source_name": "Yahoo!IT・AI",
       "impact_domain": "AI・テクノロジー",
       "impact_score": 82,
-      "title": "AIの果実を国民へ 米台韓で動き",
-      "summary": "AIの果実を国民へ 米台韓で動き",
-      "link": "https://news.yahoo.co.jp/pickup/6604165?source=rss",
+      "title": "OpenAIがAppleを反訴 AI巡り対立",
+      "summary": "OpenAIがAppleを反訴 AI巡り対立",
+      "link": "https://news.yahoo.co.jp/pickup/6604317?source=rss",
       "angles": [
         "① 仕事・日常ツールへの波及：AIの安全審査や利用ルール強化で業務フローの見直しが必要に",
         "② 個人情報・セキュリティ防衛：便利な無料AIや連携サービスほど権限設定と情報入力ルールを確認",
@@ -810,9 +810,9 @@
       "source_name": "Yahoo!IT・AI",
       "impact_domain": "AI・テクノロジー",
       "impact_score": 82,
-      "title": "実刑判決 AIとの会話履歴が証拠に",
-      "summary": "実刑判決 AIとの会話履歴が証拠に",
-      "link": "https://news.yahoo.co.jp/pickup/6604140?source=rss",
+      "title": "AIの果実を国民へ 米台韓で動き",
+      "summary": "AIの果実を国民へ 米台韓で動き",
+      "link": "https://news.yahoo.co.jp/pickup/6604165?source=rss",
       "angles": [
         "① 仕事・日常ツールへの波及：AIの安全審査や利用ルール強化で業務フローの見直しが必要に",
         "② 個人情報・セキュリティ防衛：便利な無料AIや連携サービスほど権限設定と情報入力ルールを確認",
