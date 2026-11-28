@@ -371,20 +371,26 @@
   </div>
 
   <section class="panel-card" aria-labelledby="instantToolsHeading" style="margin-block-start:1.4rem;">
-    <h2 id="instantToolsHeading">今すぐ導入できる買い切り実務ツール（営業電話ゼロ・クレカ / PayPay即時納品）</h2>
-    <p class="muted">無料シミュレーターの結果をそのまま業務やご家庭の整理に活かしたい方向けに、月額固定費0円・外部送信0バイトの買い切りツールを公開しています。</p>
+    <h2 id="instantToolsHeading">試算のあと「すぐ実務に使える」買い切りガイド＆ツール（¥100〜／PayPay・クレカ即時納品）</h2>
+    <p class="muted">計算後に迷わず動けるチェック表や、登録・解凍なしでスマホからそのまま読める実務パックです。月額課金や営業連絡はありません。</p>
     <div class="form-grid" style="margin-block-start:0.9rem;">
       <div class="cta-box" style="margin:0;">
-        <span class="cta-badge">入門 ¥300｜note / BOOTH ZIP即時DL</span>
-        <strong>個人情報1秒オフライン黒塗り＆5大EC・インボイス70%ツール3本パック</strong>
-        <div class="muted">Win/Mac両対応・ダブルクリック起動HTML＋Python本体一式</div>
-        <a class="cta-link" href="https://yatagarasueye.booth.pm/items/9233199" target="_blank" rel="noopener">¥300でBOOTH即時DL →</a>
+        <span class="cta-badge">入門 ¥100｜スマホ完結・PayPay即時閲覧</span>
+        <strong>忘年会・大幅値下げ・入金催促「角を立てずに丸く収める年末の神返信40選」</strong>
+        <div class="muted">アプリ不要・スマホ画面からそのままコピペして使える保存版テキスト</div>
+        <a class="cta-link" href="https://note.com/laughmakerclown/n/ne304a8b7636d" target="_blank" rel="noopener">¥100で今すぐ読む →</a>
       </div>
       <div class="cta-box" style="margin:0;">
-        <span class="cta-badge">定番 ¥980｜note / BOOTH</span>
-        <strong>2026インボイス80%→70%対応 Mac純正 領収書一括OCR→会計CSV</strong>
-        <div class="muted">pip不要・月額¥0・電帳法ファイル名リネーム対応</div>
-        <a class="cta-link" href="https://note.com/laughmakerclown/n/nfb413d498428" target="_blank" rel="noopener">¥980で詳細を見る →</a>
+        <span class="cta-badge">年末検算 ¥100｜PC・スマホ単体HTML</span>
+        <strong>2026年末 固定費・インボイス70%・ふるさと納税目安 10秒一括チェッカー</strong>
+        <div class="muted">外部送信0バイト・A4印刷＆ローカル保存対応・月額0円</div>
+        <a class="cta-link" href="https://yatagarasueye.booth.pm/items/9239407" target="_blank" rel="noopener">¥100で今すぐ入手 →</a>
+      </div>
+      <div class="cta-box" style="margin:0;">
+        <span class="cta-badge">まとめ ¥300｜外部送信0バイト3本パック</span>
+        <strong>個人情報1秒黒塗り＆5大EC手残り・インボイス70%検算 3点セット</strong>
+        <div class="muted">Win/Mac両対応・オフライン完結で一生使える実務パック（無料体験版¥0もあり）</div>
+        <a class="cta-link" href="https://yatagarasueye.booth.pm/items/9233199" target="_blank" rel="noopener">¥300で詳細を見る →</a>
       </div>
       <div class="cta-box" style="margin:0;">
         <span class="cta-badge">資産防衛 ¥1,980｜note即時納品</span>
@@ -403,7 +409,7 @@
     </details>
     <details>
       <summary>なぜ無料で公開しているのですか？</summary>
-      <p class="muted">不動産査定やクラウド会計・業務自動化などの比較検討をされる方へ正確な試算環境を無料提供し、提携サービス案内や法人向け業務自動化受託（Yatagarasu Works）によって運営費を賄っているためです。</p>
+      <p class="muted">まずは登録なし・営業電話ゼロで手元の目安だけ静かに確認していただくため無料公開しています。運営費は、必要な方だけがお求めになる¥100〜の買い切り実務テキスト・ツール販売および業務自動化受託（Yatagarasu Works）で賄っています。</p>
     </details>
     <details>
       <summary>試算結果をそのまま税務申告や契約に使えますか？</summary>
@@ -628,6 +634,9 @@
   ["inhPrice", "inhHeirs", "inhOther", "inhTaxNow"].forEach((id) => $(id).addEventListener("input", calcInheritance));
   ["corpIncome", "corpExemptBuy", "corpAdminHrs", "corpHourly"].forEach((id) => $(id).addEventListener("input", calcCorp));
   ["shopBookings", "shopTicket", "shopFeePct", "shopShiftPct"].forEach((id) => $(id).addEventListener("input", calcShop));
+  const tabKey = new URLSearchParams(location.search).get("tab") || location.hash.replace("#", "");
+  const targetId = tabKey && (tabKey.startsWith("sim-") ? tabKey : `sim-${tabKey}`);
+  if (targetId && document.getElementById(targetId)) activatePanel(targetId);
   calcInheritance();
   calcCorp();
   calcShop();
