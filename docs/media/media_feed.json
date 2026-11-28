@@ -1,7 +1,15 @@
 {
   "schema": "media-portal-feed/v2",
-  "updated_at_utc": "2026-11-28T12:04:41.061243+00:00",
+  "updated_at_utc": "2026-11-28T12:07:05.485531+00:00",
   "live_youtube_videos": [
+    {
+      "channel_handle": "@マインドハック-v1c",
+      "title": "【対人心理】忘年会の誘いとメルカリ半額交渉を「角を立てずに」3秒で返すフレーズの型 #Shorts #心理学 #人間関係",
+      "watch_url": "https://www.youtube.com/shorts/1b-qQUpifws",
+      "orientation": "9:16",
+      "duration_sec": 42.64,
+      "published_at_utc": "2026-11-28T12:06:01.190279+00:00"
+    },
     {
       "channel_handle": "@mirai_omochabako",
       "title": "【要注意】ChatGPTに顧客名や見積書をそのまま貼ってませんか？通信0バイトで1秒保護する無料ワザ #Shorts #ChatGPT #AI活用",
@@ -185,14 +193,6 @@
       "orientation": "16:9",
       "duration_sec": 593.44,
       "published_at_utc": "2026-11-26T20:19:46.860388+00:00"
-    },
-    {
-      "channel_handle": "@shiryo_archive_jp",
-      "title": "【一次史料で比較】江戸時代の公式文書に「鎖国」の文字はなかった？60秒アニメ解説 #Shorts #歴史解説",
-      "watch_url": "https://www.youtube.com/shorts/ySsHgbo83YE",
-      "orientation": "9:16",
-      "duration_sec": 54.32,
-      "published_at_utc": "2026-11-26T20:18:29.452297+00:00"
     }
   ],
   "history_featured": {
