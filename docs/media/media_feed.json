@@ -1,7 +1,15 @@
 {
   "schema": "media-portal-feed/v2",
-  "updated_at_utc": "2026-11-27T23:30:03.742953+00:00",
+  "updated_at_utc": "2026-11-28T03:34:26.943306+00:00",
   "live_youtube_videos": [
+    {
+      "channel_handle": "@AI_Money_Labc",
+      "title": "【速報図解】AIの果実を国民へ 米台韓で動き｜暮らし・仕事への3影響 #Shorts #ニュース解説",
+      "watch_url": "https://www.youtube.com/shorts/rGn_cRpqB40",
+      "orientation": "9:16",
+      "duration_sec": 55.02,
+      "published_at_utc": "2026-11-28T03:33:08.597746+00:00"
+    },
     {
       "channel_handle": "@AI_Money_Labc",
       "title": "【2026年手残り防衛】利益600万〜900万の個人事業主が「法人化しないと毎年数十万円損する分岐点」を60秒図解 #Shorts #節税",
